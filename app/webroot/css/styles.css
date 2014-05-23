@@ -1,0 +1,1098 @@
+#main_wrapper.contacto .banner_text,
+#main_wrapper.terminos-condiciones .banner_text,
+#main_wrapper.aviso-legal .banner_text,
+#main_wrapper.newsletter .banner_text,
+#main_wrapper.tepatrocinamos .banner_text
+{
+    color: #FFFFFF;
+    float: left;
+    padding-left: 40px;
+    text-align: left;
+}
+/*
+    Pagina Contacto
+*/
+#main_wrapper.contacto form#news-reg,
+#main_wrapper.newsletter form#news-reg
+{
+    display: inline-block;
+    margin-top: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+#main_wrapper.contacto form .text_input label,
+#main_wrapper.contacto form .field_textarea label,
+#main_wrapper.newsletter form.form_newsletter .text_input label,
+#main_wrapper.newsletter form.form_newsletter .field_textarea label
+{
+    font-size: 14px;
+    text-align: left;
+    width: 160px;
+    font-family: 'Helvetica45LightRegular';
+}
+#main_wrapper.contacto form .radio_input,
+#main_wrapper.newsletter form.form_newsletter .radio_input
+{
+    font-size: 14px;
+}
+#main_wrapper.contacto form a,
+#main_wrapper.newsletter form.form_newsletter a
+{
+    color:#d41616;
+}
+#main_wrapper.contacto form .text_input,
+#main_wrapper.newsletter form.form_newsletter .text_input
+{
+    margin: 22px 0;
+}
+#main_wrapper.contacto form .content_bottom,
+#main_wrapper.newsletter form.form_newsletter .content_bottom
+{
+    clear: both;
+    text-align: left;
+}
+#main_wrapper.contacto form .button_black,
+#main_wrapper.newsletter form.form_newsletter .button_black
+{
+    float: right;
+    margin-right: 10px;
+    width: 170px;
+}
+#main_wrapper.contacto form .button_black
+{
+    margin-top: 68px;
+}
+
+/*
+    Pagina Terminos y condiciones
+    Pagina Aviso Legal
+*/
+
+#main_wrapper.terminos-condiciones .terminos_legales,
+#main_wrapper.aviso-legal .descripcion_aviso
+{
+    text-align: left;
+    height: auto;
+}
+.terminos_legales,
+.descripcion_aviso
+{
+    height: 250px;
+    margin-top: 110px;
+    overflow: auto;
+    padding: 15px;
+}
+.terminos_legales h2,
+.descripcion_aviso h2
+{
+    color: #D21313;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.terminos_legales p,
+.descripcion_aviso p
+{
+    color: #000000;
+    font-family: 'Helvetica45LightRegular';
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px 0;
+}
+.terminos_legales ul,
+.descripcion_aviso ul
+{
+    color: #000000;
+    font-family: 'Helvetica45LightRegular';
+    font-size: 14px;
+}
+.terminos_legales a,
+.descripcion_aviso a
+{
+     color: #D21313;
+}
+.terminos_legales ul,
+.descripcion_aviso ul
+{
+    margin: 15px 0 15px 15px;
+}
+.terminos_legales ul li,
+.descripcion_aviso ul li
+{
+    list-style: disc outside none;
+    margin-left: 15px;
+}
+.terminos_legales h3,
+.descripcion_aviso h3
+{
+    font-size: 18px;
+    margin-top: 15px;
+    color:#c31812;
+}
+.terminos_legales h4,
+.descripcion_aviso h4
+{
+     font-size: 16px;
+}
+
+/*
+    Buscador
+*/
+
+.buscador_ranking{
+    margin: 0 0 35px !important;
+    overflow: hidden;
+    width: 100% !important;
+}
+.buscador_ranking h3{
+    margin-bottom: 15px;
+}
+.buscador_ranking .filtros{
+    text-align: left;
+    margin-bottom: 15px;
+}
+.buscador_ranking .filtros a {
+    background: url("../img/arrow_next.jpg") no-repeat scroll right center transparent;
+    height: 24px;
+    padding-right: 17px;
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.buscador_ranking .filtros a.active{
+    background: url("../img/arrow_bottom.jpg") no-repeat scroll right center transparent;
+    color: #DB0701;
+}
+.buscador_ranking .text_input,.num_registros_page .text_input{
+    float: left;
+    margin-right: 15px;
+}
+.buscador_ranking .text_input .input_text{
+    width: 132px;
+}
+.buscador_ranking .text_input.select .input_text span,.num_registros_page .text_input.select .input_text span{
+    width: 133px;
+}
+.buscador_ranking .text_input input{
+    width: 135px;
+}
+.buscador_ranking form{
+    display: inline-block;
+}
+.buscador_ranking form input.button_black{
+    padding: 2px 23px;
+    float: left;
+    margin: 6px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#main_wrapper.rondas h2.banner_text {
+    color: #FFFFFF;
+    float: left;
+    margin-left: 35px;
+    text-align: left;
+}
+
+ /*
+    Rankings
+ */
+
+div.rank_ronda_marca {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/*
+    Menu header
+*/
+
+#main_wrapper .main_menu > li.item .submenu {
+    top: 54px;
+    width: 585px;
+}
+
+#main_wrapper .main_menu > li.item .submenu .item_menu {
+    padding-left: 16px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    width: 65px;
+    float: left;
+    margin-right: 10px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+#main_wrapper .main_menu > li.item .submenu .item_menu:hover {
+    background: url("../img/arrow_menu_item.png") no-repeat scroll left center transparent;
+    font-weight: bold;
+}
+
+#main_wrapper .main_menu > li.item .submenu ul {
+    overflow: hidden;
+    width: 100%;
+    padding: 1px 0;
+}
+#main_wrapper .main_menu > li.item .submenu ul li.list{
+    margin: 0;
+    float: left;
+    margin: 0;
+    max-width: 485px;
+}
+
+/*
+    Page Te Patrocinamos
+*/
+
+.content_main > div.container_page {
+    margin: 0 auto;
+    width: 904px;
+}
+.container_page h2{
+    font-family: 'HelveticaLTStdRegular';
+    font-size:30px; 
+    width: 100%; 
+    display: block; 
+    background: transparent url("../img/bg_title.png") repeat-x 0 bottom;
+    padding-bottom: 1px;
+    margin-top: 5px;
+    margin-bottom: 38px;
+}
+.container_page h2 span.title_top{
+    border-bottom: 5px solid #FFFFFF;
+    display: inline-block;
+    height: 32px;
+    padding: 0 40px;
+}
+.container_page .descripcion{
+    overflow: hidden;
+    padding-top: 10px;
+    margin-bottom: 50px;
+}
+.container_page .descripcion .logo{
+    margin-left: 20px;
+}
+.container_page .descripcion .logo p{
+    color: #959292;
+    font-size: 24px;
+    text-align: center;    
+}
+.container_page .descripcion .content_image{
+    max-width: 370px;
+    max-height: 150px;
+    overflow: hidden;
+    min-width: 335px;
+}
+.container_page .descripcion .detalle{
+    text-align: left;
+    width: 475px;
+    font-size: 14px;
+}
+.container_page .descripcion .detalle h3{
+    border-bottom: 1px solid #da161c;
+    font-size: 18px;
+    height: 18px;
+}
+.container_page .descripcion .detalle h3 span{
+    color: #da161c;
+    background-color: #fff;
+    padding-right: 14px;
+}
+.container_page .descripcion .detalle p{
+    padding: 8px 0;
+}
+.container_page h2 span.normal{
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: inline-block;
+    height: 32px;
+    line-height: 33px;
+}
+.container_page .lista_premios h3{
+    border-bottom: 1px solid red;
+    height: 100px;
+    padding-left: 60px;
+    width: auto;    
+}
+.container_page .lista_premios h3 p.copa{
+    background-color: #FFFFFF;
+    float: left;
+    height: 110px;    
+}
+.container_page .lista_premios h3 p.texto{
+    float: left;
+    font-size: 30px;
+    width: auto;
+}
+.container_page .lista_premios .sistema_ranking h3 p.texto{
+    padding-top: 58px
+}
+.container_page .lista_premios .sistema_corte{
+    margin-bottom: 50px;
+}
+.container_page .lista_premios .sistema_corte h3 p.texto{
+    padding-top: 50px
+}
+.container_page .lista_premios h3 p.texto span.puntos{
+    color: #d40404;
+    font-size: 40px;
+}
+.container_page .lista_premios .ranking_puntos{
+    clear: both;
+    overflow: hidden;
+    padding-top: 40px;
+    min-height: 175px;
+}
+.container_page .lista_premios .ranking_puntos.sis_corte{
+    padding-top: 30px;
+}
+
+.container_page .lista_premios .ranking_puntos .first{
+    width: 260px;
+    margin-right: 50px;
+}
+.container_page .lista_premios .ranking_puntos .first p.detalle{
+    color: #7E7E7E;
+    font-size: 15px;
+    padding-bottom: 7px;    
+}
+.container_page .lista_premios .ranking_puntos .first .star{
+    background: transparent url("../img/bg_start.png") no-repeat top left;
+}
+.container_page .lista_premios .ranking_puntos .first .numeros{
+    background: transparent url("../img/bg_puntos.png") no-repeat top right;
+     height: 104px;
+}
+.container_page .lista_premios .ranking_puntos .first .numeros p{
+    font-size: 20px;
+    margin-left: 65px;
+    text-align: center;    
+}
+.container_page .lista_premios .ranking_puntos .first .numeros p span{
+    color: #d20000;
+}
+.container_page .lista_premios .ranking_puntos .first .numeros p span b{
+    font-size: 28px;
+}
+.container_page .lista_premios .ranking_puntos .first .numeros p span b.euro{
+    font-size: 40px;
+    line-height: 44px;
+}
+
+.container_page .lista_premios .ranking_puntos .second{
+    width: 590px;
+}
+.container_page .lista_premios .ranking_puntos .second li{
+    margin-bottom: 12px;
+    margin-right: 22px;
+    width: 182px;
+    float: left;
+}
+.container_page .lista_premios .ranking_puntos .second li.last{
+    margin-right: 0;
+}
+.container_page .lista_premios .ranking_puntos .second p.detalle{
+    color: #7E7E7E;
+    font-size: 15px;
+    padding-bottom: 7px;    
+}
+.container_page .lista_premios .ranking_puntos .second .star{
+    background: transparent url("../img/bg_start_small.png") no-repeat top left;
+}
+.container_page .lista_premios .ranking_puntos .second .numeros{
+    background: transparent url("../img/bg_puntos_small.png") no-repeat top right;
+    height: 75px;
+}
+.container_page .lista_premios .ranking_puntos .second .numeros p{
+    font-size: 14px;
+    margin-left: 50px;
+    text-align: center;    
+}
+.container_page .lista_premios .ranking_puntos .second .numeros p span{
+    color: #7E7E7E;
+}
+.container_page .lista_premios .ranking_puntos .second .numeros p span b{
+    font-size: 20px;
+}
+.container_page .lista_premios .ranking_puntos .second .numeros p span b.euro{
+    font-size: 30px;
+    line-height: 30px;
+    color: #d20000;
+}
+.container_page .lista_premios p.mensaje{
+    clear: both;
+    color: #7f7f7f;
+    font-size: 20px;
+    position: relative;
+    top: -6px;
+}
+.container_page .deportista_participa{
+    margin-bottom: 60px;
+}
+.container_page .recompensa_seguidores{
+    margin-bottom: 40px;
+}
+.container_page .deportista_participa p.aviso{
+    border-bottom: 1px solid #BFBFBF;
+    margin: 0 50px 12px;
+    padding-bottom: 6px;    
+}
+.container_page .deportista_participa p.aviso span{
+    color: #CA0000;
+    font-size: 18px;    
+}
+.container_page .deportista_participa p.aviso a{
+    color: #787878;
+    font-size: 16px
+}
+.container_page .deportista_participa .content_image{
+    background: transparent url("../img/usuario_icon_border.png") no-repeat top center;
+    width: 105px;
+    height: 105px;
+    padding: 15px;
+}
+.container_page .deportista_participa .content_image .recorte{
+    overflow: hidden;
+}
+.container_page .deportista_participa .usuario_detalle{
+    background: transparent url("../img/bg_usuario_detalle.png") no-repeat top center;
+    width: 844px;
+    height: 170px;
+    padding: 30px;
+}
+.container_page .deportista_participa .usuario_detalle .section_image{
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: 32px;
+}
+.container_page .deportista_participa .usuario_detalle .section_image p{
+    color: #CA0000;
+    font-size: 18px;    
+}
+.container_page .recomendaciones{
+    float: left;
+    margin-left: 35px;
+    margin-top: 10px;
+    text-align: left;
+    width: 620px;
+}
+.container_page .recomendaciones ul{
+    padding-bottom: 14px;
+    padding-left: 14px;
+}
+.container_page .recomendaciones ul li{
+    list-style: square outside none;
+    margin-right: 0;
+    padding: 5px 0;
+    font-size: 16px;    
+}
+.container_page .recomendaciones ul li b{
+    color: #CA0000;
+}
+.container_page .recomendaciones ul li a{
+    color: #CA0000;
+    text-decoration: none;
+}
+.container_page .recomendaciones ul li a:hover{
+    text-decoration: underline;
+}
+.container_page .recomendaciones p.text_bottom{
+    border-top: 1px solid #CA0000;
+    color: #787878;
+    font-size: 12px;
+    padding-top: 15px;    
+}
+.container_page .recomendaciones p.text_bottom span{
+   display: inline-block;
+    padding-top: 4px;    
+}
+.container_page h2.dir_right{
+    text-align: right;
+}
+.container_page h2.dir_left{
+    text-align: left;
+}
+.container_page .separador {
+    height: 125px;
+    margin: 12px 15px;
+}
+.container_page p.opcion_register{
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: right;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-top: 11px;
+}
+.container_page p.opcion_register a{
+    color: #787878;    
+}
+p.opcion_register a.ver_clasificacion{
+    background: url("../img/arrow_next.jpg") no-repeat scroll right center transparent;
+    padding-right: 15px;
+}
+
+p.opcion_register a.ver_clasificacion_list{
+    background: url("../img/arrow_bottom_black.jpg") no-repeat scroll right center transparent;
+    padding-right: 15px;
+}
+
+.container_page .recompensa_items{
+    clear: both;
+    overflow: hidden;
+}
+.container_page .recompensa_items .seccion_items{
+    float: left;
+    margin-right: 30px;
+    width: 420px;   
+}
+.container_page .recompensa_items ul.recompensa{
+    margin: 0 auto;
+    overflow: hidden;
+    width: auto;
+}
+.container_page .recompensa_items li.recompensa{
+    margin: 0;
+    padding: 10px 0px;
+    width: 200px;
+    float: left;
+    height: 180px;
+}
+.container_page .recompensa_items li .recompesa_detalle{
+    background: url("../img/bg_recompensa.png") repeat-x scroll 0 center;
+    height: 120px;
+    padding: 30px 24px;
+    width: 147px;
+}
+.container_page .recompensa_items li p{
+    color: #c40505;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.container_page .recompensa_items li p.texto{
+    color: #000;
+    font-size: 14px;
+    padding-bottom: 0px;
+}
+.container_page .recompensa_items .separador{
+    border-left: 1px solid #B2B2B2;
+    height: 160px;
+    margin-top: 20px;
+}
+.container_page .recompensa_items .recomendaciones{
+    width: 365px;
+    margin-left: 25px;
+    padding-top: 10px;
+}
+.container_page .recompensa_items .recomendaciones ul li{
+    font-size: 15px;
+    text-align: justify;
+}
+.container_page .social_network a{
+    height: 11px;
+    padding-left: 24px;
+    padding-top: 12px;
+    text-align: left;
+    width: 12px;
+}
+.container_page .social_network a span{
+    color: #3b5998;
+    font-size: 9px;
+}
+
+
+/*
+    Clasificacion
+*/
+
+.clasificacion {
+    clear: both;
+    margin-bottom: 50px;
+}
+.clasificacion .mensaje_ayudales{
+    color: #747473;
+    font-size: 17px;
+    position: relative;
+    text-align: left;
+    top: -30px;
+}
+.clasificacion .option_selector_clasificacion{
+    position: absolute;
+    right: -41px;
+    width: 180px;
+    display: none;
+    margin-top: 2px;
+}
+.clasificacion .option_selector_clasificacion ul{
+    margin: 0 25px;
+    padding-bottom: 8px;
+}
+.clasificacion .option_selector_clasificacion ul li{
+    height: 18px;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+.clasificacion .option_selector_clasificacion ul li a{
+    color: #000000;
+    font-size: 12px;
+    text-decoration: none;
+}
+.clasificacion .option_selector_clasificacion ul li a:hover{
+    color: #c60000;
+}
+.clasificacion .bg_clasificacion_top{
+    background: url("../img/bg-clasificacion-top.png") no-repeat scroll center top transparent;
+    height: 13px;
+    width: 180px;
+}
+.clasificacion .bg_clasificacion_middle{
+    background: url("../img/bg-clasificacion-middle.png") repeat-y scroll 0 0 transparent;
+    width: 180px;
+    font-size: 15px;
+}
+.clasificacion .bg_clasificacion_bottom{
+    background: url("../img/bg-clasificacion-bottom.png") no-repeat scroll center bottom transparent;
+    height: 16px;
+    width: 180px;
+}
+.lista_clasificacion{
+    margin: 0 25px;
+}
+.lista_clasificacion li.item{
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 12px;
+    margin-right: 0;
+    padding-bottom: 12px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.lista_clasificacion li.item .foto,
+.lista_deportistas li.item .foto{
+    position: relative;
+    width: 105px;
+    margin-right: 35px;
+    float: left;    
+}
+.lista_clasificacion li.item .foto a,
+.lista_deportistas li.item .foto a{
+    background: url("../img/bg_imageprofile_ranking.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 92px;
+    overflow: hidden;
+    text-align: center;
+    width: 103px;    
+}
+.lista_clasificacion li.item .foto .content_image,
+.lista_deportistas li.item .foto .content_image{
+    height: 82px;
+    margin: 4px auto auto;
+    overflow: hidden;
+    width: 95px;    
+}
+.lista_clasificacion li.item .foto .insignia_first{
+    background: url("../img/bg_clasificacion_first.png") no-repeat scroll 0 0 transparent;
+    height: 38px;
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 27px;
+}
+.lista_clasificacion li.item .foto .insignia_second{
+    background: url("../img/bg_clasificacion_second.png") no-repeat scroll 0 0 transparent;
+    height: 50px;
+    position: absolute;
+    right: 3px;
+    top: -1px;
+    width: 44px;
+}
+.lista_clasificacion li.item .foto .insignia_third{
+    background: url("../img/bg_clasificacion_third.png") no-repeat scroll 0 0 transparent;
+    height: 22px;
+    position: absolute;
+    right: -3px;
+    top: 1px;
+    width: 34px;
+}
+.lista_clasificacion li.item .foto .insignia_fourth{
+    background: url("../img/bg_clasificacion_fourth.png") no-repeat scroll 0 0 transparent;
+    height: 22px;
+    position: absolute;
+    right: -3px;
+    top: 1px;
+    width: 34px;
+}
+.lista_clasificacion li.item .informacion{
+    font-size: 15px;
+    color: #000000;
+    float: left;
+    margin-right: 25px;
+    padding-top: 2px;
+}
+.lista_clasificacion li.item .informacion a{
+    color: #000000;
+}
+.lista_clasificacion li.item .informacion .social_network{
+    margin-top: 20px;
+}
+.lista_clasificacion li.item .puntos{
+    margin-right: 25px;
+    padding: 24px 0;
+    float: left;
+}
+.lista_clasificacion li.item .puntos span{
+    color: #D6070C;
+    font-size: 32px;    
+}
+.lista_clasificacion li.item .deporte{
+    float: left;
+    margin-right: 25px;
+    padding: 35px 0;
+}
+.lista_clasificacion li.item .votos{
+    float: left;
+}
+.lista_clasificacion li.item .votos .content_start{
+    padding: 34px 0;
+}
+.lista_clasificacion li.item .votos .no_participa{
+    font-size: 12px;
+    padding-top: 10px;
+}
+.lista_clasificacion li.item .votos .no_participa h5{
+    padding-bottom: 5px;
+}
+.lista_clasificacion li.item .votos .no_participa a{
+    color: #979592;
+}
+.lista_clasificacion li.item .votos .votacion{
+    margin: 0px auto 0;
+    overflow: hidden;
+    width: 140px;    
+}
+.lista_clasificacion li.item .votos .votacion li{
+    float: left;
+    margin: 0 2px;
+    display: inline-block;
+    overflow: visible;        
+}
+.lista_clasificacion li.item .votos .votacion li a {
+    background: url("../img/icons_sprite.png") no-repeat scroll center -913px transparent;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 24px;
+    width: 24px;
+}
+.lista_clasificacion li.item .posicion{
+    float: left;
+    padding: 25px 0;
+    text-align: right;
+    width: 72px;
+}
+.lista_clasificacion li.item .posicion span{
+    color: #D6070C;
+    font-size: 32px;
+}
+.clasificacion_paginacion,
+.clasificacion_deportistas{
+    margin: 0 25px;
+    padding: 10px 0;
+    text-align: center;
+    clear: both;
+}
+.clasificacion_paginacion .pages a,
+.clasificacion_deportistas .pages a{
+    color: #D6070C;
+    font-size: 15px;    
+}
+.clasificacion_paginacion a.ver_todos,
+.clasificacion_deportistas a.ver_todos{
+    margin: 0;
+    position: relative;
+    top: -20px;
+    cursor: pointer;
+}
+.container_page .banners_timer #defaultCountdown{
+    padding: 0 20px;
+}
+ /*
+    icons social
+ */
+a.icon_like {
+    background: url("../img/icon_like.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    font-size: 12px;
+    height: 22px;
+    padding-top: 3px;
+    width: 23px;
+    display: inline-block;
+    text-decoration: none;
+}
+a.icon_comment {
+    background: url("../img/icon_comment.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    font-size: 12px;
+    height: 22px;
+    padding-top: 3px;
+    width: 23px;
+    display: inline-block;
+    text-decoration: none;
+}
+a.icon_goglemas{
+    background: url("../img/icon_goglemas.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    font-size: 12px;
+    height: 22px;
+    padding-top: 3px;
+    width: 23px;
+    display: inline-block;
+    text-decoration: none;
+}
+a.icon_twitter{
+    background: url("../img/icon_twitter.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    font-size: 12px;
+    height: 22px;
+    padding-top: 3px;
+    width: 23px;
+    display: inline-block;
+    text-decoration: none;
+}
+a.icon_tuenti{
+    background: url("../img/icon_tuenti.png") no-repeat scroll 0 0 transparent;
+    color: #000000;
+    font-size: 12px;
+    height: 22px;
+    padding-top: 3px;
+    width: 23px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*
+    Error Te Patrocinamos
+*/
+.content_main .error_te_patrocinamos{
+    margin-top: 80px;
+    color: #D21313; 
+}
+.content_main .error_te_patrocinamos a{
+    color: #D21313;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-decoration: underline;
+}
+
+/*
+    Page patrociname
+*/
+
+#main_wrapper .main_menu > li.item .submenu.patrociname{
+    width: 380px;
+}
+#main_wrapper .main_menu > li.item .submenu.patrociname .item_menu{
+    width: 110px;
+}
+#main_wrapper .main_menu > li.item .submenu.patrociname ul li.list{
+    max-width: 200px;
+}
+
+/*
+    Lista de deportistas
+*/
+.lista_deportistas{
+    margin: 0 25px 30px;
+    overflow: hidden;    
+}
+.lista_deportistas .item{
+    border-right: 1px solid #b4b4b4;
+    float: left;
+    margin: 0;
+    width: 440px;
+    padding-top: 12px;
+}
+.lista_deportistas .item.right{
+    border-right: 0px none; 
+    float: right; 
+    width: 390px;    
+}
+.lista_deportistas .social_icons{
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 20px;
+}
+.lista_deportistas .item .contenido{
+    border-bottom: 1px solid #b4b4b4;
+    float: left;
+    overflow: hidden;
+    padding-bottom: 10px;
+    width: 365px;
+}
+.lista_deportistas .informacion{
+    padding-top: 4px;
+    float: left;
+}
+.lista_deportistas .informacion h3 a{
+    color: #000;
+    font-size: 15px;
+}
+.lista_deportistas .item .contenido .opciones{
+    clear: both;
+    float: left;
+    padding: 10px 0 0;    
+}
+.lista_deportistas .informacion p.enlaces{
+    padding: 10px 0;
+}
+.lista_deportistas .informacion p.solicita{
+    color: #C30505;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 7px 0 0;
+}
+.margin_cero{
+    margin: 0 !important;
+}
+
+/*
+    menu_top_custom
+*/
+.menu_custom{
+    position: relative;
+    top: -33px;
+    z-index: 2;
+    height: 8px;
+}
+.menu_custom li{
+    display: inline-block;
+    float: left;
+    margin: 0;    
+}
+.menu_custom li a:hover, .menu_custom li.active a {
+    background: url("../img/bg_button_red.png") repeat-x scroll 0 bottom #DB0701;
+    margin-top: -5px;
+    padding-top: 9px;
+}
+.menu_custom li a {
+    background: url("../img/bg_button_black.png") repeat-x scroll 0 0 transparent;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 16px;
+    padding: 4px 10px;
+    width: 100px;
+}
+/*
+    button custom_black
+*/
+
+a.bottom_custom_black {
+    background: url("../img/bg_button_black.png") repeat-x scroll 0 0 transparent;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 13px;
+    padding: 2px 18px;
+    width: auto;
+}
+a.bottom_custom_black:hover, a.bottom_custom.active {
+    background: url("../img/bg_button_red.png") repeat-x scroll 0 bottom #DB0701;
+}
+
+/*
+    Patrociname seccion recompensas
+*/
+.seccion_recompensa{
+    clear: both;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.seccion_recompensa .submenu_list{
+    margin-top: 15px;
+}
+.container_page .texto_descripcion_recompensa{
+    clear: both;
+    color: #C3C3C2;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: left;    
+}
+
+.container_page .content_recompensa{
+    background: url("../img/bg_recompensas_patrociname.png") no-repeat scroll center top transparent;
+    height: 295px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 868px;
+}
+
+.container_page .content_recompensa h4{
+    background: url("../img/bg-title-recompensas-patrociname.png") no-repeat scroll center bottom transparent;
+    color: #FFFFFF;
+    float: left;
+    font-size: 22px;
+    height: 40px;
+    margin-top: 11px;
+    padding-left: 30px;
+    padding-top: 5px;
+    text-align: left;
+    width: 375px;
+}
+.container_page .content_recompensa p.text_descripcion{
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 35px;
+    padding-top: 18px;
+    text-align: right;
+}
+
+.container_page .content_recompensa .items{
+    clear: both;
+    overflow: hidden;
+}
+.container_page .content_recompensa .items ul{
+    margin: 0 36px;
+    overflow: hidden;
+    width: auto;
+}
+.container_page .content_recompensa .items li{
+    margin: 5px 6px 0;
+    width: 185px;
+    float: left;
+    height: auto;
+}
+.container_page .content_recompensa .items li h3{
+    font-size: 24px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    color: #c40505;
+    height: 38px;
+}
+.container_page .content_recompensa .items li .content_image{
+    background: url("../img/bg-item-recompensas-patrociname.png") no-repeat scroll center bottom transparent;
+    height: 135px;
+    width: 185px;
+}
+.container_page .content_recompensa .recompesa_detalle .cantidad{
+    font-size: 15px;
+    color: #747473;
+}
+ /*
+    imaganes de los banners
+ */
+ 
+ .home#main_wrapper { background: transparent url("../img/banner_home.png") no-repeat 0 0;}
+ .registro#main_wrapper { background: transparent url("../img/banner_registro.jpg") no-repeat 0 0;}
+ .contacto#main_wrapper{ background: transparent url("../img/banner3_header.jpg") no-repeat 0 0;}
+ .terminos-condiciones#main_wrapper{ background: transparent url("../img/banner3_header.jpg") no-repeat 0 0;}
+ .aviso-legal#main_wrapper{ background: transparent url("../img/banner3_header.jpg") no-repeat 0 0;}
+ .newsletter#main_wrapper{ background: transparent url("../img/banner3_header.jpg") no-repeat 0 0;}
+ .faqs#main_wrapper{ background: transparent url("../img/banner3_header.jpg") no-repeat 0 0;}
+ .todos_los_deportistas#main_wrapper{ background: transparent url("../img/banner_ranking.jpg") no-repeat 0 0;}

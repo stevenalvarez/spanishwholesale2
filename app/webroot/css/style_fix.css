@@ -1,0 +1,353 @@
+/*david*/
+
+/*fixes del index*/
+
+ .patrociname_detalle .mascara {
+    width: 134px;
+    height: 98px;
+    display: block;
+    overflow: hidden;
+    
+ }
+.seccion_patrociname_top .img_patrociname img
+{
+    height: auto;
+    width: 122px;
+}
+.descripcion_dep_segui li .detalle p { width: 180px; height: 42px; overflow: hidden; text-align: center; }
+
+.descripcion_dep_segui li .imagen img { height: auto;  }
+.descripcion_dep_segui li .imagen div.mascara { width: 85px; height: 66px; overflow: hidden;  }
+
+.dep_segui div.submenu1 { height: 40px; text-align: left; border-bottom: 1px solid #000000;
+    font-family: 'HelveticaLTStdRegular';
+    font-size: 28px;
+    height: 38px;
+    text-align: left;}
+    
+.dep_segui .submenu1 a { text-decoration: none; cursor: pointer; background: url("../img/arrow_next.jpg") no-repeat scroll right center transparent;
+    display: inline-block;    height: 45px;    padding-right: 17px; color: black;
+     }
+.dep_segui a.active {     background: url("../img/arrow_bottom.jpg") no-repeat scroll right center transparent;
+    color: #DB0701; }
+.dep_segui { position: relative; }
+.dep_segui .ajax_loader { height: 380px;}
+
+/*////////PAGINA DE USUARIOS DEPORTISTAS/////////*/
+
+
+
+.usuarios .content_main h1{    
+    background: url("../img/bg_title.png") repeat-x scroll 0 bottom transparent;
+    color: #000000;
+    display: block;
+    font-family: 'HelveticaLTStdRegular';
+    font-size: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.usuarios .content_main h1 span
+{
+    background: none repeat scroll 0 0 white;
+    padding: 0 60px;
+    line-height: 38px;   
+}
+
+.usuarios .content_main .ficha
+{
+    width: 653px;
+    height: 199px;
+    display: block;
+    overflow: hidden;
+    background: url('../img/usuarios_view_ficha.png') top right no-repeat white;
+    margin: auto;
+    
+}
+.usuarios .content_main .recuadro
+{
+    width: 129px;
+    height: 88px;
+    overflow: hidden;
+    position: relative;   
+}
+.usuarios .content_main .recuadro .mascara
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 129px;
+    height: 88px;
+    z-index: 1;    
+}
+
+.usuarios .content_main .recuadro .imagen
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 0;
+    width: 129px;
+}
+.ficha table tr td{ vertical-align: top; }
+.ficha h2.name
+{
+  text-align: left;
+  font-family: 'HelveticaLTStdRegular';
+  color: #DB0701;
+  background: url(../img/usuarios_line_red.png) repeat-x bottom;
+  width: 80%; 
+  font-size: 22px;  
+}
+.usuarios hr.divider1 { margin: 25px auto; width: 770px; border-color: #b5b5b5; color:#b5b5b5; background-color: #b5b5b5; }
+
+/*------------------------------ SEGUIDORES----------------------------------------------*/
+
+/* usuarios ficha*/
+
+.usuarios .content_main .ficha{    width: 653px;    height: 199px;    display: block;    overflow: hidden;    background: url('../img/usuarios_view_ficha.png') top right no-repeat white;    margin: auto; }
+
+.ficha table tr td {font-family: 'HelveticaLTStdRegular'; text-align: left; }
+.ficha table {   margin-left: 56px;    margin-top: 35px;}
+.ficha h2.name span { background-color: white; padding-right: 10px; background: url("../img/deportistas_ficha_bg.png") -426px 74px; }
+.ficha table tr td b { font-weight: bold; font-size: 15px; } 
+.ficha table tr td .social_icons {  padding-left: 19px;    padding-top: 7px; }
+.ficha table tr td .social_icons a{  padding-right: 3px; }
+.ficha table tr td .center_add_friend { padding-top: 9px; }
+.ficha table tr td a.add_friend { color: black; cursor: pointer; }
+.ficha table tr td a.add_friend * { display: inline; vertical-align: top; color: black; cursor: pointer; }
+.ficha td.border_bottom { border-bottom: solid 1px #afafaf; }
+/*recompensas usuarios*/
+.recompensas_box { background: url('../img/usuarios_recompenesas_bg.png') top left no-repeat; width:848px !important; height: 412px; position: relative; }
+.recompensas_box .heading { border-bottom: 2px solid #DB0701; margin: 0 21px; width: 805px;   height: 37px; padding-left: 4px; padding-top: 6px;}
+.recompensas_box .heading h3 { float: left;  font-family: 'HelveticaLTStdRegular';  color: #DB0701;  font-size: 25px;  }
+.recompensas_box .directas_sorteo { float: right; padding-top: 7px; font-size: 20px ; }
+.recompensas_box .directas_sorteo a.active { color: #DB0701;  }
+.recompensas_box .directas_sorteo a { color: black; }
+.recompensas_box .submenu { padding-top: 7px; }
+.recompensas_box .submenu a { color: black; font-size: 14px; cursor: pointer;  }
+.recompensas_box .submenu a.active { color: #DB0701; }
+.recompensas_box ul { overflow: hidden; padding-top: 14px; width: 780px; margin: auto; }
+.recompensas_box ul li { float: left; margin: 0px 15px 0 0; }
+.recompensas_box ul li div.imagen_marco { width: 180px; height: 154px; overflow: hidden; position: relative;  }
+.recompensas_box ul li div.imagen_marco .mascara { position: absolute; top: 0; left: 0; z-index: 1;  }
+.recompensas_box ul li div.imagen_marco .enmascara { position: absolute; top: 0; left: 0; z-index: 0; width: 180px; height: auto;  }
+.recompensas_box ul li .recompensa_info { margin-bottom: 10px; }
+.recompensas_box ul li .recompensa_info h5 {  color: #DB0701;   font-family: 'HelveticaLTStdRegular';}
+.recompensas_box ul li .recompensa_info a  { color: #858484; font-size: 14px; font-family: 'HelveticaLTStdRegular'; text-decoration: underline; }
+.recompensas_box hr { margin: 8px auto 17px; width: 770px; border-color: #b5b5b5; color:#b5b5b5; background-color: #b5b5b5; }
+.recompensas_box .como {color: #DB0701; cursor: pointer; }
+.recompensas_box .como * { display: inline; vertical-align: top !important; cursor: pointer; line-height: 18px; }
+.recompensas_box a.slide_next { left: 823px; }
+.recompensas_box a.slide_prev { left: -25px; }
+/* usuarios fotos_videos*/
+.fotos_videos { padding-top: 30px; }
+.fotos_videos .heading h2 { float: left;  font-family: 'HelveticaLTStdRegular';  font-size: 28px; background-color: white; font-weight: normal; padding-top: 2px; line-height: 39px; }
+.fotos_videos .heading { overflow: hidden;   height: 42px; position: relative; background: url("../img/bg_title.png") repeat-x scroll 0 bottom transparent;    display: block;    font-family: 'HelveticaLTStdRegular';    font-size: 30px; margin-bottom: 20px;  position: relative;}
+.fotos_videos .heading .menu_rondas  { top: 0; right: 0; margin: 0; height: 42px; }
+
+
+.fotos_videos .heading .menu_rondas li { height: 42px;  display: list-item;}
+.fotos_videos .cont ul { overflow: hidden; height: 160px; width: 865px; padding: 0px 20px; margin: 0; }
+.fotos_videos .cont ul li { float: left; }
+.fotos_videos hr { margin: 10px 0; background-color: #B5B5B5;    border-color: #B5B5B5;    color: #B5B5B5;    margin: 6px 50px;   margin-top: 11px; width: 770px;}
+
+.fotos_videos .contenido .social_icons { width: 25px; float: left; }
+.fotos_videos .contenido .imagen { overflow: hidden; float: left; }
+.fotos_videos .contenido .comment_icons { height: 20px; width: 50px; margin-right: 0px; margin-left: auto; }
+    
+.fotos_videos .contenido .imagen * {float: left; }
+.fotos_videos .contenido .imagen .left-img { background: url('../img/usuarios_left_bg.png') left bottom no-repeat; width: auto; height: auto; padding-left: 8px;}
+.fotos_videos .contenido img { background: url('../img/usuarios_img_bg.png') bottom repeat-x; width: auto; height: auto; padding-bottom: 11px; padding-top: 5px; padding-right: 2px; max-width:164px; max-height: 123px; }
+.fotos_videos .contenido .imagen .right-img { background: url('../img/usuarios_rigth_bg.png') right bottom no-repeat; width: auto; height: auto; padding-right: 7px ; }
+.fotos_videos .todos { color: #010101; font-size: 12px; }
+
+.coment_amig { overflow: visible; }
+.coment_amig .left { width: 575px; }
+.coment_amig .left div { margin-bottom: 20px; }
+.coment_amig .right { width: 304px; }
+
+.usuarios_infobox { width: 301px; margin-bottom: 20px; }
+.usuarios_infobox .contenido { background: url('../img/usuarios_bg_111.png') bottom left no-repeat; width: 301px; min-height: 111px; }
+.usuarios_infobox .contenido2 { background: url('../img/usuarios_bg_11.png') bottom left no-repeat; width: 301px; min-height: 175px; }
+.usuarios_infobox h2 {  color: #DB0701;   font-family: 'HelveticaLTStdRegular'; text-align: left; background: url(../img/pun.png) repeat-x 0 28px; font-size: 24px; font-weight: lighter; margin: 0 5px;}
+
+/*amigos*/
+.usuarios_infobox.amigos ul {margin-left: 18px; padding-top: 18px;  overflow: hidden;}
+.usuarios_infobox.amigos ul li { float: left;  position: relative; overflow: visible; margin-right: 10px; margin-bottom: 18px;   }
+.usuarios_infobox.amigos ul li .img_cut img {  width: 60px; height: auto;  }
+.usuarios_infobox.amigos ul li .img_cut {  width: 60px; height: 44px; }
+.usuarios_infobox.amigos ul li > img { position: absolute; right: -10px;    top: -10px; }
+.usuarios_infobox.amigos .text { font-size: 13px; margin: 0 18px; overflow: hidden; padding-bottom: 10px; }
+.usuarios_infobox.amigos .text a { font-size: 13px; color: black; cursor: pointer; }
+.fleft {float: left; }
+.fright{float: right;}
+
+
+
+.usuarios_infobox.actividades ul li .img_cut {margin-left: 20px;  float: left; overflow: hidden; width: 48px; height: 48px; border: solid 2px #585858; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.usuarios_infobox.actividades ul li .img_cut img {height: 48px; float: left;}
+.usuarios_infobox.actividades ul li > .text { float: left; width: 200px; padding-left: 20px; font-size: 13px; text-align: left;  }
+.usuarios_infobox.actividades ul li {width: 100%; height: 100px; overflow: hidden; margin-top: 15px; height: 55px; }
+.usuarios_infobox.actividades li .text h4 { font-size: 13px; font-weight: bold; text-align: left; color: #DB0701; }
+.usuarios_infobox .links a { font-size: 14px; color: black; }
+.usuarios_infobox .links a.active { color: #DB0701; }
+.usuarios_infobox .links { border-bottom: 1px solid black; margin: 0 25px; padding-bottom: 2px; }
+.usuarios_infobox.actividades .contenido2 > .text { font-size: 13px; color: black; cursor: pointer; overflow: hidden;    padding-bottom: 15px;    padding-right: 20px;    padding-top: 15px; }
+.usuarios_infobox.actividades .text a { font-size: 13px; color: black; cursor: pointer; }
+/*usuario fans*/
+
+.usuarios_infobox.fansclub li .text h4 { font-size: 13px; font-weight: bold; text-align: left; color: #DB0701; }
+.usuarios_infobox.fansclub ul li .img_cut {margin-left: 20px;  float: left; overflow: hidden; width: 48px; height: 48px; border: solid 2px #585858; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.usuarios_infobox.fansclub ul li .img_cut img {height: 48px; float: left;}
+.usuarios_infobox.fansclub ul li > .text { float: left; width: 200px; padding-left: 20px; font-size: 13px; text-align: left;  }
+.usuarios_infobox.fansclub ul li {width: 100%; height: 100px; overflow: hidden; margin-bottom: 15px; height: 55px; }
+.usuarios_infobox.fansclub .contenido > .text { font-size: 13px; color: black; cursor: pointer; overflow: hidden;    padding-bottom: 10px;    padding-right: 20px;  }
+.usuarios_infobox.fansclub .contenido { padding-top: 10px; min-height: 110px; }
+.usuarios_infobox.fansclub .text a { font-size: 13px; color: black; cursor: pointer; }
+
+/*.usuarios eventos*/
+
+.usuarios_infobox.eventos {      position: relative;   width: 350px; height: 395px; overflow: visible; }
+.usuarios_infobox.eventos .fixed { position: absolute; background: url("../img/bg-eventos.png") no-repeat top left #FFFFFF;  height: 380px; left: -23px; padding-top: 15px;    padding-left: 35px;    padding-right: 35px;    top: 18px;    width: 280px; }.usuarios_infobox.eventos h4 { border-bottom: 1px solid #000000;    color: #DB0701;    font-size: 21px;    font-weight: bold;    height: 25px;    overflow: hidden; text-align: left;  } 
+.usuarios_infobox.eventos li { margin: 15px 0;    overflow: hidden; }
+.usuarios_infobox.eventos ul li .date {  background: url("../img/bg-date.png") no-repeat scroll 0 0 transparent;    height: 64px;  width: 65px;  }
+.usuarios_infobox.eventos ul li .date p {    color: #770203;    padding: 14px 8px 4px;}
+.usuarios_infobox.eventos ul li .date p .dia { display: block;    font-size: 24px;    font-weight: bold;    height: 26px;    margin: 0;    padding: 0; }
+.usuarios_infobox.eventos ul li .date p .mes {     display: block;    font-size: 13px;    font-weight: bold;    height: 18px; }
+
+.usuarios_infobox.eventos ul li .detalles { float: left;    font-size: 14px;    margin-left: 15px;    text-align: left;    width: 190px; }
+.usuarios_infobox.eventos ul li .detalles h5 { color: #DB0701;    font-size: 14px;    font-weight: bold;    }
+.usuarios_infobox.eventos .links { font-size: 13px; border-bottom: solid 1px black; color: black; padding-top: 18px; }
+.usuarios_infobox.eventos .links a { color: black; }
+.usuarios_infobox.eventos .links a.active { color: #DB0701; }
+.usuarios_infobox.eventos .text a { font-size: 13px; color: black; cursor: pointer; overflow: hidden;    padding-bottom: 15px;    padding-right: 20px;    padding-top: 4px; }
+
+/*COMENTARIOS USUARIOS*/
+.user_comentarios { width: 580px; }
+.user_comentarios .heading h2 { background: url("../img/usuarios_comentarios_head.png") top left; width: 113px; height: 28px; color: white; font-size: 13px; line-height: 25px;}
+.user_comentarios .heading {background: url("../img/bg_title.png") repeat-x scroll 0 bottom transparent; padding-bottom: 2px; margin-bottom: 35px; }
+.user_comentarios .comments ul li .img_cut {margin-left: 20px;  float: left; overflow: hidden; width: 48px; height: 48px; border: solid 2px #585858; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.user_comentarios .comments ul li .img_cut img {max-width: 55px; max-height: 55px; float: left;}
+.user_comentarios .comments ul li > .text { float: left; width: 480px; padding-left: 12px; font-size: 13px; text-align: left;  }
+.user_comentarios .comments ul li p { padding-bottom: 7px;  }
+.user_comentarios .comments ul li {width: 100%; overflow: hidden; margin-top: 15px;  }
+.user_comentarios .comments li .text h4 { font-size: 13px; font-weight: bold; text-align: left; color: #DB0701; }
+
+
+.comentario_form { width: 100%; overflow: hidden; margin-bottom: 15px;}
+.comentario_form .img_cut{ border: 2px solid #585858;    border-radius: 1px 1px 1px 1px;    float: left;    height: 48px;    margin-left: 20px;    overflow: hidden;    width: 48px;}
+.comentario_form img {height: 48px;}
+.comentario_form .text { float: left; width: 480px; padding-left: 12px; font-size: 13px; text-align: left;  }
+.comentario_form .text h4 { font-size: 13px; font-weight: bold; text-align: left; color: #DB0701; }
+.comentario_form .text textarea { background-color: #fffcfc; border: solid 1px #8f8f92;  height: 52px; width: 468px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 5px; color: #8f8f92;}
+.comentario_form .text .comentar { float: right; width: 52px;  margin-top: 5px;  }
+
+/*------------------------------ SEGUIDORES----------------------------------------------*/
+/*------------------------------ DEPORTISTAS----------------------------------------------*/
+
+/*fotos y videos*/
+.fotos_videos.deportista .heading .menu_rondas { float: left; }
+
+
+.usuarios .content_main .ficha.deportista{    width: 864px;    height: 273px;    display: block; background: url('../img/deportistas_ficha_bg.png') top right no-repeat white;}
+
+/* deportistas ficha*/
+
+.ficha.deportista table tr td .recuadro {  width: 335px; height: 225px; }
+.ficha.deportista .recuadro .mascara{    position: absolute;    top: 0;    left: 0;    width: 335px;    height: 225px;    z-index: 1;   }
+.ficha.deportista .recuadro .imagen{    top: 0;    left: 0;    position: absolute;    z-index: 0;    width: 335px;}
+
+.ficha.deportista table {   margin-left: 53px;     margin-top: 21px;   }
+.ficha.deportista table tr td.infor_derpotista { padding-left: 40px; }
+.ficha.deportista td  h2 { font-size: 26px; width: 100%; overflow: hidden; height: 40px; }
+.ficha.deportista .data_deportista { padding-left: 24px; line-height: 18px; font-size: 15px; }
+.ficha.deportista .infor_derpotista .redes { border-bottom: solid 1px #afafaf; border-top: solid 1px #afafaf; margin: 4px 0; padding: 4px 0 4px 25px; font-size: 15px; }
+.ficha.deportista .infor_derpotista .add_friends { padding-left: 25px; padding-top: 12px; }
+.ficha.deportista .infor_derpotista .add_friends .x { margin-left: 75px;} 
+
+
+.pretitle { padding-bottom: 15px; }
+.pretitle .heading {  width: 100%; border-bottom: solid 1px #a70c0c; height: 25px; margin-bottom: 12px;  }
+.pretitle .heading h2 { float: left; color: #DB0701;  }
+.pretitle .heading .estado { color: #DB0701; }
+.pretitle p { color: #7b7b7b;  font-size: 13px; text-align: left; }
+
+/*deportistas recompensas*/
+
+.deportista.recompensas { width: 826px; height: 402px; background: url('../img/usuarios_deportistas_recompensas_bg.png') top left no-repeat; padding-left: 22px; padding-top: 10px;  }
+.deportista.recompensas .heading h2 { color: #DB0701; float: left;  font-size: 24px; text-align: left;}
+.deportista.recompensas .heading h2:first-child  { width: 372px; }
+.deportista.recompensas .heading { border-bottom: 2px solid #DB0701; overflow: hidden;  }
+.deportista.recompensas .boding { font-size: 18px; text-align: left; margin: auto; width: 800px;  overflow: hidden;} 
+.deportista.recompensas .boding .leftside { width: 344px; float: left;     margin-top: 35px; }
+
+.deportista.recompensas .boding .leftside h3 { color: #DB0701;  }
+.deportista.recompensas .boding .leftside h3 span { color: black;}
+.deportista.recompensas .boding .leftside li { padding-bottom: 16px; margin: 0;}
+.deportista.recompensas .boding .leftside li p { font-size: 14px; }
+ 
+.deportista.recompensas .boding .rightside { width: 455px; float: left; margin-top: 17px;}
+.deportista.recompensas .boding .rightside li { overflow: hidden; }
+.deportista.recompensas .boding .rightside li div img { width: 68px;  }
+.deportista.recompensas .boding .rightside li div { float: left; font-size: 14px; }
+.deportista.recompensas .boding .rightside li div label {  color: #DB0701;   }
+
+.deportista.recompensas .boding .rightside li div.mid a { color: #858484; text-decoration: underline; }
+.deportista.recompensas .boding .rightside li div.last { padding-top: 12px; }
+.deportista.recompensas .boding .rightside li div.mid { padding-left: 17px;    width: 230px; padding-top: 5px;  }
+
+.deportista.recompensas .bottom  { border-top: 1px solid #B5B5B5;    clear: both;    float: left;    margin-top: 18px;    overflow: hidden;    padding: 5px 0;    width: 757px;}
+.deportista.recompensas .bottom .patrocinio_solicitado { margin-right: 43px;    width: 208px; float: left; }
+.deportista.recompensas .bottom .patrocinio_solicitado h4 { display: block;    overflow: hidden; color: #C40505;    font-family: 'Helvetica45LightRegular';    font-size: 14px;    padding: 15px 0 5px;    text-align: left; }
+.deportista.recompensas .bottom .patrocinio_solicitado h4 strong { float: right;}
+.deportista.recompensas .bottom .patrocinio_solicitado p {font-family: 'Helvetica45LightRegular';    font-size: 14px;    text-align: left;}
+.deportista.recompensas .bottom .center { float: left; text-align: center; padding-top: 35px; width: 255px; }
+.deportista.recompensas .bottom .right p {   background: url("../img/icon_payment_option_paypal.jpg") no-repeat scroll right 3px transparent; display: inline-block;    float: right;    padding: 0 50px 75px 0;    width: auto; font-size: 14px;    text-align: left;}
+/* usuarios actividad
+.quiero_btn {  background: url('../img/usuarios_btn_quiero.png') top left no-repeat; width: 125px; height: 25px; display: block; color: white; text-decoration: none; margin: auto; line-height: 23px; font-size: 13px; cursor: pointer; }
+.quiero_btn:hover { background-position: bottom left; text-transform: none; text-decoration: none;  }
+#header, .wrapper_main_menu { display: none; }
+/*****/
+
+/*deportistas VOTAME*/
+
+.usuarios_votame { padding: 25px 0; }
+
+.usuarios_votame .deportista_ronda_votame li { background: url('../img/votos_bg.png') no-repeat 0 11px; padding-bottom: 25px;  }
+.usuarios_votame .deportista_ronda_votame table { width: 100%; }
+.usuarios_votame .deportista_ronda_votame table tr th { color: #939392;}
+.usuarios_votame .deportista_ronda_votame table tr th.ronda { color: #d6070c; height: 31px; width: 270px; text-align: left; padding-left: 8px; }
+
+.usuarios_votame .deportista_ronda_votame table tr td.ronda_info {text-align: left; color: black; font-size: 13px; padding-left: 8px; }
+.usuarios_votame .deportista_ronda_votame table tr td.ronda_info label{ width: 100%; display: block;}
+.usuarios_votame .deportista_ronda_votame table tr td { color: #d6070c; text-align: center; vertical-align: middle; font-size: 23px; }
+
+.usuarios_votame .heading { overflow: hidden;   height: 42px; background: url("../img/bg_title.png") repeat-x scroll 0 bottom transparent;    display: block;    font-family: 'HelveticaLTStdRegular';    font-size: 30px; margin-bottom: 20px;  position: relative;}
+.usuarios_votame .heading h2 { display: block; font-size: 30px; background: none repeat scroll 0 0 white;    display: block;    float: left;    font-size: 28px; height: 29px;    padding-right: 9px;    padding-top: 9px;}
+.usuarios_votame .button_black_custom {clear: both;    display: inline-block;    height: auto;    width: 120px;}
+.usuarios_votame .mensaje { margin-bottom: 25px; }
+.usuarios_votame .mensaje label { padding-right: 50px; }
+
+/* deportistas biografia*/
+.user_bio_hist_ptos .comments { font-size: 13px; text-align: left; padding-left: 15px; }
+.user_bio_hist_ptos .comments ul li { padding-bottom: 20px; }
+.user_bio_hist_ptos .comments h4 { font-size: 14px;} 
+
+.lineas .menu_rondas li a { padding: 0; width: 113px; text-align: center; height: 26px;}
+.lineas .menu_rondas li.active a { padding-top: 4px; }
+.lineas .menu_rondas { float: none; position: static;}
+
+
+
+.lineas             {padding-bottom: 2px; height: 23px; background: url("../img/bg_title.png") repeat-x scroll 0 bottom transparent;    display: block;    font-family: 'HelveticaLTStdRegular';    font-size: 30px; margin-bottom: 20px;  position: relative; } 
+.lineas ul.pestanas {  }
+.lineas ul.pestanas li { float: left; width: 113px;  margin: 0; height: 26px; }
+.lineas ul.pestanas li a { display: block; width: 113px; height: 23px; color: #FFFFFF;  font-size: 16px; background: url("../img/bg_button_black.png") repeat-x scroll 0 0 transparent;  border-radius: 5px 5px 5px 5px;  font-size: 13px; line-height: 23px;} 
+.lineas ul.pestanas li.active a,
+.lineas ul.pestanas li:hover a { background: url("../img/bg_button_red.png") repeat-x scroll 0 bottom #DB0701; padding-top: 3px; margin-top: -3px; }
+
+.comofunciona { background: url('../img/comofunciona.png') top left no-repeat; padding-left: 25px;  color: #DB0701; font-size: 15px; }
+.red { color: #DB0701;}
+.gris{ color: #979592;}
+.padding5 { padding: 5px; }
+.padding10 { padding: 10px; }

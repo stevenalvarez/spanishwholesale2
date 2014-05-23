@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'MicrosoftYiBaitiRegular';
+    src: url('msyi-webfont.eot');
+    src: url('msyi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('msyi-webfont.woff') format('woff'),
+         url('msyi-webfont.ttf') format('truetype'),
+         url('msyi-webfont.svg#MicrosoftYiBaitiRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body { font-family: 'MicrosoftYiBaitiRegular';  font-weight: normal;    font-style: normal;}
+
+#header    { height: 40px; overflow: hidden; width: 100%; background: url(../img/hr.png) bottom left repeat-x; position: relative; }
+#header img{ position: absolute; top: 10px; right: 10px; }
+
+#content .menu li a,#content .menu li span{ cursor: pointer; color: #000; text-transform: none; text-decoration: none; display: block; text-align: center; font-weight: normal;  font-family: 'MicrosoftYiBaitiRegular';  }
+#content .menu li a:hover,#content .menu li span:hover{ color: #CCC ; }
+#content .menu li a.active{ color: #CCC ; }
+
+
+.main_menu ul li{ width: 33%; float: left; padding: 2px 0; background: url(../img/hr.png) bottom left repeat-x; margin-bottom: 10px;  }
+.menu      { overflow: hidden; width: 100%;  }
+.submenu   { margin-bottom: 10px; }
+.submenu>ul>li { overflow: hidden; width: 100%; background: url(../img/hr.png) bottom left repeat-x; }
+.submenu li a,.submenu li span { padding: 2px 0; text-align: left !important; margin-left: 12%;}
+.subsubmenu a,.subsubmenu span   { border-left: 1px solid #CCCCCC;}
+
+
+.phothos {  overflow: hidden; }
+#content .phothos .images div div{ overflow: hidden; float: left; width: 33%;  }
+#content .phothos .images div div img{ float: left;  }
+#content #texto { width: 100%; overflow: hidden; display: block; }
+#content  .social { display: block; margin-top: 10px;    overflow: hidden;    padding-left: 33px;    width: 100%; }
+
+#content .phothos .img  img { width: 100%; }
+#content .phothos .img .nn { background: url('../img/sprite.png') right -70px no-repeat; width: 30%; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 43%; right: 0px; opacity:0; }
+#content .phothos .img .nn:hover { opacity:1;}
+
+
+#slider {position: relative; display: none; margin-top: 20px; }
+#slider .container { width: 100%; overflow: hidden;  margin-left: 35px;}
+#slider .slide { width: 10000px; height: 66px; position: relative; }
+#slider ul {position: absolute; top: 0; left: 0;}
+#slider span.c1 { background: url('../img/sprite.png') 0px -35px no-repeat; width: 35px; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 13px; left: 0px; opacity:0.1; }
+#slider span.c2 { background: url('../img/sprite.png') 0px -70px no-repeat; width: 35px; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 13px; left: 698px; opacity:0.1; }
+#slider span.c1:hover  { opacity:1; }
+#slider span.c2:hover  { opacity:1; }
+#slider li { float: left; }
+#slider li img { opacity: 0.7; cursor: pointer; }
+#slider li img:hover { opacity: 1; cursor: pointer; }
+#slider li img.selected{ opacity: 1; border-left: solid #CCCCCC 5px; border-right: solid #CCCCCC 5px; padding: 0 5px; }
+
+
+
+
+
+#footer { background: url("../img/hr.png") repeat-x scroll left top transparent; bottom: 0; right: 0; width: 100%; height: 22px; padding-top: 5px; overflow: hidden; }
+#footer p { font-size: 16px; text-align: right; padding-right: 10px; }
+#footer a { color: black; text-transform: none; text-decoration: none; }

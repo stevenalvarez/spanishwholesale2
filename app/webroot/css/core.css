@@ -1,0 +1,294 @@
+/*RESET STYLES*/
+*                               { padding:0; margin:0; }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, font, img,
+ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+center, u, b, i                 { border:0; outline:0; font-weight:normal; font-style:normal; font-size:100%;
+                                  font-family: Arial,Verdana, Helvetica, sans-serif; vertical-align: baseline }
+
+body                            { line-height: 1.4; font-family:sans-serif; margin-bottom: 20px;}
+:focus                          { outline: 0}
+ol, ul                          { list-style: none }
+table                           { border-collapse: collapse; border-spacing: 0}
+blockquote:before, 
+blockquote:after, q:before, 
+q:after                         { content: "" }
+blockquote, q                   { quotes: "" ""}
+hr                              { border: 0; color: #000; background-color: #000; height: 1px }
+ul                              { list-style: none;}
+ul li                           { margin:0 10px 0 0;}
+h1                              { font-size: 19px;}
+h4                              { font-size: 17px;}
+a                               { color: #3e97d7;text-decoration: none;}
+a:hover                         { text-decoration: underline;}
+/*COMMON*/
+h1,h2                           { padding-left:2px;}
+h2                              { padding-bottom:15px;}
+.left                           { float:left}
+.right                          { float:right}
+.flow-hidden                    { overflow: hidden;}
+.clear-both                     { clear:both;}
+.clear-right                    { clear:right;}
+.clear-left                     { clear:left;}
+.centered                       { margin: 0 auto;}
+.list-inline li                 { float: left;}
+
+
+/*LAYOUT*/
+.content-center                 { padding-left: 10px; padding-right: 10px;  padding-top: 70px;  width: 985px;}
+.container                      { clear: both;}
+
+/*HEADER*/
+.container-header               { margin: 0 auto; padding-top:15px; width: 1006px;}
+.header                         { background:none repeat scroll 0 0 #C20304; float:left; overflow:visible; position:relative; width:100%;}
+.logo                           { left: 0;  position: absolute;top: -35px;}
+.menu-header                    { float: right;}
+.menu-header li                 { margin:0; padding:14px 0; position: relative;}
+.menu-header li a               { font-family: Arial; font-size: 12px; font-weight: bold; padding: 5px 25px;}
+.menu-header li.first a         { }
+.menu-header li.last  a         { }
+.menu-header li ul.submenu      { display:none; position: absolute;width: 100%; bottom: -65px;}
+.menu-header li ul.submenu li   { display: block; margin-bottom: 1px; padding: 0; width: 100%;}
+.menu-header li ul.submenu li a { background:#D86868; border: medium none; display: block; padding: 8px 0; text-align: center; font-weight: normal;}
+.menu-header 
+li:hover ul.submenu                { display: block;}  
+.container-header .language        { overflow: hidden;   padding-bottom: 15px;} 
+.container-header .language ul     { float: right;}
+.container-header .language ul li  { float: left; margin: 0;}
+.container-header .language ul li a{  color: #CCCCCC;  font-family: Arial; font-size: 12px;  font-weight: bold;padding: 0 10px; border-left: 1px solid #999;}
+.container-header .language 
+ul li.first a                      { border: none;}
+.language ul li.active a,
+.language ul li a:hover            {color:#999; text-decoration: none;} 
+
+/*FOOTER*/
+.footer                         { margin: 0 auto; padding: 25px; width: 956px;}
+.footer h2                      {  color: #FFFFFF;  font-family: Arial;  font-size: 11px; padding: 18px 140px 18px 0; display: block; text-align: right}  
+.footer h2 span                 { font-size: 0; text-indent: -10000px;}
+.footer ul li a                 { display: inline-block; font-family: Arial; font-size: 15px; padding: 12px 16px;}
+.footer ul li.first a           { padding-left:0 ;} 
+.footer p                       { clear: both; display: block;font-family: Arial; font-size: 13px; text-align: center;}
+.footer p a                     { font-family: Arial; font-size: 13px;}
+
+/*PAGE REGISTRO*/
+.page-registro .content-lef     { width: 515px;}
+.page-registro 
+.content-lef h2.subtitle,
+.subtitle                       { color: #000000; font-family: Arial; font-size: 40px; font-weight: bold; line-height: 40px;}
+.content-form                   { width: 512px;}
+.content-form .bottom           { }
+.content-form form .section     { margin: 0 auto; padding: 15px 40px; width: 420px;}
+.content-form form .section1    { overflow: hidden; padding: 40px 40px 0;min-height: 106px;}
+.content-form form .section2    { min-height: 168px; padding: 22px 45px 0;}
+form .field                     { margin-top: -5px;}
+form .field label               { font-family: Arial; font-size: 12px;width: 90px;display: inline-block;}
+form .field input               { border:none; font-family: Arial; font-size: 11px; height: 32px; padding: 0 11px; width: 256px;}
+form .field input.input2        { width: 126px;}
+.content-form form 
+.section1 input                 { float: left; width: auto; height: auto;}
+.content-form form 
+.section1 label                 { float: left; margin-left: 7px;line-height: 13px;} 
+.content-form form 
+.section1   h2                  { color: #C3C9CE; font-family: Helvetica; font-size: 17px; font-weight: bold; margin-bottom: 15px;  padding-bottom: 16px;}
+.content-form form .section1 h3,
+.content-form form .section h3  { color: #000000; font-family: Arial; font-size: 13px; padding-top: 5px;}
+.content-form form .section1 h3 { padding-bottom: 12px;}
+.content-form form 
+.section select                 { margin-bottom: 8px; margin-left: 7px; margin-top: 8px; padding: 3px; width: 269px;}
+.content-form form 
+.section select.select2         { width: 134px;}
+.content-form form p            { font-size:13px; font-family: Arial;   margin: 10px 0;}     
+.content-form form 
+.section2 input                 { width: auto; height: auto;float: left;} 
+.content-form form 
+.section2 .field a              { color: #000000; float: left; font-size: 12px; line-height: 13px;  width: auto;margin-left: 7px;}
+.content-form form .buttons     { clear: both;  margin: 56px 0 0 182px; overflow: hidden;}
+.buttons .button_form           { background:#FFFFFF url("../img/icon_button.png") no-repeat right center;  border: 1px solid #D0D1D2; color: #D2404D; display: inline-block;
+                                  float: left;  font-size: 12px;  line-height: 17px;  margin: 0 15px 0 0;    padding:3px 19px 3px 8px; cursor: pointer;}
+.content-form form 
+.section2 .field                { padding: 15px 0; margin-top: -40px;}
+
+.page-registro 
+.right-box                      { width: 440px;margin-top: 225px;}
+.page-registro 
+.right-box .box_date            { border-left:2px dotted #B3B5B6; float: left;  margin-left: 25px;  padding-left: 5px;  width: 187px;}
+.page-registro 
+.right-box .box_date h2         { color: #DF2127; font-family: Arial; font-size: 27px; font-weight: bold; padding-bottom: 0;}
+.page-registro 
+.right-box .box_date h3         { padding: 0;}
+.page-registro 
+.right-box .box_date h3 strong  { color: #686C6E; float: left; font-size: 20px; font-weight: bold;}
+.page-registro 
+.right-box .box_date h3 span    { color: #C3C4C5;  font-size: 40px; float: left;}
+.page-registro 
+.right-box .box_date h3 b       { color: #686C6E; float: left; font-size: 20px;}
+div#step_2,div#step_3           { display: none;}
+#step_3 h3,#step_3 h4           { color: #DC0102; font-family: Arial;  font-size: 18px;}
+#step_3 h4,#step_3 h4 span      { font-size: 13px;  font-weight: bold;}
+#step_2 .section1               { min-height: 106px;}
+#step_3 .section1               { min-height: 105px;}
+#step_2 .section p.first        { margin-top: -60px;}
+#step_2 .buttons                { margin-top:30px;}
+#step_2 .group_radios           { margin: 0 auto; overflow: hidden; width: 180px;}
+.content-form form 
+.section2 .group_radios .field  { float: left; margin: 0 10px; padding: 0 0 15px;}
+
+.text_home p                    { font-size: 12px; color:#666; margin-bottom: 15px; text-align: justify;}
+.text_home p strong             { font-weight: bold; color:#666}
+.page-registro  
+.content-lef.text_home          { width: 460px; padding-left: 15px;}
+.content_bottom                 { clear: both;}
+.firm_digital                   { width: 260px; float: left;}
+.firm_digital h4                { }
+.firm_digital h4 span           { font-size: 12px; color:#666; font-weight: bold;}
+.firm_digital h4 strong         { font-size: 12px; color:#666; font-style: italic; clear: both;}
+.sponsors                       { float: right;}
+.sponsors h4                    { border-bottom: 1px solid #EBEBEC; color: #666666; font-size: 12px; margin-bottom: 15px; padding-bottom: 6px; text-align: right;  margin-left: 25px;}
+.sponsors a                     { display:block; font-size:0; text-indent: -1000px; background:url("../img/sponsor_logos.png") no-repeat 0 0; float:left; margin-left: 25px;}
+.sponsors .sponsor1             { width: 176px; height:30px; background-position:0 -9px;}
+.sponsors .sponsor2             { width: 110px; height:35px; background-position:-204px -6px;}
+.sponsors .sponsor3             { width: 185px; height:45px; background-position: -343px -4px;}
+.button_register                { display: block; background:url("../img/button_register.png") no-repeat 0 0; clear: both; display: block;
+                                  float: left; overflow: hidden;  padding: 6px 16px 20px;}
+.button_register span           { color: #FFF; font-family: Arial;  font-size: 30px;  font-weight: bold; float: left;}
+.button_register strong         { clear: both; color: #FFFFFF; float: left; font-size:9px;margin-top: 5px;}
+.section_register               {  border-top: 1px solid #EBEBEC; clear: both; float: left; margin-top: 40px;  padding: 15px 95px 0; width: 245px;}
+#step_1 .section1 
+.field.required h3 span         { color:#fe2525}
+.field.required label span,
+.field.required p span          { color:#fe2525}
+.content-form form 
+.section2 .group_radios .field a{ color: #C30012;  text-decoration: none;}
+.content-form form 
+.section p strong               { font-weight: bold; }
+.content-form form 
+.section p a                    { color:#000;}
+
+/*PAGE FORM REGISTER 2*/
+.content-form.form_register2                 { width: 100%; background: url("../img/top2_form.png") no-repeat scroll center top transparent;}
+.content-form.form_register2 .bottom         { background: url("../img/bottom2_form.png") no-repeat scroll center bottom transparent;}
+.content-form.form_register2 .section        { background: transparent url("../img/bg2_form.png") repeat-y scroll center 0;padding: 15px 64px; width: 858px; overflow: hidden;}
+.content-form.form_register2 .section1       { min-height: 70px;  padding: 50px 65px 0;}
+.content-form.form_register2 .section h3     { background: url("../img/border2_section_form.png") no-repeat 0 0 transparent;display: block; float: left; width: 100%;}
+.content-form.form_register2 .field input    { background: url("../img/bg2_input.png") no-repeat scroll 0 center transparent;width: 180px;}
+.content-form.form_register2 .field2 input   { background: url("../img/bg2_input2.png") no-repeat scroll 0 center transparent;width: 160px;}
+.content-form.form_register2 
+.data_personal .field.select                 { width: 100%;} 
+.content-form.form_register2 .field          { float: left;margin-right: 10px;}
+.content-form.form_register2 .field label    { width: 70px;}
+.content-form.form_register2 .field2 label   { width: 89px;}   
+.content-form.form_register2 
+.select_area label,
+.content-form.form_register2 
+.select_cargo label                             { width: 35px;}
+.content-form.form_register2 
+.select_area select,
+.content-form.form_register2 
+.select_cargo select                            { width: 225px;}
+.content-form.form_register2 .select_via select { width: 127px;  margin-top:2px;}
+.content-form.form_register2 .field_direccion input { background: url("../img/bg3_input.png") no-repeat scroll 0 center transparent;width: 530px;}
+.content-form.form_register2 .field_poblacion       { clear: both;}
+.content-form.form_register2 .field_poblacion input { background: url("../img/bg4_input.png") no-repeat scroll 0 center transparent;width: 235px;}
+.content-form.form_register2 .field.select_provincia select {  margin-right: 15px;  margin-top: 2px; width: 176px;}
+.content-form.form_register2 .field_cp input { background: url("../img/bg_input2.png") no-repeat scroll 0 center transparent;width: 125px;}
+.content-form.form_register2 .section2              {min-height: 96px;  padding-top: 0;}
+.content-form.form_register2 .section2 .buttons     { margin-left: 20px;}
+.content-form.form_register2 .field.group_radios label {width: auto;margin-right: 15px;font-weight: bold;}
+.content-form.form_register2 .field.group_radios input { height: auto; width: auto;}
+.content-form.form_register2 .field.group_radios       { margin: 0 0 15px;} 
+.content-form.form_register2 .field a                  { color: #000000;  font-family: Arial; font-size: 11px;} 
+#text_privacy                                          { width: 800px; padding: 20px;}
+#text_privacy h2                                       { font-family: Arial; font-size: 12px; font-weight: bold; color:#000; } 
+#text_privacy p                                        { color: #000000;  font-family: Arial; font-size: 11px; margin: 15px 0;} 
+.content-form.form_register2 #step_2 h3,#step_2 h4     { color: #DC0102; font-family: Arial;  font-size: 18px;}
+.content-form.form_register2 #step_2 .section1         { min-height: 70px;}
+.content-form.form_register2 #step_2 h3                { background: none;}
+.content-form.form_register2 #step_2 .section2         { min-height: 152px;}
+.page-registro h2.subtitle                             {   margin-left:45px;  width: 500px;}
+.content-form.form_register2 .section.data_city,
+.content-form.form_register2 .section.data_personal { padding-top: 0;}
+.content-form.form_register2 .section.data_city h3 { background: none;}
+
+/*PAGE PROGRAMA*/
+.table_programa             { border-bottom: 1px solid #dfdfdf; width: 485px;margin-top: 25px;}
+.table_programa li          { border: 1px solid #dfdfdf; border-bottom: none; margin: 0; }
+.table_programa li span     { border-right:1px solid #DFDFDF; color: #343D41; display:inline-block; font-family:Arial; font-size:12px; padding:10px; text-align:center; width:90px;}
+.table_programa li p        { color: #343d41; font-family: Arial; font-size:12px; display: inline-block; margin: 0; padding: 5px 8px;}
+.table_programa li p b      { font-weight: bold;}
+.table_programa li.pair span,
+.table_programa li.pair_wor { background: #efefef;}
+.page-registro .programa h2 { letter-spacing: -2px;margin-left: 0; padding-bottom: 0;}
+.page-registro .programa h3 { color: #000; font-family: Arial; font-size:26px; font-weight: bold; line-height: 40px; padding-top: 0;}
+.programa h3 span           { color:#de1213; font-weight: bold; }
+.programa .content-lef.text_home{  width: 500px;}
+.programa .right-box        { margin-top: 120px;}
+.programa .section_register { border-top: 0 none;}
+.page-registro 
+.programa .box_date h3      { line-height: 25px;} 
+.page-registro 
+.programa .box_date h3 span { font-weight: normal;} 
+.page-registro 
+.programa .box_date h2      { color:#777e80;} 
+.page-registro 
+.programa .box_date h3 b    { color:#b4b4b4}   
+.programa .content_bottom   { clear: both; float: right; margin-top: 40px;  overflow: hidden; padding-right: 15px;}
+.page-registro 
+.programa .barcelona h2     { font-size: 36px;}
+
+/*PAGE PONENTES*/
+.img_ponente    img         { border-bottom: 1px solid #d9d9d9;}
+.ponentes h2.subtitle       { margin-left: 0;}
+.ponentes h4                { font-size: 17px; font-weight: bold;padding: 10px 0;}
+.ponentes h4 span           { color:#DF2127; font-weight: bold;}
+.ponentes .content_bottom   { clear: both; float: right; margin-top: 40px;  overflow: hidden; padding-right: 15px;}
+.ponentes .section_register { border-top: 0 none;margin-top: 100px;}
+.ponentes .right-box        { margin-top: 120px;}
+.ponentes .right-box .box_date h2 { color:#777d80}
+.page-registro .ponentes .box_date h3 b { color: #B4B4B4;}
+
+/*PAGE CONTACTA*/
+.list_contact               { background:url("../img/bg_contact.png") no-repeat 0 0 transparent; display: block; margin-bottom: 20px; margin-top:25px;
+                              overflow: hidden; padding: 0 15px 8px;  width: 437px;}
+.list_contact li            { color: #666; font-size: 12px; background: url("../img/list_style.png") no-repeat 0 center transparent; padding-left:15px;margin: 10px 0;}
+.list_contact li strong     { font-weight: bold;}
+.list_contact li a          { font-weight: bold; color:#de1213; font-size: 12px; }
+.page-registro .contacto h2.subtitle       { margin-bottom: 15px; margin-left: 0;}
+.page-registro .contacto p strong          { color:#de1213;}
+.contacto .content_bottom   { clear: both; float: right; margin-top: 40px;  overflow: hidden; padding-right: 15px;}
+.contacto .section_register { border-top: 0 none;margin-top: 100px;}
+.contacto .right-box        { margin-top: 120px;}
+.contacto .right-box .box_date h2 { color:#777d80}
+.page-registro .contacto .box_date h3 b { color: #B4B4B4;}
+
+/*PAGE COMO LLEGAR*/
+.comollegar .content_bottom         { float:left; margin-right: 15px; width: 495px; clear: none;}
+.comollegar a                       { color:#666; font-size: 12px;}
+.btn_red_small                      { display: block; color:#fff; background:url("../img/btn_localizacion.png") no-repeat 0 0 transparent; font-size: 12px; 
+                                     font-weight: bold; padding: 7px 27px 7px 12px;  width: 100px; float: right;margin-top: 8px;}
+.comollegar a.btn_red_small         { color:#fff}
+
+.logo_forum                         { border-top:#ebebec 1px solid ; padding-top: 25px;}
+.photo                              { margin-top: 15px;}
+.comollegar h5                      { font-size: 20px; font-family: Arial; margin-bottom:20px;}
+.comollegar h5 span                 { color:#de1213; font-weight: bold;}
+.comollegar h5 strong               { font-size: 12px; font-weight: bold;} 
+.page-registro .comollegar h2.subtitle    {  margin-left: 0;}
+.comollegar .section_register             { border-top: 0 none; margin-bottom: 80px; margin-top: 190px;}
+.comollegar .right-box                    { margin-top: 120px;}
+.comollegar .right-box .box_date h2       { color:#777d80}
+.page-registro .comollegar .box_date h3 b { color: #B4B4B4;}
+#view_map                                 { height: 480px; padding: 5px;  width: 640px;}
+.comollegar .sponsors a                   { background: url("../img/sponsor_logos2.png") no-repeat scroll 0 0 transparent;}
+.comollegar .sponsors .sponsor1           { width:150px; height: 42px;}
+.comollegar .sponsors .sponsor2           { width:96px; height: 42px;  background-position: -175px 0;}
+.comollegar .sponsors .sponsor3           { width:157px; height: 42px;  background-position: -293px 0;}
+
+#error_message_aud                        { color: #DC0102;  font-family: Arial;   font-size: 18px;border: 2px dashed #DDDDDD; margin-top: 25px; padding: 10px;}
+
+.page-registro #flashMessage{            background: none repeat scroll 0 0 #FFFFFF;    color: #DF2127;    font-weight: bold;    left: 50%;    padding: 10px;    position: absolute;    top: 0;}
+

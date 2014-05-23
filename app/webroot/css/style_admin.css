@@ -1,0 +1,105 @@
+form fieldset .custom.required fieldset legend {
+    color:#333333;
+}
+form fieldset .select.custom .checkbox {
+    width: 100px;
+    float: left;
+    clear: none;
+}
+form fieldset input[type=checkbox] {
+    margin: 3px 8px 0 0;
+}
+.rondas form fieldset.custom,
+.recompensas form fieldset.custom{
+    border: 1px solid #444444;
+    padding: 15px;    
+}
+.rondas form fieldset.custom label{
+    font-weight: bold;
+}
+fieldset.sub_seleccion{
+    border: 1px solid #CCCCCC;
+    margin: 0 22px 22px;
+    padding: 0 22px 22px;
+}
+fieldset.sub_seleccion legend{
+    color: #000000;
+    font-weight: bold;    
+}
+fieldset.sub_seleccion span.texto{
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #EE3322;
+    font-weight: bold;
+}
+form fieldset.custom textarea {
+    margin-bottom: 30px;
+}
+form fieldset.custom .select.sistema_patrocinio {
+    margin: 0;
+}
+form fieldset.custom .select.sistema_patrocinio label{
+    display: block;
+    cursor: pointer;
+}
+form fieldset.custom .select.sistema_patrocinio span.after{
+    color: #666666;
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 9px;
+    width: 490px;
+}
+form fieldset.custom .select.sistema_patrocinio span.after_text{
+    margin-left: 10px;
+}
+form fieldset.custom .select.sistema_patrocinio .add{
+    margin:0px;
+    padding-left: 0px;
+    padding-top: 10px;
+    position: relative;
+}
+form fieldset.custom .fechahora, 
+.input.datetime.fechahora{
+    display: none;
+}
+form fieldset.custom .patrocinio fieldset {
+    border: 1px solid #444444;
+    padding: 15px;    
+}
+form fieldset.custom .patrocinio a.close {
+    float: right;
+    position: absolute;
+    right: 19px;
+    background: transparent url("fancy_close.png") repeat-x 0 0;
+    width: 30px;
+    height: 30px;
+    text-indent: -99999px;
+}
+form .input.radio.custom{
+    padding: 10px 0;
+}
+form .input.radio.custom fieldset{
+    padding: 0;
+}
+form .input.radio.custom fieldset legend{
+     border: 0 none;
+     margin: 0;
+}
+form .input.radio.custom fieldset input[type="radio"]{
+    margin-left: 0;
+}
+form fieldset.custom img {
+    margin: 0 28px;    
+}
+dd{  margin-left: 10em;
+    margin-top: -2em;
+    vertical-align: top;
+}
+dt{  font-weight: bold;
+    padding-left: 4px;
+    vertical-align: top;
+    width: 10em; }
+dd,dt { line-height: 28px; }  

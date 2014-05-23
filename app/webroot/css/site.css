@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'MicrosoftYiBaitiRegular';
+    src: url('msyi-webfont.eot');
+    src: url('msyi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('msyi-webfont.woff') format('woff'),
+         url('msyi-webfont.ttf') format('truetype'),
+         url('msyi-webfont.svg#MicrosoftYiBaitiRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html,body {margin:0px; background-color:#cccccc;}
+body { font-family: 'MicrosoftYiBaitiRegular';  font-weight: normal;    font-style: normal; border: solid 22px #cccccc; background: #fff; margin: auto; }
+
+.loading { background: url(../img/spinner.gif) center center no-repeat;  }
+
+
+#container { width: 905px; margin: auto; position: relative;  }
+#header    { height: 80px; overflow: hidden; width: 100%; background: url(../img/hr.png) bottom left repeat-x; }
+#header h1 { float: right; padding-top: 30px; font-size: 40px;}
+#header img{ float: right; padding-top: 36px; }
+
+#content           { padding-top: 50px;  position: relative; overflow: hidden; }
+#content .phothos  { width: 733px;  overflow: hidden; min-height: 600px; text-align: center; }
+#content .phothos p{ font-size: 16px; padding-top: 15px; float: left; width: 100%; text-align: left; }
+#content .phothos p#texto{ text-align: right; display: block;}
+#content .phothos .img img{ display: block;}
+#content .phothos .images { overflow: hidden; min-height: 550px; width: 100%; }
+#content .phothos .img {display: inline-block; position: relative; } 
+#content .phothos .img .bb { background: url('../img/sprite.png') 0px -35px no-repeat; width: 30%; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 43%; left: 0px; opacity:0; }
+#content .phothos .img .bb:hover { opacity:1;}
+
+#content .phothos .img .nn { background: url('../img/sprite.png') right -70px no-repeat; width: 30%; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 43%; right: 0px; opacity:0; }
+#content .phothos .img .nn:hover { opacity:1;}
+
+
+#content .phothos .images div div{ overflow: hidden; float: left; width: 33%;  }
+#content .phothos .social { text-align: left;  }
+#content .menu     { width: 173px; position: absolute; right: 0px; top: 50px; }
+#content .menu li  { text-align: right; font-size: 16px; }
+#content .menu li a,#content .menu li span{ cursor: pointer; color: #000; text-transform: none; text-decoration: none; display: block; margin-bottom: 8px;  }
+.menu li span{ font-weight: bold; }
+#content .menu li a:hover,#content .menu li span:hover{ color: #CCC ; }
+#content .menu li a.active,#content .menu li span.active{ color: #CCC ; }
+#slider {position: relative; display: none; margin-top: 20px; }
+#slider .container { width: 663px; overflow: hidden;  margin-left: 35px;}
+#slider .slide { width: 10000px; height: 66px; position: relative; }
+#slider ul {position: absolute; top: 0; left: 0;}
+#slider span.c1 { background: url('../img/sprite.png') 0px -35px no-repeat; width: 35px; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 13px; left: 0px; opacity:0.1; }
+#slider span.c2 { background: url('../img/sprite.png') 0px -70px no-repeat; width: 35px; height: 35px; position: absolute; overflow: hidden; cursor: pointer; top: 13px; left: 698px; opacity:0.1; }
+#slider span.c1:hover  { opacity:1; }
+#slider span.c2:hover  { opacity:1; }
+#slider li { float: left; }
+#slider li img { opacity: 0.7; cursor: pointer; }
+#slider li img:hover { opacity: 1; cursor: pointer; }
+#slider li img.selected{ opacity: 1; border-left: solid #CCCCCC 5px; border-right: solid #CCCCCC 5px; padding: 0 5px; }
+
+#footer { background: url("../img/hr.png") repeat-x scroll left top transparent; position: absolute; bottom: 0; right: 0; width: 100%; height: 22px; padding-top: 5px; }
+#footer p { font-size: 16px; text-align: right; }
+#footer a { color: black; text-transform: none; text-decoration: none; }

@@ -1,0 +1,12 @@
+body { font-family: Arial; }
+#main { background: url('../img/admin-login.png') no-repeat top left; width: 519px; height: 425px; margin: auto; margin-top: 100px;  color: white; padding: 72px 80px; width: 340px;}
+#main h1 { font-family: Myriad Pro; font-size: 22px; font-weight: bold; font-size: 39px; padding-bottom:8px ;  }
+#main p { font-family: Arial; font-size: 12px;  }
+form label {display: block; width: 70px; display: inline-block; text-align: right; padding-right: 10px; font-size: 13px; }
+form input[type='password'],form input[type='text'] { background-color: #1e4f8a; border: #0d2c52 1px solid; height: 35px; width: 240px; color: white; padding-left: 10px; }
+form div.input.text { padding-bottom: 13px; }
+div.submit input.btn { background: url('../img/btn-login-entrar.png') no-repeat top left; color: white; border: 0; padding: 13px 0; width: 103px; }
+div.submit { text-align: center; padding-top: 12px; }
+div.olvidado { text-align: right; padding-top: 8px;}
+div.olvidado a { color: white; font-size: 11px;}
+div.alert.alert-error { font-size: 10px; padding: 5px; }

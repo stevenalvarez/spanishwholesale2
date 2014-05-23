@@ -1,0 +1,38 @@
+html                            { background:transparent url('../img/bg_body.png') repeat 0 0;}
+body                            { background:transparent url('../img/bg_wrapper.png') repeat-x 0 90px;}
+h1,h2                           { font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;}    
+h1                              { color:#990000; font-size: 34px; line-height:46px; }
+h2                              { color:#706a6a; font-size: 18px;}
+h3                              { color:#990000; font-size: 19px; padding:25px 0 17px 0; line-height:24px;}
+
+
+
+/*LAYOUT*/
+.container                      { }
+.content-center                 { background:#fff url('../img/bg_top.png') no-repeat 0 0;}
+
+/*HEADER*/
+.container-header               { background:#FFF;}
+.header                         { background: #C20304;}
+.menu-header li a               { color:#fff; border-left: 1px solid #d44f50; border-right: 1px solid #000;}
+.menu-header li.first a         { border-left: none;}
+.menu-header li.last  a         { border-right: none;}
+.menu-header li.current ,
+.menu-header li:hover           { background: #9d0101;}
+form .field                     { }
+form .field label               { }
+form .field input               { background:transparent url('../img/bg_input.png') no-repeat 0 center;}
+form .field input.input2        { background:transparent url('../img/bg_input2.png') no-repeat 0 0;}
+
+/*FOOTER*/
+.footer                         { background: none repeat scroll 0 0 #FFFFFF;}
+.footer h2                      { background:#de1213 url('../img/logo_cruz_roja.png') no-repeat right center;}
+.footer ul li a                 { color:#cd2326}
+.footer p                       { color:#000;}
+.footer p a                     { color:#e33738}
+
+/*PAGE REGISTRO*/
+.content-form                   { background:transparent url('../img/top_form.png') no-repeat 0 0;}
+.content-form .bottom           { background:transparent url('../img/bottom_form.png') no-repeat 0 bottom;}
+.content-form form .section     { background:transparent url('../img/bg_form.png') repeat-y 0 0; }
+.content-form form .section h3  { background:transparent url('../img/border_section_form.png') no-repeat 0 0; }
