@@ -177,13 +177,13 @@ foreach($pedidos as $pedido)
                     {
                       $re=$taxx["re"];
                     }   
-                        if($_SESSION["Auth"]["Usuario"]["iva"]!='0')
+                        if($_SESSION["Auth"]["Usuario"]["iva"]=='0')
                          {
                             
                             $tax=$iva;
                             $taxtext="IVA";                            
                          }
-                        if($_SESSION["Auth"]["Usuario"]["re"]!='0')
+                        if($_SESSION["Auth"]["Usuario"]["re"]=='0')
                          {
                             $tax=$iva+$re;
                             $taxtext="IVA + RE";

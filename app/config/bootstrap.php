@@ -48,3 +48,7 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+
+/* configuraciones globales */
+Configure::write('tax', array('iva'=>'21','re'=>'5.2'));
+Configure::write('admin-email','marcosdr82@gmail.com');

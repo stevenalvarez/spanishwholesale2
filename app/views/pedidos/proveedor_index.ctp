@@ -145,6 +145,7 @@
 			<th><?php echo $this->Paginator->sort('portes');?></th>
 -->
 			<th>Base imponible</th>
+            <th>Total</th>
 		    <th>Recibo</th>
 			<th>Estado</th>
 			<th class="actions">Acciones</th>
@@ -181,6 +182,9 @@
 		<td><?php
         echo $PedidoModel->calcularTotalneto($pedido['Pedido']['id']);
         ?> &euro;</td>
+		<td style="width: 60px;"><?php
+        echo $PedidoModel->calcularTotal($pedido['Pedido']['id']);
+        ?> &euro;</td>        
     <td>
     <?php
     $prov=$PedidoModel->query("Select title from usuarios where id={$pedido['Pedido']['proveedor']}");

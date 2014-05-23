@@ -302,8 +302,3 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
-    
-    Configure::write('tax', array('iva'=>'21','re'=>'5.2'));
-    Configure::write('admin-email','marcosdr82@gmail.com');
-
- 
