@@ -18,13 +18,13 @@
         {
             var contador = 0;
             var value = "";
-            for (var i=inf;i<sup+1;i++)
+            for (var i=1;i<descripcion.length+1;i++)
             {
                 value = descripcion[contador++];
                 if(value == undefined){
                     value = "";
                 }
-                $("#tablilla").append('<div class="celda clon"><label>'+i+'</label><input id="'+i+'" name="sumadora[]['+i+']" class="sumadora validate[required,custom[integer]]" onkeyup="paresillos()" type="pares" size="3" placeholder="0" value="'+value+'" ></div>');
+                $("#tablilla").append('<div class="celda clon"><label>'+(inf++)+'</label><input id="'+i+'" name="sumadora[]['+i+']" class="sumadora validate[required,custom[integer]]" onkeyup="paresillos()" type="pares" size="3" placeholder="0" value="'+value+'" ></div>');
             }
         }
         $("form").validationEngine();

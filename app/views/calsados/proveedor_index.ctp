@@ -200,17 +200,17 @@ $tipo="par";
         </td>
         <td>
             <?php //if($surtido["tipo"]=='cajas_surtidas'){ ?>
-            <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+            <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
             <?php //} ?>
         </td>
         <td>
             <?php // if($surtido["tipo"]=='surtido_libre'){?>
-            <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+            <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
             <?php //} ?>
         </td>
         <td>
         
-        <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+        <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
         </td>
         <td>
             <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
@@ -330,11 +330,19 @@ function changee(thiss,controller,id)
        //var eliminar=confirm("Esta seguro de eliminar "+tipo);
 //       if(eliminar)
 //       {
-            
-            $(thiss).css('background-color','red');
-            $.ajax({type:"post",url:"<?php echo $this->webroot?>proveedor/calsados/ajaxedit/"+id,
-            data:"val="+$(thiss).val()+"&controller="+controller+"&name="+$(thiss).attr('name'),
-            dataType:"text",context: thiss}).done(function(msg) {eval(msg);  $(thiss).css('background-color','#CCF179');});
+            $(thiss).css('background-color','white');
+            var value = $(thiss).val();
+            var descripcion = value.split("-");
+            if (/^([0-9])*$/.test(parseInt(descripcion[descripcion.length - 1]))){
+                $(thiss).css('background-color','red');
+                $.ajax({type:"post",url:"<?php echo $this->webroot?>proveedor/calsados/ajaxedit/"+id,
+                data:"val="+$(thiss).val()+"&controller="+controller+"&name="+$(thiss).attr('name'),
+                dataType:"text",context: thiss}).done(function(msg) {eval(msg);  $(thiss).css('background-color','#CCF179');});
+            }else{
+                alert("Ingrese solo numero enteros");
+                $(thiss).val(value.split("-").slice(0,-1).join("-"));
+            }
+
        //}
        });
 }

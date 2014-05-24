@@ -526,8 +526,12 @@ table.model td
             $(thiss).parent("div").parent("td").children("div").children("input").each(function()
             {
                 var x=$(this).val();
-                unidades=unidades+x*1;
-                
+                if (/^([0-9])*$/.test(x)){
+                    unidades=unidades+x*1;
+                }else{
+                    alert("Solo se permiten numero");
+                    $(this).val(0);
+                }
             });
             
             $(thiss).parent("div").parent("td").parent("tr").children("td.pares").html(unidades);
