@@ -199,14 +199,14 @@ $tipo="par";
         al <input size="2" name="talla_sup" type="text" value="<?php echo $surtido["talla_sup"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
         </td>
         <td>
-            <?php //if($surtido["tipo"]=='cajas_surtidas'){ ?>
+            <?php if($surtido["tipo"]=='cajas_surtidas'){ ?>
             <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-            <?php //} ?>
+            <?php } ?>
         </td>
         <td>
-            <?php // if($surtido["tipo"]=='surtido_libre'){?>
+            <?php if($surtido["tipo"]=='surtido_libre'){?>
             <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-            <?php //} ?>
+            <?php } ?>
         </td>
         <td>
         

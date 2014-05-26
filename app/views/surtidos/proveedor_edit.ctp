@@ -2,10 +2,21 @@
 <script src="<?php echo $this->webroot?>js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo $this->webroot?>js/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    function haceralgo(){
-        var descripcion = '<?php echo $this->data['Surtido']['descripcion'];?>';
+    function haceralgo(thiss){
+        var descripcion = '';
+        if($(thiss).val() != undefined){
+            var value = $(thiss).val();
+            descripcion = value.split("-");
+            if (/^([0-9])*$/.test(parseInt(descripcion[descripcion.length - 1]))){
+            }else if(descripcion[descripcion.length - 1] != ""){
+                alert("Ingrese solo numero enteros");
+                delete descripcion[descripcion.length - 1];
+            }
+        }else{
+            descripcion = '<?php echo $this->data['Surtido']['descripcion'];?>';
+            descripcion = descripcion.split("-");
+        }
         var tipo = '<?php echo $this->data['Surtido']['tipo'];?>';
-        descripcion = descripcion.split("-");
         var sup=$("#SurtidoTallaSup").val();
         sup=sup*1;
         
@@ -49,7 +60,7 @@
 </script>
 <script>jQuery(document).ready(function(){
         jQuery("form").validationEngine();
-        haceralgo();
+        haceralgo("");
     });
 </script>
 <style>
@@ -75,8 +86,8 @@
 <?php echo $this->Form->create('Surtido');?>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('talla_inf',array('label'=>'Talla Inferior*','class'=>'validate[required,custom[integer]]', 'onkeyup'=>'haceralgo()'));
-		echo $this->Form->input('talla_sup',array('label'=>'Talla Superior*','class'=>'validate[required,custom[integer]]', 'onkeyup'=>'haceralgo()'));
+		echo $this->Form->input('talla_inf',array('label'=>'Talla Inferior*','class'=>'validate[required,custom[integer]]', 'onkeyup'=>'haceralgo("")'));
+		echo $this->Form->input('talla_sup',array('label'=>'Talla Superior*','class'=>'validate[required,custom[integer]]', 'onkeyup'=>'haceralgo("")'));
         
         if($this->data["Surtido"]["tipo"]!='surtido_libre'){ ?>
             <div id="tablilla">
@@ -87,7 +98,7 @@
             
             </div>
         <?php            
-            echo $this->Form->input('descripcion',array('label'=>'Descripci&oacute;n*', 'readonly'=>'readonly'));
+            echo $this->Form->input('descripcion',array('label'=>'Descripci&oacute;n*', 'onkeyup'=>'haceralgo(this)'));
             echo $this->Form->input('pares',array('label'=>'Pares*','class'=>'validate[required,custom[integer]]'));
         }
         else{
