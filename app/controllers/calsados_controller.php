@@ -31,9 +31,7 @@ class CalsadosController extends AppController {
     function ___returncalsados()
     {   
 
-      $sql="select * from `calsados` as Calsado, `surtidos` as Surtido, fotos as Foto, `usuarios` as Usuario
-where Calsado.`dele`<>1 and Calsado.`activado`=1 and Calsado.id = Surtido.`calsado_id` and 
-Calsado.id = Foto.`calsado_id` and Calsado.`usuario_id`=Usuario.id and Usuario.`estado`=1";
+      $sql="select * from `calsados` as Calsado, `surtidos` as Surtido, `usuarios` as Usuario where Calsado.`dele`<>1 and Calsado.`activado`=1 and Calsado.id = Surtido.`calsado_id` and Calsado.`usuario_id`=Usuario.id and Usuario.`estado`=1";
         
         if(isset($_GET["brand"]) && $_GET["brand"])// marcars
         {
@@ -94,8 +92,12 @@ Calsado.id = Foto.`calsado_id` and Calsado.`usuario_id`=Usuario.id and Usuario.`
          $sql.=" and Surtido.talla_inf <='$sizeme'"; 
        }
        
-       $sql.=" group by Foto.id order by Surtido.id desc";
+       $sql.=" order by Surtido.id desc";
        $calsados= $this->Calsado->query($sql);
+       
+       echo "<pre>";
+       print_r($calsados);
+       exit();
 
        
       if(isset($_GET["tag"]))// filtro de tags 
