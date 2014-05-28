@@ -1,42 +1,8 @@
+<link href="<?php echo $this->webroot?>css/validationEngine.jquery.css" type="text/css" rel="stylesheet"/>
+<script src="<?php echo $this->webroot?>js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?php echo $this->webroot?>js/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
+<script>jQuery(document).ready(function(){jQuery("form").validationEngine();});</script>
 
-<?php 
-if( isset($_SESSION["ok"]) && $_SESSION["ok"])
-{ ?>
-<script>
-alert("<?php ___(utf8_encode("Este articulo ha sido añadido al pedido correctamente, cuando termine la compra vaya a Mis Pedidos para cursar su pedido. Gracias"))?>");
-</script>
-<?php
-unset($_SESSION["ok"]);
-}
-else if(isset($_SESSION["ok"]))
-{ ?>
-<script>
-alert("<?php ___(utf8_encode("Error"))?>");
-</script>
-<?php
-unset($_SESSION["ok"]);
-}
-?>
-
-<?php 
-if( isset($_SESSION["errror"]) && $_SESSION["errror"]==2 )
-{ ?>
-<script>
-alert("<?php ___("El minimo de pares para este surtido son "); echo $_SESSION["errror_min"]?>");
-</script>
-<?php
-unset($_SESSION["errror"]);
-}
-
-if( isset($_SESSION["errror"]))
-{ ?>
-<script>
-alert("<?php ___("Faltan datos en su pedido")?>");
-</script>
-<?php
-unset($_SESSION["errror"]);
-}
-?>
 <div class="container">
     <!--Shop product info-->
 	<div class="span-24 product-info last">	
@@ -313,7 +279,7 @@ unset($_SESSION["errror"]);
                       $colspan=$surtido["talla_sup"]-$surtido["talla_inf"];
                         
                 ?>
-                <form action="<?php echo $this->webroot?>cliente/pedidos/check" method="post">
+                <form class="check" action="<?php echo $this->webroot?>cliente/pedidos/check" method="post">
                 <input type="hidden" name="surtido" value="<?php echo $surtido["id"]?>"/>
                 <table style="width: 100%;">
                 <thead>
@@ -392,7 +358,7 @@ for($i=$surtido["talla_inf"];$i<$surtido["talla_sup"]+1;$i++)
                         
                       $colspan=$surtido["talla_sup"]-$surtido["talla_inf"];
                 ?>
-                <form action="<?php echo $this->webroot?>cliente/pedidos/check" method="post">
+                <form class="check" action="<?php echo $this->webroot?>cliente/pedidos/check" method="post">
                 <input type="hidden" name="surtido" value="<?php echo $surtido["id"]?>"/>                
                 <table style="width: 100%;">
                 <thead>
@@ -456,7 +422,7 @@ for($i=$surtido["talla_inf"];$i<$surtido["talla_sup"]+1;$i++)
                                 <input type="hidden" value="<?php echo number_format($surtido['pares']*$p,2,".","") ?>"/>
                                 </td>
                                 <td>
-                                    <input onkeyup="calcular2(this)" type="text" size="2" id="total" style="width: 20px;" name="cajas"/>
+                                    <input class="validate[required,custom[integer]]" onkeyup="calcular2(this)" type="text" size="2" id="total" style="width: 20px;" name="cajas"/>
                                 </td>
                                 <td class="total">&nbsp;</td>
                                 <td>
@@ -620,7 +586,27 @@ table.model td
         
     });
     
-    
-</script>
- 
-    
+    $(function(){
+        $("form.check").submit(function(){
+            var form = $(this);
+            if(form.validationEngine("validate")){
+                $.ajax({
+                    type: "POST",
+                    url: form.attr("action"),
+                    data: form.serialize(),
+                    success: function(msg){
+                        form.find("tbody").css({opacity:"1",background:"#fff"});
+                        msg = $.parseJSON(msg);
+                        $(".price span.totalp").html(msg.pedidos).parent().show();
+                        alert(msg.mensaje);
+                    },
+                    beforeSend :function(){
+                        form.find("tbody").css({opacity:"0.5",background:"#eee"});
+                    }
+                });
+            }
+            
+            return false;
+        });
+    })
+</script>   

@@ -195,10 +195,7 @@ $desc=$desc."SpanishWholesale.com";
             </div>
             <div class="login plomo">
             	<a href="<?php echo $this->webroot?>cliente/pedidos/canasta"><?php ___("Mis pedidos")?></a>
-                 <?php
-                 if(isset($pedidos) && sizeof($pedidos))
-                 {?>/<span class="price"><?php echo sizeof($pedidos) ?> <?php ___("pedidos")?></span>
-                 <?php }?>
+                <span class="price" style="display: <?php echo isset($pedidos) && sizeof($pedidos) ? "inline-block":"none"?>">/<span class="totalp"><?php echo sizeof($pedidos) ?></span> <?php ___("pedidos")?></span>
             </div>          
             <?php }
             if( isset($_SESSION["Auth"]["Usuario"]["rol"]) && $_SESSION["Auth"]["Usuario"]["rol"]=='proveedor')

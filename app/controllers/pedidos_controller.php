@@ -19,14 +19,20 @@ class PedidosController extends AppController {
     
     function cliente_check()
     {
-        if(ctype_digit($_POST["surtido"]))
+        $error = false;
+        //borramos los datos de la variables        
+        unset($_SESSION["ok"]);
+        unset($_SESSION["errror"]);
+        unset($_SESSION["error"]);        
+                                
+        if(isset($_POST) && !empty($_POST) && ctype_digit($_POST["surtido"]))
         {
           $this->loadModel("Surtido");
           $Surtido=$this->Surtido->findById($_POST["surtido"]);
           if(!$Surtido)
           {
             $_SESSION["error"]=1;
-            header("location:".$_SERVER["HTTP_REFERER"]);exit();
+            $error = true;
           }
           
           $this->loadModel("Calsado");
@@ -44,7 +50,7 @@ class PedidosController extends AppController {
             if(!$esmifoto) // si no es mi foto
             {
                 $_SESSION["error"]=1;
-                header("location:".$_SERVER["HTTP_REFERER"]);exit();
+                $error = true;
             }
           
             if($Surtido["Surtido"]["tipo"]=='cajas_surtidas')
@@ -56,7 +62,8 @@ class PedidosController extends AppController {
                 {$pares=$v;}
                 else
                 {$_SESSION["errror"]=1;
-                header("location:".$_SERVER["HTTP_REFERER"]);exit();}
+                $error = true;
+                }
                 $especificacion=array();                 
                 $detalle=explode("-",$Surtido["Surtido"]["descripcion"]);
                 $ie=0;
@@ -87,13 +94,13 @@ class PedidosController extends AppController {
                     {
                         $_SESSION["errror"]=2;
                         $_SESSION["errror_min"]=$Surtido["Surtido"]["pares"];
-                        header("location:".$_SERVER["HTTP_REFERER"]);exit();
+                        $error = true;
                     }
                              
                     if(!$tallasvalida) // si esta vacio
                     {
                         $_SESSION["errror"]=1;
-                        header("location:".$_SERVER["HTTP_REFERER"]);exit();
+                        $error = true;
                     }
                     $bultos=ceil($pares/12);                    
                 }  
@@ -106,66 +113,92 @@ class PedidosController extends AppController {
                 else
                 {
                     $p=$Surtido["Surtido"]["precio_sur"];
-                } 
-                           
-                $p=$p + $p*$Calsad["Usuario"]["comision"]/100;                  
-                $this->loadModel("Pedido");
-                $this->Pedido->recursive=-1;
-                $pedido = $this->Pedido->find('first',array('conditions'=>array(
-                'confirmado'=>0,
-                'usuario_id'=>$this->Auth->user("id"),
-                'proveedor'=>$Calsad["Usuario"]["id"])));
+                }
                 
-                $taxx=Configure::read('tax'); $iva=0; $re=0;
-                $iva=$taxx["iva"];
-                $re=$taxx["re"];
-                                
-                if($pedido)
+                //si no hay error recion hace esto
+                if($error == false)
                 {
-                    $pedido_id=$pedido["Pedido"]["id"];
-                }
-                else
-                {
-                    $pedido=array();  
-                    $this->Pedido->create();
-                    $pedido["usuario_id"]=$this->Auth->user("id");
-                    $pedido["confirmado"]=0;                
-                    $pedido["re"]= $this->Auth->user("re")?1:0;
-                    $pedido["iva"]= $this->Auth->user("iva")?1:0;
+                    $p=$p + $p*$Calsad["Usuario"]["comision"]/100;                  
+                    $this->loadModel("Pedido");
+                    $this->Pedido->recursive=-1;
+                    $pedido = $this->Pedido->find('first',array('conditions'=>array(
+                    'confirmado'=>0,
+                    'usuario_id'=>$this->Auth->user("id"),
+                    'proveedor'=>$Calsad["Usuario"]["id"])));
                     
-                    $pedido["resave"]= $this->Auth->user("re")?$re:0;
-                    $pedido["ivasave"]= $this->Auth->user("iva")?$iva:0;
-                    
-                    $pedido["tim"]=DboSource::expression('NOW()');
-                    $pedido["proveedor"]=$Calsad["Usuario"]["id"];                
-                    $this->Pedido->save($pedido);
-                    $pedido_id = $this->Pedido->id;                
-                }                
-                $this->loadModel("Articulo");
-                $this->Articulo->create();                
-                $articulo["talla_inf"]=$Surtido["Surtido"]["talla_inf"];
-                $articulo["talla_sup"]=$Surtido["Surtido"]["talla_sup"];                
-                $articulo["comision"]=$Calsad["Usuario"]["comision"];
-                $articulo["surtido_id"]=$Surtido["Surtido"]["id"];                   
-                $articulo["pedido_id"]=$pedido_id;             
-                $articulo["foto_id"]=$_POST["color"];
-                $articulo["tipo"]=$Surtido["Surtido"]["tipo"];
-                $articulo["especificacion"]= json_encode($especificacion);              
-                $articulo["proveedor"]=$Calsad["Usuario"]["id"];                      
-                $articulo["cliente"]=$this->Auth->user('id');
-                $articulo["precio_unitario"]=$p;
-                $articulo["unidades"]=$pares;
-                $articulo["bultos"]=$bultos;
-                $articulo["tim"]=DboSource::expression('NOW()');                
-                if($this->Articulo->save($articulo))
-                {
-                    $this->Articulo->saveField('serializado',serialize($articulo));
-                    $_SESSION["ok"]=1;
+                    $taxx=Configure::read('tax'); $iva=0; $re=0;
+                    $iva=$taxx["iva"];
+                    $re=$taxx["re"];
+                                    
+                    if($pedido)
+                    {
+                        $pedido_id=$pedido["Pedido"]["id"];
+                    }
+                    else
+                    {
+                        $pedido=array();  
+                        $this->Pedido->create();
+                        $pedido["usuario_id"]=$this->Auth->user("id");
+                        $pedido["confirmado"]=0;                
+                        $pedido["re"]= $this->Auth->user("re")?1:0;
+                        $pedido["iva"]= $this->Auth->user("iva")?1:0;
+                        
+                        $pedido["resave"]= $this->Auth->user("re")?$re:0;
+                        $pedido["ivasave"]= $this->Auth->user("iva")?$iva:0;
+                        
+                        $pedido["tim"]=DboSource::expression('NOW()');
+                        $pedido["proveedor"]=$Calsad["Usuario"]["id"];                
+                        $this->Pedido->save($pedido);
+                        $pedido_id = $this->Pedido->id;                
+                    }                
+                    $this->loadModel("Articulo");
+                    $this->Articulo->create();                
+                    $articulo["talla_inf"]=$Surtido["Surtido"]["talla_inf"];
+                    $articulo["talla_sup"]=$Surtido["Surtido"]["talla_sup"];                
+                    $articulo["comision"]=$Calsad["Usuario"]["comision"];
+                    $articulo["surtido_id"]=$Surtido["Surtido"]["id"];                   
+                    $articulo["pedido_id"]=$pedido_id;             
+                    $articulo["foto_id"]=$_POST["color"];
+                    $articulo["tipo"]=$Surtido["Surtido"]["tipo"];
+                    $articulo["especificacion"]= json_encode($especificacion);              
+                    $articulo["proveedor"]=$Calsad["Usuario"]["id"];                      
+                    $articulo["cliente"]=$this->Auth->user('id');
+                    $articulo["precio_unitario"]=$p;
+                    $articulo["unidades"]=$pares;
+                    $articulo["bultos"]=$bultos;
+                    $articulo["tim"]=DboSource::expression('NOW()');                
+                    if($this->Articulo->save($articulo))
+                    {
+                        $this->Articulo->saveField('serializado',serialize($articulo));
+                        $_SESSION["ok"]=1;
+                    }
+                    else{
+                        $_SESSION["ok"]=0;
+                    }
+                } 
+                
+                //controlamos todos los casos
+                $mensaje = "";
+                
+                if( isset($_SESSION["ok"]) && $_SESSION["ok"]){
+                    $mensaje = ___(utf8_encode("Este articulo ha sido añadido al pedido correctamente, cuando termine la compra vaya a Mis Pedidos para cursar su pedido. Gracias"),true);
+                }else if(isset($_SESSION["ok"])){
+                    $mensaje = ___(utf8_encode("Error"),true);
+                }else if( isset($_SESSION["errror"]) && $_SESSION["errror"]==2 ){
+                    $mensaje = ___("El minimo de pares para este surtido son ",true) . " " .$_SESSION["errror_min"];
+                }else if( isset($_SESSION["errror"])){
+                    $mensaje = ___("Faltan datos en su pedido",true);
                 }
-                else
-                $_SESSION["ok"]=0;
-      }  
-         header("location:".$_SERVER["HTTP_REFERER"]);exit();
+                
+                $pedidos = $this->Pedido->query("select count(*) total from pedidos where confirmado=0 and usuario_id=".$this->Auth->user("id"));
+                
+                echo json_encode(array("mensaje" => $mensaje,"pedidos" => $pedidos[0][0]['total']));
+                exit();
+                
+      }else{
+        echo "<script>window.location.href='".header("location:".$_SERVER["HTTP_REFERER"])."'</script>";
+        exit();
+      }
     }
     
     function cliente_plus($id)
