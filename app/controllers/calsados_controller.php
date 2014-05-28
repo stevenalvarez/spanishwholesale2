@@ -31,7 +31,13 @@ class CalsadosController extends AppController {
     function ___returncalsados()
     {   
 
-      $sql="select * from `calsados` as Calsado, `surtidos` as Surtido, `usuarios` as Usuario where Calsado.`dele`<>1 and Calsado.`activado`=1 and Calsado.id = Surtido.`calsado_id` and Calsado.`usuario_id`=Usuario.id and Usuario.`estado`=1";
+      $sql="SELECT * 
+            FROM `calsados` as Calsado, `surtidos` as Surtido, `usuarios` as Usuario 
+            WHERE Calsado.`dele`<>1 
+            AND Calsado.`activado`=1 
+            AND Calsado.id = Surtido.`calsado_id` 
+            AND Calsado.`usuario_id`=Usuario.id 
+            AND Usuario.`estado`=1";
         
         if(isset($_GET["brand"]) && $_GET["brand"])// marcars
         {
@@ -92,14 +98,18 @@ class CalsadosController extends AppController {
          $sql.=" and Surtido.talla_inf <='$sizeme'"; 
        }
        
-       $sql.=" order by Surtido.id desc";
+       $sql.=" group by Calsado.id order by Surtido.id desc";
        $calsados= $this->Calsado->query($sql);
        
-       echo "<pre>";
-       print_r($calsados);
-       exit();
-
-       
+        //recuperamos las fotos
+        if(!empty($calsados)){
+            foreach($calsados as $key => $calsado){
+                $query = "select * from fotos as Foto where Foto.calsado_id = '{$calsado['Calsado']['id']}'"; 
+                $foto = $this->Calsado->query($query);
+                $calsados[$key]['Foto'] = current(current($foto));
+            }
+        }
+                
       if(isset($_GET["tag"]))// filtro de tags 
        {
         foreach($calsados as $k=>$v)

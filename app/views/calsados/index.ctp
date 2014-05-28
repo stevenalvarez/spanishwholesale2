@@ -538,10 +538,16 @@ if (sizeof($calsados)>0){
             }
             
 
-
+            //sacamos solo lo items requeridos
+            if(isset($_GET["n"]))
+            $n=$_GET["n"];
+            else
+            $n=15;
+            
+            $output = array_slice($calsados, 0, $n); 
 
                                     
-          foreach($calsados as $calsado)
+          foreach($output as $calsado)
            {
             $foto=$calsado["Foto"];
             /*reviso que tenga proveedor*/
