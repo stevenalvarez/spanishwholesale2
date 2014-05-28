@@ -440,7 +440,7 @@ $style='width: 700px;';
         ?>
         <div class="thumb" style="text-align: center; padding-bottom: 10px;">
         <h2 style="font-family: YanoneKaffeesatzBold;"><?php ___("Proveedor:")?> <?php echo $res["title"]?></h2>
-            <img style="max-width: 200px; max-height: 250px;" src="<?php echo $this->webroot?>img/prov/<?php echo $res["img"]?>" /> 
+            <img style="max-width: 150px; max-height: 65px;" src="<?php echo $this->webroot?>img/prov/<?php echo $res["img"]?>" /> 
             
             
                    
