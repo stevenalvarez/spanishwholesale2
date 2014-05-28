@@ -191,7 +191,7 @@ $desc=$desc."SpanishWholesale.com";
             <?php ___("Hola")?>	<?php echo $_SESSION["Auth"]["Usuario"]["title"]?> | <a href="<?php echo $this->webroot?>cliente/usuarios/logout">Log Out</a>
             </div>       
             <div class="login plomo">
-            	<a href="<?php echo $this->webroot?>cliente/usuarios/micuenta"><?php ___("Mi Cuenta")?></a>
+            	<a class="ncos" href="<?php echo $this->webroot?>cliente/usuarios/micuenta"><?php ___("Mi Cuenta")?></a>
             </div>
             <div class="login plomo">
             	<a href="<?php echo $this->webroot?>cliente/pedidos/canasta"><?php ___("Mis pedidos")?></a>
@@ -222,7 +222,7 @@ $desc=$desc."SpanishWholesale.com";
             	<a class="ncos" href="<?php echo $this->webroot?>cliente/usuarios/add"><?php ___(utf8_encode("Regístrate"))?></a>
             </div>            
             <div class="login plomo">
-            	<a onclick="$('#login_area').fadeIn()" href="javascript:void(0)"><?php ___(utf8_encode("Acceder"))?></a>
+            	<a class="singin" onclick="$('#login_area').fadeIn()" href="javascript:void(0)"><?php ___(utf8_encode("Acceder"))?></a>
             </div>
 
             <?php }?>
