@@ -70,9 +70,11 @@
         </tr>
         <tr>
             <td colspan="2">
+            <!--
                  <input type="checkbox" class="validate[required]" id="chebox" name="checbok" /> <label class="leido">
                  <?php ___("He le&iacute;do las")?>
-                  <a href="<?php echo $this->webroot?>pages/terminos<?php echo  (isset($_SESSION["cake_lang"])&&$_SESSION["cake_lang"]=='eng')?'_eng':'_esp'; ?>"><?php ___("condiciones")?></a>  <?php ___("y acepto el env&iacute;o de mis datos")?> </label>
+                 <a href="<?php echo $this->webroot?>pages/terminos<?php echo  (isset($_SESSION["cake_lang"])&&$_SESSION["cake_lang"]=='eng')?'_eng':'_esp'; ?>"><?php ___("condiciones")?></a>  <?php ___("y acepto el env&iacute;o de mis datos")?> </label>
+            -->
             </td>
             
             <td colspan="2">
