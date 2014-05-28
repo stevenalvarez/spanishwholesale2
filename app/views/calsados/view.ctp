@@ -44,28 +44,30 @@ unset($_SESSION["errror"]);
         <?php
         $optcolores='';
         $n=1; 
-        $after_echo='';          
+        $after_echo='';
+        $this->passedArgs["2"] = $this->passedArgs["2"] != "" ? $this->passedArgs["2"] : "random";
         foreach($calsado["Foto"] as $key => $colorz ){
-            $t=$colorz["title"]?$colorz["title"]:___("Foto",true)." ".$n;             
+            $t=trim($colorz["title"]) != ""?$colorz["title"]:___("Foto",true)." ".$n;
+            $tc = str_replace(" ","",$t);
             if($this->passedArgs["2"]==$colorz["title"] || sizeof($calsado)==1 || ($this->passedArgs["2"] == "random" && $key=="0"))
             {?>
             <div class="span-7 visual lupa">
-            	<a title="<?php $colorz["title"]?>" class="view" href="<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>" rel="<?php echo $colorz["title"].$calsado["Calsado"]["id"].$colorz["title"]?>">
-                    <img id="fotoprincipal" lang="<?php echo $colorz["title"]?>" src="<?php echo $this->webroot?>img/Foto/max/<?php echo $colorz["url"] ?>" width="270" alt="<?php ___($colorz["title"]) ?>" />
+            	<a title="<?php echo $t?>" class="view" href="<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>" rel="<?php echo $t.$calsado["Calsado"]["id"].$t?>">
+                    <img id="fotoprincipal" lang="<?php echo $tc?>" src="<?php echo $this->webroot?>img/Foto/max/<?php echo $colorz["url"] ?>" width="270" alt="<?php echo $t ?>" />
                 </a>
             </div>
             
-            <div class='visual thumbnail <?php echo $this->passedArgs["2"]==$colorz["title"] || ($this->passedArgs["2"] == "random" && $key=="0") ? "activo" : ""; ?>' style='height: 95px; width: 125px; margin: 4px; overflow: hidden; float: left'>
-            	<a title='<?php $colorz["title"]?>' lang="<?php echo $colorz["url"]?>" onclick='cambiarfoto2(this);return false;' class='<?php echo $colorz["title"]?>' href='<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>'>
-                    <img lang='<?php echo $colorz["title"]?>' src='<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>' width='132' alt='<?php ___($colorz["title"]) ?>'/>
+            <div class='visual thumbnail <?php echo $this->passedArgs["2"]==$t || ($this->passedArgs["2"] == "random" && $key=="0") ? "activo" : ""; ?>' style='height: 95px; width: 125px; margin: 4px; overflow: hidden; float: left'>
+            	<a title='<?php echo $t?>' lang="<?php echo $colorz["url"]?>" onclick='cambiarfoto2(this);return false;' class='<?php echo $tc;?>' href='<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>'>
+                    <img lang='<?php echo $tc?>' src='<?php echo $this->webroot?>img/Foto/orig/<?php echo $colorz["url"] ?>' width='132' alt='<?php echo $t ?>'/>
                 </a>
             </div>
             <?php } 
-            else{ $colorz["title"]?$colorz["title"]:___("Foto",true)." ".$n;
-            $activo = $this->passedArgs["2"]==$colorz["title"] || ($this->passedArgs["2"] == "random" && $key=="0") ? "activo" : "";
+            else{
+            $activo = $this->passedArgs["2"]==$t || ($this->passedArgs["2"] == "random" && $key=="0") ? "activo" : "";
             $after_echo.="<div class='visual thumbnail $activo' style='height: 95px; width: 125px; margin: 4px; overflow: hidden; float: left'>
-            	<a title='$t' lang='{$colorz["url"]}'  onclick='cambiarfoto2(this);return false;' class='{$colorz["title"]}' href='{$this->webroot}img/Foto/orig/{$colorz["url"]}'>
-                    <img lang='{$colorz["title"]}' src='{$this->webroot}img/Foto/orig/{$colorz["url"]}?>' width='132' alt='$t'/>
+            	<a title='$t' lang='{$colorz["url"]}'  onclick='cambiarfoto2(this);return false;' class='{$tc}' href='{$this->webroot}img/Foto/orig/{$colorz["url"]}'>
+                    <img lang='{$tc}' src='{$this->webroot}img/Foto/orig/{$colorz["url"]}?>' width='132' alt='$t'/>
                 </a>
              </div>";}       
          $optcolores.="<option value='{$colorz["id"]}'>$t</option>";
@@ -329,15 +331,19 @@ unset($_SESSION["errror"]);
                          <tr>
                                 <td>
                                    <select class="colors" name="color" onchange="cambiarfoto(this)">
-                                        <?php foreach($calsado["Foto"] as $colorz){
+                                        <?php
+                                            $j=1; 
+                                            foreach($calsado["Foto"] as $colorz){
+                                            $t=trim($colorz["title"]) != ""?$colorz["title"]:___("Foto",true)." ".$j;
+                                            $tc = str_replace(" ","",$t);
                                           
                                           $selected='';
                                           if($this->passedArgs["2"]==$colorz["title"])
                                           $selected="selected='selected'";
                                             
                                             ?>
-                                            <option <?php echo $selected?>  class="<?php echo $colorz["title"]?>" lang="<?php echo $colorz["url"]?>" value="<?php echo $colorz["id"]?>"><?php ___($colorz["title"])?></option>
-                                        <?php $selected=''; }?>
+                                            <option <?php echo $selected?>  class="<?php echo $tc?>" lang="<?php echo $colorz["url"]?>" value="<?php echo $colorz["id"]?>"><?php ___($t)?></option>
+                                        <?php $selected=''; $j++; }?>
                                    </select>
                                 </td>
                                   
