@@ -38,13 +38,13 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
         {
             jQuery(function(){})
             {
-                if($("#textareadelmensajeaenviar").val().length>10)
+                if($.trim($("#textareadelmensajeaenviar").val()).length>=2)
                 {
                     return true;
                 }
                 else
                 {
-                    alert("<?php ___("El mensaje debe contener al menos 10 caracteres")?>")
+                    alert("<?php ___("El mensaje debe contener al menos 2 caracteres")?>");
                     return false;
                     
                     
