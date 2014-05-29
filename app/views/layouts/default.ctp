@@ -170,7 +170,7 @@ $desc=$desc."SpanishWholesale.com";
         <!--Logo-->
         <div class="logo">
         <a href="<?php echo $this->webroot?>">
-        	<img src="<?php echo $this->webroot?>img/logo.png" height="96" alt="Crazy Shoes" />
+        	<img src="<?php echo $this->webroot?>img/logo.png" height="95" alt="Crazy Shoes" />
         </a>
       	</div>
         <div class="options">        

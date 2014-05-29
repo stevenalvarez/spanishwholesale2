@@ -540,7 +540,7 @@ a.button:active, button:active{ background-color:#000; border:1px solid #000; co
 	margin-left: auto;
 
 }
-#header .inner .logo {text-align:left;float:left;width:300px;}
+#header .inner .logo {text-align:left;float:left;width:290px;}
 #header .inner .options {float:right;color:#6e614e;padding-bottom:0px;}
 #header .inner .options .links {text-align:right;display:block;margin-bottom:15px;}
 #header .inner .options .links a {color:#6e614e;text-decoration:none;margin-right: 10px;}
