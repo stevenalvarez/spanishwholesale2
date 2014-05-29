@@ -185,6 +185,10 @@ $desc=$desc."SpanishWholesale.com";
                 {
                     $pedidos[]=$pedido;
                 }
+                
+                 App::import('Model', 'Usuario');
+                 $Usuario = new Usuario();
+                 $respuestas = $Usuario->get_respuesta($_SESSION["Auth"]["Usuario"]["id"]);
             ?> 
             
            <div class="user_info">
@@ -192,6 +196,9 @@ $desc=$desc."SpanishWholesale.com";
             </div>       
             <div class="login plomo">
             	<a class="ncos" href="<?php echo $this->webroot?>cliente/usuarios/micuenta"><?php ___("Mi Cuenta")?></a>
+                <?php if(isset($respuestas) && sizeof($respuestas) > 0):?>
+                <a class="message" href="<?php echo $this->webroot?>cliente/usuarios/micuenta#consultas_realizadas">&nbsp;<span><?php echo sizeof($respuestas);?></span></a>
+                <?php endif;?>
             </div>
             <div class="login plomo">
             	<a href="<?php echo $this->webroot?>cliente/pedidos/canasta"><?php ___("Mis pedidos")?></a>

@@ -83,5 +83,10 @@ class Usuario extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+    
+    public function get_respuesta($id=null){
+        $resultado = $this->query("SELECT * FROM consultas Consulta, respuestas Respuesta WHERE Consulta.id = Respuesta.consulta_id AND Respuesta.leido = 0 AND Consulta.usuario_id='$id'");
+        return $resultado;
+    }
 
 }

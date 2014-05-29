@@ -988,7 +988,13 @@ class UsuariosController extends AppController {
      $this->Usuario->recursive = -1;
      $this->Usuario->Consulta->recursive = 1;
      $this->set('usuario', $this->Usuario->read(null, $this->Auth->user('id')));
-     $this->set('consultas', $this->Usuario->Consulta->find("all",array("conditions"=>array("usuario_delete"=>"0"))));
+     $this->set('consultas', $this->Usuario->Consulta->find("all",array("conditions"=>array("Consulta.usuario_delete"=>"0","Consulta.usuario_id"=>$this->Auth->user("id")))));
+     $respuestas_no_leidas = $this->Usuario->get_respuesta($this->Auth->user("id"));
+     if(!empty($respuestas_no_leidas)){
+        foreach($respuestas_no_leidas as $respuesta){
+            $this->Usuario->query("UPDATE respuestas SET leido='1' WHERE id={$respuesta['Respuesta']['id']}");
+        }
+     }
      $this->layout="default";
 
     } 

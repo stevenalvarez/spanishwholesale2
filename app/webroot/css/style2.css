@@ -594,6 +594,8 @@ a.button:active, button:active{ background-color:#000; border:1px solid #000; co
 #header .inner .options .login a.ncos { background-image: url(../img/person.png); }
 #header .inner .options .login a:hover {color:#fff;text-decoration:none;}
 #header .inner .options .login a.singin{background-image: url(../img/sign-in.png);background-size: 12px 12px;}
+#header .inner .options .login a.message{background-image: url(../img/message.png);background-size: 18px 18px;margin-left: 5px;position: relative;}
+#header .inner .options .login a.message span{background: none repeat scroll 0 0 #590000;border-radius: 10px;font-size: 10px;font-weight: bold;height: 12px;line-height: 12px;position: absolute;right: 0;text-align: center;top: -3px;width: 12px;color: #fff;}
 #header .inner .options form { }
 #header .inner .options .searchre {background: url(../img/lupa.png) no-repeat right top #fafafa; border: 0px; color: #a6a6a6; width: 175px; float: right; margin-top: 5px; }
 #breadcrumb {

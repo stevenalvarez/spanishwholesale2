@@ -12,14 +12,16 @@
 <h2>Consulta</h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr class="clear">
-        <td colspan="7">
-            <b><?php echo $consulta['Consulta']['consulta'];?></b>
+        <td colspan="7" style="padding-left: 0;">
+            <div class="respuesta">
+                <p><?php echo nl2br($consulta['Consulta']['consulta']);?></p>
+            </div>
         </td>
 	</tr>
     </table>
 </div>
 
-<div id="admin-table" style="clear: both;">
+<div id="admin-table" style="clear: both;margin-top:10px">
 
 	<h2>Listado de Respuestas</h2>
 	<table cellpadding="0" cellspacing="0">

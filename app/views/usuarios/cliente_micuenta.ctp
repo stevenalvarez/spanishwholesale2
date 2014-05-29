@@ -10,6 +10,10 @@ jQuery(function(){
     $(".fancybox").fancybox();
     $("#cambiarpassword").validationEngine();
     
+    //marcamos la final de otro color
+    $("#consultas_realizadas").find("span.marcar").css("font-weight","bold");
+    $("#consultas_realizadas").find("span.marcar").parent().parent().css("background","#ddd");
+    
     });
 </script>
 
@@ -127,7 +131,7 @@ jQuery(function(){
 
 	<?php if (!empty($pedidos)):?>
     	<h3><?php __('Pedidos Cursados');?></h3>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" style="width: 95%;">
 	<tr>
 		<th><?php ___('# Pedido'); ?></th>	
 		<th><?php ___('Total Pedido'); ?> <br />(<?php ___("Base imponible")?>)</th>
@@ -198,7 +202,7 @@ jQuery(function(){
 <?php if(!empty($consultas)): ?>
     <div id="consultas_realizadas" class="span-12"style="padding-left: 20px;width: 100%;">
     <h2><?php  ___('Consultas');?></h2>
-    	<table cellpadding="0" cellspacing="0">
+    	<table cellpadding="0" cellspacing="0" style="width: 95%;">
     	<tr>
     			<th><?php echo __('id');?></th>
     			<th><?php echo __('usuario');?></th>
@@ -241,7 +245,9 @@ jQuery(function(){
                     <td style="color: #000;font-weight: bold;"><?php echo ___("respuestas");?></td>
                     <td>
                     <?php foreach($consulta["Respuesta"] as $key => $respuesta): ?>
+                        <span class="<?php echo $respuesta["leido"] == "0" ? "marcar":""?>">
                         <?php echo ($key+1); ?>.- <?php echo $respuesta["respuesta"]; ?><br />
+                        </span>
                     <?php endforeach; ?>
                     </td>
                     <td>&nbsp;</td>

@@ -16,7 +16,7 @@
 	<h2>Enviar Respuesta (<?php echo $usuario['Usuario']['rol']; ?>)</h2>
     <table>
     <tr>
-    <td>Email:</td><td><input type="text" readonly="" value="<?php echo $usuario['Usuario']['email']?>" size="100" /></td>
+    <td>Para:</td><td><input type="text" readonly="" value="<?php echo $usuario['Usuario']['title']?>" size="100" /></td>
     </tr>
     <tr>
     <td>Asunto:</td><td><input type="text" name="asunto" size="100"  /></td>

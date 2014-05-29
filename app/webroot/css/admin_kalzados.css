@@ -85,6 +85,8 @@ body { font-family: arial;}
 #admin-table table tr.noaltrow td{   background: url('../img/admin-lable-td2.png') top left repeat-x; height: 26px;         }
 #admin-table table tr.clear td{ height: 10px; background: url('../img/admin-body-table.png') bottom left no-repeat; height: 44px;  }
 #admin-table.dos table tr.clear td{ height: 10px; background: url('../img/admin-body-table2.png') bottom left no-repeat; height: 44px;  }
+#admin-table .respuesta{display: inline-block;background: url('../img/admin-body-table.png') top left no-repeat;}
+#admin-table .respuesta p{padding: 10px;}
 
 
 .admin-search {  width: 726px; height: 100px; overflow: hidden; background: url('../img/admin-search.png') bottom left no-repeat; margin-bottom: 30px; padding: 10px 15px; }

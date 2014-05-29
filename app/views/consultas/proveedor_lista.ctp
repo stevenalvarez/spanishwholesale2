@@ -38,7 +38,7 @@
 		<td><?php echo $consulta['Consulta']['id']; ?>&nbsp;</td>        
 		<td><?php echo $consulta['Usuario']['title']; ?></td>
         <td><?php echo $consulta['Calsado']['code']; ?></td>
-        <td><?php echo trim($consulta['Consulta']['consulta']); ?></td>
+        <td style="width: 350px;overflow: hidden;display: block;height: auto;"><?php echo trim($consulta['Consulta']['consulta']); ?></td>
         <td><?php echo $consulta['Consulta']['tim'] ?>&nbsp;</td>
         <td class="actions">
             <a href="<?php echo $this->webroot?><?echo $_SESSION["Auth"]["Usuario"]["rol"]?>/respuestas/view/<?php echo $consulta['Consulta']['id'] ?>"><?php echo $html->image('ul-zoomin.png') ?></a>
