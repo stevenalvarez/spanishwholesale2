@@ -351,14 +351,16 @@ class UsuariosController extends AppController {
             }
             
             //Nueva respuesta
+            $consulta_id = trim($_POST["consulta_id"]);
             $this->loadModel("Respuesta");
             $this->Respuesta->create();
-            $repuesta["Respuesta"]["consulta_id"] = trim($_POST["consulta_id"]);
+            $repuesta["Respuesta"]["consulta_id"] = $consulta_id;
             $repuesta["Respuesta"]["title"] = Sanitize::clean($_POST["asunto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["respuesta"]= Sanitize::clean($_POST["texto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["tim"] = date("Y-m-d H:i:s");
             
             if($this->Respuesta->save($repuesta)){
+                $this->Usuario->query("UPDATE consultas SET usuario_delete='0' WHERE id={$consulta_id}");
                 $this->set("mail_news",nl2br($_POST["texto"]));   
                 $this->set('User', $User);
                 $this->Email->to = $User["Usuario"]["email"];
