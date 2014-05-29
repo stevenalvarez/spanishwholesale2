@@ -1288,7 +1288,7 @@ Pedido.`usuario_id`=Usuario.id ";
              /*cosa de lang*/ 
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";                         
+             $lang="";
              $this->Email->to = $pedido["Usuario"]["email"];
 		 	 $this->Email->subject = ___("SpanishWholesale - Pedido anulado",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
@@ -1299,7 +1299,7 @@ Pedido.`usuario_id`=Usuario.id ";
         	 $this->Email->send();
         }
         $this->Session->setFlash(___(utf8_encode("Se guardaron los cambios correctamente"),1));  
-        $this->redirect(array('action'=>'edit',$this->data["Pedido"]["id"]));        
+        $this->redirect(array('action'=>'edit',$this->data["Pedido"]["id"]));
     }
     
             function proveedor_existencias($id,$cheked)
@@ -1313,6 +1313,24 @@ Pedido.`usuario_id`=Usuario.id ";
         $this->Pedido->saveField('existencias',1);
         exit();
      //   header("location:".$_SERVER["HTTP_REFERER"]);exit();
+    }
+    
+    function proveedor_restablecer_valores_originales($id = null){
+        
+        $this->Pedido->unbindModel(array('belongsTo'=>array('Usuario'),'hasMany'=>array('Mensaje')),false);
+		$pedidos = $this->Pedido->read(null, $id);
+        
+        $this->loadModel('Articulo');
+        $this->Articulo->recursive = -1;
+        foreach($pedidos['Articulo'] as $articulo){
+            $this->Articulo->id=$articulo['id'];
+            $restore = $this->Articulo->field("serializado");
+            $restore = unserialize($restore);
+            $restore["id"]=$articulo['id'];
+            $this->Articulo->save($restore);
+        }
+        
+        $this->redirect(array('action'=>'edit',$id));
     }
     
     

@@ -118,6 +118,8 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
         App::import('Model', 'Pedido');
         $PedidoModel = new Pedido();
         
+        $precio_total = $bultos_total = 0;
+        
         foreach($this->data["Articulo"] as $pedido)
         {
           if($pedido["tipo"]=='cajas_surtidas')
@@ -199,6 +201,7 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     $bultos=$pedido["bultos"];
                     }
                     $bultos=ceil($bultos);
+                    $bultos_total = $bultos_total+$bultos;
                     
                     if($pedido["tipo"]=="cajas_surtidas")
                     {?>
@@ -221,42 +224,41 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                         <?php }?>
                     </td>
                     <td>
-                        <input disabled="true" style="width: 50px; background: silver;" id="subtotal1" type="text" value="<?php echo round($pedido["base_imponible"]*1,2) ?>" /> &euro;
+                        <?php $precio = round($pedido["base_imponible"]*1,2); $precio_total = $precio_total+$precio;?>
+                        <input disabled="true" style="width: 50px; background: silver;" id="subtotal1" type="text" value="<?php echo $precio; ?>" /> &euro;
                     </td>                    
                 </tr>
-                <tr>
-                    <td colspan="3">
-                    <input type="button" class="btn-admin-orange2" value="<?php echo isset($_GET["restore"])?'RESTAURAR VALORES GUARDADOS':'RESTAURAR VALORES ORIGINALES' ?>" onclick="confirm('<?php __('**Importante, si restuara a los datos originales remplazar&aacute; a los actuales**'); ?>') ? window.location.href=('<?php echo $this->webroot?>proveedor/articulos/restore/<?php echo $pedido["id"]?><?php echo isset($_GET["restore"])?'':'?restore=true' ?>') : ''"  /> 
-                    <input type="submit" value="CALCULAR" class="btn-admin-green floatright"/>
-                    
-                    </td>
-                    <td><input type="text" size="1" style="width: auto; text-align: center; background: silver;" disabled="true" name="data[Articulo][bultos]" value="<?php echo $pedido["bultos"]?>" /> bultos</td>
-                     <td> <b>Suma <label id="subtotal"><?php echo round($pedido["base_imponible"]*1,2) ?></label> &euro;</b></td>
-                </tr>
-                
-                              
             </tbody>
         </table>
-        
-        <div style="text-align: center; display: none;">
-        <hr />
-            <input type="submit" value="GUARDAR" class="btn-admin-orange" id="gcamios"  />
-            <label><?php echo isset($_GET["restore"])?'<br>**Importante si guardan los datos originales remplazaran a los actuales**':'' ?></label>
-        <hr />
-        </div>
         </div>
         <hr />
         
-        <?php }?>
+        <?php } ?>
+        <!-- restablecer los valores originales -->
+        <table style="margin-bottom: 10px;">
+            <tr>
+                <td style="width: 76%;">
+                    <input type="button" class="btn-admin-orange2" value="<?php __('Restablecer los valores originales del pedido'); ?>" onclick="confirm('<?php __('**Importante, si restablece los valores originales remplazar&aacute; a los actuales**'); ?>') ? window.location.href=('<?echo $this->webroot?>proveedor/pedidos/restablecer_valores_originales/<?php echo $this->data["Pedido"]["id"]?>') : ''"  /> 
+                    <input type="submit" value="<?php echo __('Guardar cambios')?>" class="btn-admin-green floatright" style="background-size: 100px 21px;width: 100px;"/>
+                </td>
+                <td style="text-align: center;">
+                    <input type="text" size="1" style="width: auto; text-align: center; background: silver;" disabled="true" name="data[Articulo][bultos]" value="<?php echo $bultos_total;?>" /> <?php __('bultos');?>
+                </td>
+                <td>
+                    <b><?php __('Suma');?> <br /><label id="subtotal" style="color: #C11A21;"><?php echo round($precio_total,2) ?></label> &euro;</b>
+                </td>
+            </tr>
+        </table>
         
+        <!-- pago -->
         <table style="margin-bottom: 10px;">
         <tr>
             <td>
                   <select style="width: 250px; float: right;" name="">
                         <option>Transferencia Bancaria</option>
                        <!--
- <option selected="selected"':'' ?>>PayPal</option>
--->
+                       <option selected="selected"':'' ?>>PayPal</option>
+                        -->
                   </select>
             </td>
         
