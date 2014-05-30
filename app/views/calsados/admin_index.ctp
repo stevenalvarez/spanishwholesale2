@@ -214,17 +214,17 @@ $tipo="par";
         </td>
         <td>
             <?php //if($surtido["tipo"]=='cajas_surtidas'){ ?>
-            <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+            <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
             <?php //} ?>
         </td>
         <td>
             <?php // if($surtido["tipo"]=='surtido_libre'){?>
-            <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+            <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
             <?php //} ?>
         </td>
         <td>
         
-        <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)" readonly="readonly" disabled="disabled"/>
+        <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
         </td>
         <td>
             <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
