@@ -8,6 +8,28 @@
 <!-- side -->
 
 <div id="right-side">
+
+<div style="padding: 0 0 16px 0; overflow: hidden; width: 100%;">
+<input type="submit" name="step" class="btn-admin-orange2" value="A&Ntilde;ADIR MATERIAL" onclick="$(this).parent().slideUp('',function(){$('#mostrate').slideDown()})" id="showbutton">   
+</div>
+<div class="tipos form" id="mostrate" style="display: none; margin-bottom: 20px;">
+<h2>Registro nuevo material</h2>
+<form method="post" action="<?php echo $this->webroot?>admin/materials/add">
+
+	<?php
+		echo $this->Form->input('title',array('label'=>'Nombre*','class'=>'validate[required]'));
+		echo $this->Form->input('orden',array('label'=>'Orden (Opcional)'));
+		echo $this->Form->input('activo',array('type'=>'select','options'=>array('1'=>'Si','0'=>'No')));
+	?>
+<hr />
+<div style="padding: 0 0 30px 10px;">
+<input type="submit" name="step" class="btn-admin-orange"  value="SALVAR" />
+<input type="submit" name="step" class="btn-admin-orange2" value="SALVAR Y REGISTRAR OTRO MATERIAL"/>
+<input type="button" value="CANCELAR" onclick="window.history.back()" class="btn-admin-red" />
+</div>
+</form>
+</div>
+
 <div class="admin-search">
 <h2>B&uacute;squeda de Materiales</h2>
 <form method="post" action="?search=true">

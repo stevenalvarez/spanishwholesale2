@@ -25,6 +25,7 @@
 
 <li><a href="<?php echo $this->webroot?>admin/calsados/index">Lista de art&iacute;culos</a></li>
 <li><a href="<?php echo $this->webroot?>admin/calsados/add">Registro nuevo art&iacute;culo</a></li>
+<li><a href="<?php echo $this->webroot?>admin/materials/index">Materiales</a></li>
 <li><a href="<?php echo $this->webroot?>admin/tags/index">Tags</a></li>
 <li><a href="<?php echo $this->webroot?>admin/tipos/index">Tipos</a></li>
 <li><a href="<?php echo $this->webroot?>admin/subtipos/index">Subtipos</a></li>
