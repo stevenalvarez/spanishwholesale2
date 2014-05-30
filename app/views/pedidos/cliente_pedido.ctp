@@ -18,22 +18,22 @@
     <div class="span-12 last">
     <dl  class="span-12 last">	
         
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Total Pedido'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Total Pedido'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $pedido['Pedido']['total_pedido']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Forma Pago'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Forma Pago'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $pedido['Pedido']['forma_pago']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n de Facturac&oacute;n'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n de Facturac&oacute;n'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $pedido['Pedido']['di_factura']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n de Env&iacute;o'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n de Env&iacute;o'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $pedido['Pedido']['di_envio']; ?>
 			&nbsp;

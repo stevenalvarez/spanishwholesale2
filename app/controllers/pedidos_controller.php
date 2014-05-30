@@ -883,7 +883,7 @@ Pedido.`usuario_id`=Usuario.id ";
 		}
 		    $this->Pedido->id=$id;
 			$this->Pedido->saveField('confirmado',2);
-			$this->Session->setFlash(__('Pedido borrado', true));
+			$this->Session->setFlash(___('Pedido borrado', true));
 			$this->redirect(array('action'=>'index'));
 
 	}
@@ -895,7 +895,7 @@ Pedido.`usuario_id`=Usuario.id ";
 		}
 		    $this->Pedido->id=$id;
 			$this->Pedido->saveField('confirmado',2);
-			$this->Session->setFlash(__('Pedido borrado', true));
+			$this->Session->setFlash(___('Pedido borrado', true));
 			$this->redirect(array('action'=>'index'));
 
 	}
@@ -908,7 +908,7 @@ Pedido.`usuario_id`=Usuario.id ";
 		}
 		    $this->Pedido->id=$id;
 			$this->Pedido->saveField('confirmado',1);
-			$this->Session->setFlash(__('Pedido '.$id.' recuperado', true));
+			$this->Session->setFlash(___('Pedido '.$id.' recuperado', true));
 			$this->redirect(array('action'=>'index'));
 
 	}
@@ -920,7 +920,7 @@ Pedido.`usuario_id`=Usuario.id ";
 		}
 		    $this->Pedido->id=$id;
 			$this->Pedido->saveField('confirmado',1);
-			$this->Session->setFlash(__('Pedido '.$id.' recuperado', true));
+			$this->Session->setFlash(___('Pedido '.$id.' recuperado', true));
 			$this->redirect(array('action'=>'index'));
 
 	}

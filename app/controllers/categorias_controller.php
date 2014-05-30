@@ -25,7 +25,7 @@ class CategoriasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Categoria->create();
 			if ($this->Categoria->save($this->data)) {
-				$this->Session->setFlash(__('La categor&iacute;a fue guardada', true));                
+				$this->Session->setFlash(___('La categor&iacute;a fue guardada', true));                
                 if($_POST["step"]==utf8_encode('SALVAR Y REGISTRAR OTRA CATEGORÍA'))
                 {$this->redirect(array('action' => 'add')); exit();}
                 else

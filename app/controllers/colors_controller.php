@@ -21,7 +21,7 @@ class ColorsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Color->create();
 			if ($this->Color->save($this->data)) {
-				$this->Session->setFlash(__('El color fue guardado', true));
+				$this->Session->setFlash(___('El color fue guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The color could not be saved. Please, try again.', true));

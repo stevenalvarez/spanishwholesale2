@@ -238,14 +238,14 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
         <table style="margin-bottom: 10px;">
             <tr>
                 <td style="width: 76%;">
-                    <input type="button" class="btn-admin-orange2" value="<?php __('Restablecer los valores originales del pedido'); ?>" onclick="confirm('<?php __('**Importante, si restablece los valores originales remplazar&aacute; a los actuales**'); ?>') ? window.location.href=('<?echo $this->webroot?>proveedor/pedidos/restablecer_valores_originales/<?php echo $this->data["Pedido"]["id"]?>') : ''"  /> 
-                    <input type="submit" value="<?php echo __('Guardar cambios')?>" class="btn-admin-green floatright" style="background-size: 100px 21px;width: 100px;"/>
+                    <input type="button" class="btn-admin-orange2" value="<?php echo ___('Restablecer los valores originales del pedido'); ?>" onclick="confirm('<?php ___('**Importante, si restablece los valores originales remplazar&aacute; a los actuales**'); ?>') ? window.location.href=('<?echo $this->webroot?>proveedor/pedidos/restablecer_valores_originales/<?php echo $this->data["Pedido"]["id"]?>') : ''"  /> 
+                    <input type="submit" value="<?php echo ___('Guardar cambios')?>" class="btn-admin-green floatright" style="background-size: 100px 21px;width: 100px;"/>
                 </td>
                 <td style="text-align: center;">
-                    <input type="text" size="1" style="width: auto; text-align: center; background: silver;" disabled="true" name="data[Articulo][bultos]" value="<?php echo $bultos_total;?>" /> <?php __('bultos');?>
+                    <input type="text" size="1" style="width: auto; text-align: center; background: silver;" disabled="true" name="data[Articulo][bultos]" value="<?php echo $bultos_total;?>" /> <?php ___('bultos');?>
                 </td>
                 <td>
-                    <b><?php __('Suma');?> <br /><label id="subtotal" style="color: #C11A21;"><?php echo round($precio_total,2) ?></label> &euro;</b>
+                    <b><?php ___('Suma');?> <br /><label id="subtotal" style="color: #C11A21;"><?php echo round($precio_total,2) ?></label> &euro;</b>
                 </td>
             </tr>
         </table>

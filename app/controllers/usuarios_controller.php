@@ -292,7 +292,7 @@ class UsuariosController extends AppController {
         $this->Email->delivery= 'mail';
 		$this->Email->send();            
         
-        $this->Session->setFlash(__('El correo fue enviado', true));
+        $this->Session->setFlash(___('El correo fue enviado', true));
 		$this->redirect(array('action' => 'proveedores'));
         
         }
@@ -323,7 +323,7 @@ class UsuariosController extends AppController {
         	$this->Email->sendAs = 'html';
             $this->Email->delivery= 'mail';
         	$this->Email->send(); 
-            $this->Session->setFlash(__('El correo fue enviado', true));
+            $this->Session->setFlash(___('El correo fue enviado', true));
         	$this->redirect(array('action' => 'smail'));        
         }   
         
@@ -373,7 +373,7 @@ class UsuariosController extends AppController {
             	$this->Email->send();
             }
             
-            $this->Session->setFlash(__('La respuesta fue enviada', true));
+            $this->Session->setFlash(___('La respuesta fue enviada', true));
         	$this->redirect($this->referer());
         }   
         
@@ -418,10 +418,10 @@ class UsuariosController extends AppController {
           
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar.', true));
+				$this->Session->setFlash(___('No se pudo guardar.', true));
 			}
 		}
 		$regiones = $this->Usuario->Regione->find('list');
@@ -474,10 +474,10 @@ class UsuariosController extends AppController {
           
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('El proveedor fue guardado', true));
+				$this->Session->setFlash(___('El proveedor fue guardado', true));
 				$this->redirect(array('action' => 'proveedores'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar.', true));
+				$this->Session->setFlash(___('No se pudo guardar.', true));
 			}
 		}
 		$regioness = $this->Usuario->Regione->Country->find('list',array('order'=> 'title'));
@@ -497,10 +497,10 @@ class UsuariosController extends AppController {
           
 			$this->Usuario->create();
            	if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('El transportista fue salvado', true));
+				$this->Session->setFlash(___('El transportista fue salvado', true));
 				$this->redirect(array('action' => 'transportistas'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar.', true));
+				$this->Session->setFlash(___('No se pudo guardar.', true));
 			}
 		}
 		$regioness = $this->Usuario->Regione->Country->find('list',array('order'=> 'title'));
@@ -568,10 +568,10 @@ class UsuariosController extends AppController {
           
           
 			if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('Se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar.', true));
+				$this->Session->setFlash(___('No se pudo guardar.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -608,7 +608,7 @@ class UsuariosController extends AppController {
         $this->Usuario->query("update calsados set activado=0 where usuario_id=$id");
         /** * */
 		if ($this->Usuario->delete($id)) {
-			$this->Session->setFlash(__('Proveedor eliminado', true));
+			$this->Session->setFlash(___('Proveedor eliminado', true));
 			$this->redirect(array('action'=>'proveedores'));
 		}
 		$this->Session->setFlash(__('Usuario was not deleted', true));
@@ -630,7 +630,7 @@ class UsuariosController extends AppController {
         $this->Usuario->query("update calsados set activado=0 where usuario_id=$id");
         /** * */
 		if ($this->Usuario->delete($id)) {
-			$this->Session->setFlash(__('Cliente eliminado', true));
+			$this->Session->setFlash(___('Cliente eliminado', true));
 			$this->redirect(array('action'=>'clientes'));
 		}
 		$this->Session->setFlash(__('Usuario was not deleted', true));
@@ -701,10 +701,10 @@ class UsuariosController extends AppController {
              {
               $this->Usuario->query("update calsados set activado=1 where usuario_id=$id");
              }
-				$this->Session->setFlash(__('El proveedor fue salvado', true));
+				$this->Session->setFlash(___('El proveedor fue salvado', true));
 				$this->redirect(array('action' => 'proveedores'));
 			} else {
-				$this->Session->setFlash(__('Datos incorrectos.','error'));
+				$this->Session->setFlash(___('Datos incorrectos.','error'));
                 	$this->redirect(array('action' => 'proveedores'));
 			}
 		}
@@ -736,10 +736,10 @@ class UsuariosController extends AppController {
           
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('El transportista fue salvado', true));
+				$this->Session->setFlash(___('El transportista fue salvado', true));
 				$this->redirect(array('action' => 'transportistas'));
 			} else {
-				$this->Session->setFlash(__('Datos incorrectos.','error'));
+				$this->Session->setFlash(___('Datos incorrectos.','error'));
                 	$this->redirect(array('action' => 'transportistas'));
 			}
 		}
@@ -791,10 +791,10 @@ class UsuariosController extends AppController {
           
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('El cliente fue salvado', true));
+				$this->Session->setFlash(___('El cliente fue salvado', true));
 				$this->redirect(array('action' => 'clientes'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar.', true));
+				$this->Session->setFlash(___('No se pudo guardar.', true));
 			}
 		}
         
@@ -1038,10 +1038,10 @@ class UsuariosController extends AppController {
        
        $this->Usuario->create();        
 		if ($this->Usuario->save($this->data)) {
-				$this->Session->setFlash(__('Se guardaron los datos', true));
+				$this->Session->setFlash(___('Se guardaron los datos', true));
 				$this->redirect(array('action' => 'micuenta'));
 			} else {
-				$this->Session->setFlash(__('No se pudo guardar', true));
+				$this->Session->setFlash(___('No se pudo guardar', true));
 			}
 		}
         else

@@ -1048,11 +1048,12 @@ if (!function_exists('file_put_contents')) {
     
     
         function ___($text,$echo=null){
+            $text = trim($text);
+            $text=mysql_real_escape_string($text);
             
-        if(isset($_SESSION["cake_lang"])  &&  $_SESSION["cake_lang"]=='eng')
+        if(isset($_SESSION["cake_lang"])  &&  $_SESSION["cake_lang"]=='eng' && $text != "")
         {
-        $lang="eng";    
-        $text=mysql_real_escape_string($text);    
+        $lang="eng";        
         $sql = "select * from translates where esp='$text'";
         $res=mysql_query($sql);
         $res=mysql_fetch_assoc($res);

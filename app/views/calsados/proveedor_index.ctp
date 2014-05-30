@@ -339,7 +339,7 @@ function changee(thiss,controller,id)
                 data:"val="+$(thiss).val()+"&controller="+controller+"&name="+$(thiss).attr('name'),
                 dataType:"text",context: thiss}).done(function(msg) {eval(msg);  $(thiss).css('background-color','#CCF179');});
             }else{
-                alert("Ingrese solo numero enteros");
+                alert('<?php echo ___("Ingrese solo numero enteros")?>');
                 $(thiss).val(value.split("-").slice(0,-1).join("-"));
             }
 

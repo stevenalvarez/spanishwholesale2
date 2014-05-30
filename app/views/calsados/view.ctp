@@ -501,7 +501,7 @@ table.model td
                 if (/^([0-9])*$/.test(x)){
                     unidades=unidades+x*1;
                 }else{
-                    alert("Solo se permiten numero");
+                    alert('<?php echo ___("Ingrese solo numero enteros")?>');
                     $(this).val(0);
                 }
             });

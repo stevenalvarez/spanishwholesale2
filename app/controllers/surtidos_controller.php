@@ -30,10 +30,10 @@ class SurtidosController extends AppController {
 			if ($this->Surtido->save($this->data)) {
 
                
-               $this->Session->setFlash(__('Se guardo el surtido', true));
+               $this->Session->setFlash(___('Se guardo el surtido', true));
 				$this->redirect(array('controller'=>'calsados','action' => 'edit',$this->data["Surtido"]["calsado_id"]."#admin-table"  ));
 			} else {
-				$this->Session->setFlash(__('no se pudo guardar, datos incorrectos', true));
+				$this->Session->setFlash(___('no se pudo guardar, datos incorrectos', true));
                 $this->redirect($this->referer());
 			}
 		}
@@ -66,10 +66,10 @@ class SurtidosController extends AppController {
 
 			$this->Surtido->create();
 			if ($this->Surtido->save($this->data)) {
-				$this->Session->setFlash(__('Se guardo el surtido', true));
+				$this->Session->setFlash(___('Se guardo el surtido', true));
 				$this->redirect(array('controller'=>'calsados','action' => 'edit',$this->data["Surtido"]["calsado_id"]."#admin-table"  ));
 			} else {
-				$this->Session->setFlash(__('no se pudo guardar, datos incorrectos', true));
+				$this->Session->setFlash(___('no se pudo guardar, datos incorrectos', true));
                 $this->redirect($this->referer());
 			}
 		}
@@ -186,7 +186,7 @@ class SurtidosController extends AppController {
 		}
         else
         {
-            $this->Session->setFlash(__('No se puede eliminar debido a que existen pedidos con este surtido', true));
+            $this->Session->setFlash(___('No se puede eliminar debido a que existen pedidos con este surtido', true));
             $this->redirect(array('controller'=>'calsados','action' => 'edit',$calsado_id."flashMessage"  ));
         }
 		//$this->Session->setFlash(__('Surtido was not deleted', true));

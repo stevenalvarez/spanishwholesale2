@@ -9,7 +9,7 @@
             descripcion = value.split("-");
             if (/^([0-9])*$/.test(parseInt(descripcion[descripcion.length - 1]))){
             }else if(descripcion[descripcion.length - 1] != ""){
-                alert("Ingrese solo numero enteros");
+                alert('<?php echo ___("Ingrese solo numero enteros")?>');
                 delete descripcion[descripcion.length - 1];
             }
         }else{

@@ -501,7 +501,7 @@ class CalsadosController extends AppController {
 
 	function admin_view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid calsado', true));
+			$this->Session->setFlash(__('Invalid calzado', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('calsado', $this->Calsado->read(null, $id));
@@ -516,7 +516,7 @@ class CalsadosController extends AppController {
 			//	$this->Session->setFlash(__('The calsado has been saved', true));
 				$this->redirect(array('action' => 'edit',$this->Calsado->id,'#nuevo'));
 			} else {
-				$this->Session->setFlash(__('The calsado could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The calzado could not be saved. Please, try again.', true));
 			}
 		}
 		$categorias = $this->Calsado->Categoria->find('list');             
@@ -568,7 +568,7 @@ class CalsadosController extends AppController {
 	function admin_edit($id = null) {
 	   
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid calsado', true));
+			$this->Session->setFlash(__('Invalid calzado', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
@@ -583,14 +583,14 @@ class CalsadosController extends AppController {
           unset($this->data["Calsado"]["step_new"]);
                     
 			if ($this->Calsado->save($this->data)) {
-				$this->Session->setFlash(__('Se guardaron los datos', true));
+				$this->Session->setFlash(___('Se guardaron los datos', true));
                 if($step_new){
                     $this->redirect(array('action' => 'add'));
                 }else{
                     $this->redirect(array('action' => 'index'));
                 }
 			} else {
-				$this->Session->setFlash(__('The calsado could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The calzado could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -625,14 +625,14 @@ class CalsadosController extends AppController {
           $step_new = isset($this->data["Calsado"]["step_new"]) ? true : false;
           unset($this->data["Calsado"]["step_new"]);
 			if ($this->Calsado->save($this->data)) {
-				$this->Session->setFlash(__('Se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
                 if($step_new){
                     $this->redirect(array('action' => 'add'));
                 }else{
                     $this->redirect(array('action' => 'index'));
                 }
 			} else {
-				$this->Session->setFlash(__('The calsado could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The calzado could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -662,13 +662,13 @@ class CalsadosController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for calsado', true));
+			$this->Session->setFlash(__('Invalid id for calzado', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		
         $this->Calsado->id=$id;
         $this->Calsado->saveField('dele',1);
-		$this->Session->setFlash(__('Calsado eliminado', true));
+		$this->Session->setFlash(___('Calzado eliminado', true));
 		$this->redirect(array('action'=>'index'));
 		
 	
@@ -699,13 +699,13 @@ class CalsadosController extends AppController {
 	
     function proveedor_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for calsado', true));
+			$this->Session->setFlash(__('Invalid id for calzado', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		
         $this->Calsado->id=$id;
         $this->Calsado->field('del',1);
-		$this->Session->setFlash(__('Calsado eliminado', true));
+		$this->Session->setFlash(___('Calzado eliminado', true));
 		$this->redirect(array('action'=>'index'));
 	}
     

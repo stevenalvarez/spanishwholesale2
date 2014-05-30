@@ -25,7 +25,7 @@
         
         
 			<li>
-				 <?php echo $this->Html->link(__('Añadir Galeria', true),array("controller"=>"galeries","action"=>"add"),array("escape"=>false) ); ?>
+				 <?php echo $this->Html->link(___('Añadir Galeria', true),array("controller"=>"galeries","action"=>"add"),array("escape"=>false) ); ?>
 			</li>
             
 		</ul>
@@ -42,7 +42,7 @@
 		<?php echo $this->Html->link('About',array("controller"=>"pages","action"=>"about",2) ); ?>		
 	</li>
 
-    <li class="secondary"><?php echo $this->Html->link(__('Salir', true),array("controller"=>"users","action"=>"logout"),array("escape"=>false) ); ?></li>
+    <li class="secondary"><?php echo $this->Html->link(___('Salir', true),array("controller"=>"users","action"=>"logout"),array("escape"=>false) ); ?></li>
     
  
 </ul>

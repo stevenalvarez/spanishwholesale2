@@ -25,7 +25,7 @@ class MaterialsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Material->create();
 			if ($this->Material->save($this->data)) {
-			 	$this->Session->setFlash(__('El material fue guardado', true));
+			 	$this->Session->setFlash(___('El material fue guardado', true));
 			   if($_POST["step"]==utf8_encode('SALVAR Y REGISTRAR OTRO MATERIAL'))
                 {$this->redirect(array('action' => 'add')); exit();}
                 else
@@ -46,7 +46,7 @@ class MaterialsController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Material->save($this->data)) {
-				$this->Session->setFlash(__('El material fue guardado', true));
+				$this->Session->setFlash(___('El material fue guardado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The material could not be saved. Please, try again.', true));

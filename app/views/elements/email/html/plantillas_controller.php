@@ -114,7 +114,7 @@ class PlantillasController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Plantilla->delete($id)) {
-			$this->Session->setFlash(__('Plantilla Borrada', true));
+			$this->Session->setFlash(___('Plantilla Borrada', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Mensaje was not deleted', true));

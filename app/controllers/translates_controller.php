@@ -110,7 +110,7 @@ class TranslatesController extends AppController {
 		}
 		if (!empty($this->data)) {
 		if ($this->Translate->save($this->data)) {
-				$this->Session->setFlash(__('Se guard&oacute; la traducci&oacute;n', true));
+				$this->Session->setFlash(___('Se guard&oacute; la traducci&oacute;n', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The translate could not be saved. Please, try again.', true));

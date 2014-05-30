@@ -17,7 +17,9 @@
                         }
                     });
                     }
-                    else alert("Introduzca una regla v&aacute;lida");
+                    else{
+                        alert('<?php echo ___("Introduzca una regla v&aacute;lida")?>');
+                    }
                 }
             );
 

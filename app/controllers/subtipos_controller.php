@@ -26,7 +26,7 @@ class SubtiposController extends AppController {
 		if (!empty($this->data)) {
 			$this->Subtipo->create();
 			if ($this->Subtipo->save($this->data)) {
-				$this->Session->setFlash(__('El subtipo fue guardado', true));
+				$this->Session->setFlash(___('El subtipo fue guardado', true));
                 
                 if($_POST["step"]==utf8_encode('SALVAR Y REGISTRAR OTRO SUBTIPO'))
                 {$this->redirect(array('action' => 'add')); exit();}
@@ -46,7 +46,7 @@ class SubtiposController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Subtipo->save($this->data)) {
-				$this->Session->setFlash(__('El subtipo fue editado', true));
+				$this->Session->setFlash(___('El subtipo fue editado', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The subtipo could not be saved. Please, try again.', true));

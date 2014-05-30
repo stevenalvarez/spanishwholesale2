@@ -32,10 +32,10 @@ class GroupContactsController extends AppController {
                     `nombre` varchar(200) DEFAULT NULL,
                     PRIMARY KEY (`email`)
                     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
-                $this->Session->setFlash(__('El grupo fue guardado', true));    
+                $this->Session->setFlash(___('El grupo fue guardado', true));    
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('no se pudo guardar.', true));
+				$this->Session->setFlash(___('no se pudo guardar.', true));
 			}
 		}
 	}

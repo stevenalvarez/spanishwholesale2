@@ -294,7 +294,7 @@ class ArticulosController extends AppController {
 			if ($this->Articulo->save($this->data)) {
 			 
              
-				$this->Session->setFlash(__('Se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('controller'=>'pedidos','action' => 'edit',$pedido["Articulo"]["pedido_id"]));
 			} else {
 				$this->Session->setFlash(__('Error no se pudo guardar', true));
@@ -358,10 +358,10 @@ class ArticulosController extends AppController {
           
 			if ($this->Articulo->save($this->data)) {
 			 
-				$this->Session->setFlash(__('Se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('controller'=>'pedidos','action' => 'edit',$pedido["Articulo"]["pedido_id"]));
 			} else {
-				$this->Session->setFlash(__('Error no se pudo guardar', true));
+				$this->Session->setFlash(___('Error no se pudo guardar', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -418,7 +418,7 @@ class ArticulosController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Articulo->delete($id)) {
-			$this->Session->setFlash(__('El pedido fue eliminado', true));
+			$this->Session->setFlash(___('El articulo fue eliminado', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Articulo was not deleted', true));
@@ -441,7 +441,7 @@ class ArticulosController extends AppController {
           {
             $this->Pedido->delete($pedido["Pedido"]["id"]);
           }          
-			$this->Session->setFlash(__('El pedido fue eliminado', true));
+			$this->Session->setFlash(___('El articulo fue eliminado', true));
 		}
 		$this->redirect($this->referer());
         }
@@ -465,7 +465,7 @@ class ArticulosController extends AppController {
         $this->Basurero->save($basura);
         
 		if ($this->Articulo->delete($id)) {
-			$this->Session->setFlash(__('El pedido fue eliminado', true));
+			$this->Session->setFlash(___('El articulo fue eliminado', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Articulo was not deleted', true));

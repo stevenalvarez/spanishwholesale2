@@ -46,7 +46,7 @@ class PaginasController extends AppController {
              fwrite ($fp,$this->data["Pagina"]["html"]);
              
 
-				$this->Session->setFlash(__('Pagina Creada', true));
+				$this->Session->setFlash(___('Pagina Creada', true));
 				$this->redirect(array('action' => 'index'));
 			}
              else {
@@ -75,7 +75,7 @@ class PaginasController extends AppController {
                 $Pagina=str_replace("'}}",' ?>',$Pagina);
                 $file->write($Pagina);
                 
-                $this->Session->setFlash(__('Pagina Editada', true));
+                $this->Session->setFlash(___('Pagina Editada', true));
                                 
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -103,7 +103,7 @@ class PaginasController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Pagina->delete($id)) {
-			$this->Session->setFlash(__('Pagina Borrada', true));
+			$this->Session->setFlash(___('Pagina Borrada', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Mensaje was not deleted', true));

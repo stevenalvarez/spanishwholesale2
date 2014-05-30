@@ -37,7 +37,7 @@
 		<td><?php echo $userlog['Emailslog']['para']; ?>&nbsp;</td>
         <td><?php echo $userlog['Emailslog']['fechahora']; ?>&nbsp;</td>
 		<td class="actions">
-            <?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $userlog['Emailslog']['id'])); ?>
+            <?php echo $this->Html->link(___('Ver', true), array('action' => 'view', $userlog['Emailslog']['id'])); ?>
 		</td>
         <td class="fix"></td>
 	</tr>

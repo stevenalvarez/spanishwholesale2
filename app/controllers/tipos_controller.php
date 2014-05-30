@@ -26,7 +26,7 @@ class TiposController extends AppController {
 		if (!empty($this->data)) {
 			$this->Tipo->create();
 			if ($this->Tipo->save($this->data)) {
-				$this->Session->setFlash(__('Se gurado el tipo', true));
+				$this->Session->setFlash(__('Se guardo el tipo', true));
 				
             if($_POST["step"]==utf8_encode('SALVAR Y REGISTRAR OTRO TIPO'))
                 {$this->redirect(array('action' => 'add')); exit();}
@@ -47,7 +47,7 @@ class TiposController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Tipo->save($this->data)) {
-				$this->Session->setFlash(__('Se guardaron los cambios', true));
+				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The tipo could not be saved. Please, try again.', true));
