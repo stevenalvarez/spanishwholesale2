@@ -106,7 +106,7 @@
         }
         
 	//	echo $this->Form->input('precio_par');
-		echo $this->Form->input('precio_sur',array('label'=>'Precio por Par*','class'=>'validate[required,custom[integer]]'));
+		echo $this->Form->input('precio_sur',array('label'=>'Precio por Par*','class'=>'validate[required]'));
 		echo $this->Form->input('oferta',array('type'=>'radio','options'=>array('0'=>'No','1'=>'Si')));
 	//	echo $this->Form->input('precio_par_oferta');
 		echo $this->Form->input('precio_sur_oferta',array('label'=>'Precio Oferta*'));

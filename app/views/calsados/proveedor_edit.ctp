@@ -243,7 +243,7 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
                     <input class="validate[required]" name="data[Surtido][precio_sur]" style="width: 50px;" id="SurtidoPrecioParasdf" type="text"> &euro;</div>
             
                     <!--
-<div class="input text"><label for="SurtidoPrecioSur">Precio Surtido*</label><input class="validate[required,custom[integer]]" name="data[Surtido][precio_sur]" style="width: 50px;" maxlength="5" id="SurtidoPrecioSur" type="text"> &euro;</div>
+<div class="input text"><label for="SurtidoPrecioSur">Precio Surtido*</label><input class="validate[required]" name="data[Surtido][precio_sur]" style="width: 50px;" maxlength="5" id="SurtidoPrecioSur" type="text"> &euro;</div>
 -->                 
 
                     <div class="input text">

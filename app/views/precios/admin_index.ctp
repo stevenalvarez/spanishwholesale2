@@ -22,8 +22,8 @@
 <?php echo $this->Form->create('Precio',array('action'=>'add'));?>
 	<fieldset>
 	<?php
-	echo $this->Form->input('de',array('label'=>'precio inferior &euro;*','class'=>'validate[required,custom[integer]]'));
-		echo $this->Form->input('a',array('label'=>'precio superior &euro;*','class'=>'validate[required,custom[integer]]'));
+	echo $this->Form->input('de',array('label'=>'precio inferior &euro;*','class'=>'validate[required]'));
+		echo $this->Form->input('a',array('label'=>'precio superior &euro;*','class'=>'validate[required]'));
 	?>
 	</fieldset>
     <hr />
