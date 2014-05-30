@@ -345,11 +345,19 @@ function changee(thiss,controller,id)
        //var eliminar=confirm("Esta seguro de eliminar "+tipo);
 //       if(eliminar)
 //       {
-            
-            $(thiss).css('background-color','red');
+            $(thiss).css('background-color','white');
+            var value = $(thiss).val();
+            var descripcion = value.split("-");
+            if (/^([0-9])*$/.test(parseInt(descripcion[descripcion.length - 1]))){
+                $(thiss).css('background-color','red');
             $.ajax({type:"post",url:"<?php echo $this->webroot?>admin/calsados/ajaxedit/"+id,
-            data:"val="+$(thiss).val()+"&controller="+controller+"&name="+$(thiss).attr('name'),
-            dataType:"text",context: thiss}).done(function(msg) {eval(msg);  $(thiss).css('background-color','#CCF179');});
+                data:"val="+$(thiss).val()+"&controller="+controller+"&name="+$(thiss).attr('name'),
+                dataType:"text",context: thiss}).done(function(msg) {eval(msg);  $(thiss).css('background-color','#CCF179');});
+            }else{
+                alert('<?php echo ___("Ingrese solo numero enteros")?>');
+                $(thiss).val(value.split("-").slice(0,-1).join("-"));
+            }
+
        //}
        });
 }

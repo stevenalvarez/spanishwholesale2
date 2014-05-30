@@ -1,7 +1,7 @@
 <div id="nav-menu">
 <ul>
 <li> <a href="<?php echo $this->webroot?>proveedor/">Inicio</a></li>
-<li> <a href="<?php echo $this->webroot?>proveedor/calzados/index">Listado de Calzados</a></li>
+<li> <a href="<?php echo $this->webroot?>proveedor/calsados/index">Listado de Calzados</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>
@@ -23,7 +23,7 @@ Buscar por referencia
 </td>
 <td>
 <input type="submit" class="btn-admin-orange" value="BUSCAR">
-<a style="display: inline-block; font-size: 11px; text-decoration: none; text-align: center; width: 64px;" href="<?php echo $this->webroot;?>proveedor/calzados/index" class="btn-admin-orange">LIMPIAR</a>
+<a style="display: inline-block; font-size: 11px; text-decoration: none; text-align: center; width: 64px;" href="<?php echo $this->webroot;?>proveedor/calsados/index" class="btn-admin-orange">LIMPIAR</a>
 </td>
 </tr>
 </table>
