@@ -340,83 +340,91 @@ class CalsadosController extends AppController {
             {
                 $this->Calsado->id=$aprove;
                 $this->Calsado->saveField('activado','1');
-            }            
+            }
         }
    
 	    $categorias = $this->Calsado->Categoria->find('list');
         $tipos = $this->Calsado->Tipo->find('list');
         $subtipos = $this->Calsado->Subtipo->find('list');
         $proveedores = $this->Calsado->Usuario->find('list',array('conditions'=>array('Usuario.rol'=>'proveedor')));
+        $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
         
-        
-        
-        $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));        
-        $this->set(compact('categorias', 'countries'));         
+        $this->set(compact('categorias', 'countries'));
         $this->set('categorias',$categorias);
         $this->set('tipos',$tipos);
         $this->set('subtipos',$subtipos);
         $this->set('proveedores',$proveedores);
         
-        
 		$this->Calsado->recursive = 1;
-        $this->paginate = array('order' => 'Calsado.id DESC');        
+        $this->paginate['order'] = array('Calsado.id DESC');
+        $conditions['Calsado.dele <>']='1';
+        
+        //join con la tabla publicaciones y proyectos para sacar el nombre del proyecto al cual pertenece la notificacion
+        $this->paginate['joins'] = array(
+                                        array(
+                                            'table' => 'usuarios',
+                                            'alias' => 'Usuariox',
+                                            'conditions' => array("Calsado.usuario_id=Usuariox.id"),
+                                        )
+                                    );
+        
         if(isset($_GET["search"]))
         {
             if($_SESSION["rpos"])
             {
-                $_POST=$_SESSION["pos"];                
+                $_POST=$_SESSION["pos"];
             }
-             $_SESSION["rpos"]=0;
+            $_SESSION["rpos"]=0;
             $_SESSION["pos"]=$_POST;
             
             if($_POST["tipo"]=='termino')
             {
-             $this->set('calsados',$this->paginate(null,array("dele <> 1 and {$_POST["criterio"]} like '%{$_POST["like"]}%'")));   
+                $conditions["{$_POST["criterio"]} like '%{$_POST["like"]}%'"] = "";
+                $this->paginate['conditions']=$conditions;
+                $this->set('calsados',$this->paginate());   
             }
             else if($_POST["tipo"]=='filtro')
             {
-                $search=array();
-                
-                $search['dele <>']='1';
-                
                 if($_POST["estado_id"])
                 {
                     if($_POST["estado_id"]=='p')
                     $_POST["estado_id"]=0;
                     
-                    $search["Calsado.activado"]=$_POST["estado_id"];
-                }                
+                    $conditions["Calsado.activado"]=$_POST["estado_id"];
+                }
                 if($_POST["categoria_id"])
                 {
-                    $search["Calsado.categoria_id"]=$_POST["categoria_id"];
+                    $conditions["Calsado.categoria_id"]=$_POST["categoria_id"];
                 }
                 if($_POST["tipo_id"])
                 {
-                    $search["Calsado.tipo_id"]=$_POST["tipo_id"];
+                    $conditions["Calsado.tipo_id"]=$_POST["tipo_id"];
                 } 
                 if($_POST["subtipo_id"])
                 {
-                    $search["Calsado.subtipo_id"]=$_POST["subtipo_id"];
+                    $conditions["Calsado.subtipo_id"]=$_POST["subtipo_id"];
                 } 
                 
                 if($_POST["usuario_id"])
                 {
-                    $search["Calsado.usuario_id"]=$_POST["usuario_id"];
+                    $conditions["Calsado.usuario_id"]=$_POST["usuario_id"];
                 } 
                 
-                              
-             $this->set('calsados',$this->paginate(null,$search));
+             $this->paginate['conditions']=$conditions;
+             $this->set('calsados',$this->paginate());
             }
             else
             {
-                 $this->set('calsados',$this->paginate(null,array("dele <> 1 and code like '%{$_POST["referencia"]}%'")));   
+                $conditions["Calsado.code like '%{$_POST["referencia"]}%'"] = "";
+                $this->paginate['conditions']=$conditions;
+                $this->set('calsados',$this->paginate());
             }
         }
         else
 		{
-		  //$search['del <>']='1';		  
-		  $this->set('calsados', $this->paginate(null,array('Calsado.dele <>'=>1)));
-        }       
+		  $this->paginate['conditions']=$conditions;
+		  $this->set('calsados', $this->paginate());
+        }
 	}
     
 	function proveedor_index()
@@ -427,75 +435,69 @@ class CalsadosController extends AppController {
             {
                 $this->Calsado->id=$aprove;
                 $this->Calsado->saveField('activado','1');
-            }            
+            }
         }
-   
+        
 	    $categorias = $this->Calsado->Categoria->find('list');
         $tipos = $this->Calsado->Tipo->find('list');
         $subtipos = $this->Calsado->Subtipo->find('list');
-       // $proveedores = $this->Calsado->Usuario->find('list',array('conditions'=>array('Usuario.rol'=>'proveedor')));
         
-        
-        
-        $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));        
-        $this->set(compact('categorias', 'countries'));         
+        $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
+        $this->set(compact('categorias', 'countries'));
         $this->set('categorias',$categorias);
         $this->set('tipos',$tipos);
         $this->set('subtipos',$subtipos);
-        //$this->set('proveedores',$proveedores);
-        
         
 		$this->Calsado->recursive = 1;
-        $this->paginate = array('order' => 'Calsado.id DESC');        
+        $this->paginate['order'] = array('Calsado.id DESC');
+        $conditions['Calsado.dele <>']='1';
+        $conditions["Calsado.usuario_id"]=$this->Auth->user("id");
+        
         if(isset($_GET["search"]))
         {
             if($_POST["tipo"]=='termino')
             {
-             $this->set('calsados',$this->paginate(null,array("dele <> 1 and {$_POST["criterio"]} like '%{$_POST["like"]}%'")));   
+                $conditions["{$_POST["criterio"]} like '%{$_POST["like"]}%'"] = "";
+                $this->paginate['conditions']=$conditions;
+                $this->set('calsados',$this->paginate());
             }
             else if($_POST["tipo"]=='filtro')
             {
-                $search=array();
-                
-                $search['dele <>']='1';
-                
                 if($_POST["estado_id"])
                 {
                     if($_POST["estado_id"]=='p')
                     $_POST["estado_id"]=0;
                     
-                    $search["Calsado.activado"]=$_POST["estado_id"];
+                    $conditions["Calsado.activado"]=$_POST["estado_id"];
                 }                
                 if($_POST["categoria_id"])
                 {
-                    $search["Calsado.categoria_id"]=$_POST["categoria_id"];
+                    $conditions["Calsado.categoria_id"]=$_POST["categoria_id"];
                 }
                 if($_POST["tipo_id"])
                 {
-                    $search["Calsado.tipo_id"]=$_POST["tipo_id"];
+                    $conditions["Calsado.tipo_id"]=$_POST["tipo_id"];
                 } 
                 if($_POST["subtipo_id"])
                 {
-                    $search["Calsado.subtipo_id"]=$_POST["subtipo_id"];
-                } 
-                
-                
-                    $search["Calsado.usuario_id"]=$this->Auth->user("id");
-                
-                
-                              
-             $this->set('calsados',$this->paginate(null,$search));
+                    $conditions["Calsado.subtipo_id"]=$_POST["subtipo_id"];
+                }
+                             
+                $this->paginate['conditions']=$conditions;
+                $this->set('calsados',$this->paginate());
             }
             else
             {
-                 $this->set('calsados',$this->paginate(null,array("dele <> 1 and code like '%{$_POST["referencia"]}%'")));   
+                $conditions["Calsado.code like '%{$_POST["referencia"]}%'"] = "";
+                $this->paginate['conditions']=$conditions;
+                $this->set('calsados',$this->paginate());
             }
         }
         else
 		{
-		  //$search['del <>']='1';		  
-		  $this->set('calsados', $this->paginate(null,array('Calsado.dele <>'=>1,'Calsado.usuario_id'=>$this->Auth->user("id"))));
-        }       
+		  $this->paginate['conditions']=$conditions;
+		  $this->set('calsados', $this->paginate());
+        }
 	}
 
 
