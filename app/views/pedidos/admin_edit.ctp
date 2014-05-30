@@ -78,7 +78,7 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
         <input type="hidden" name="data[Mensaje][tipo_mensaje]" value="comentario" />
         <textarea style="width: 97%;" name="data[Mensaje][mensaje]" rows="4" onfocus="if(this.value='Enviar comentarios al Cliente')this.value=''">Enviar comentarios al Cliente</textarea>
         <div class="tcenter">
-        <input style="margin: 10px;" type="submit" class="btn-admin-orange" value="GUARDAR" />
+        <input style="margin: 10px;" type="submit" class="btn-admin-orange" value="ENVIAR" />
         </div>
         </form>
         <div style="text-align: left;">
