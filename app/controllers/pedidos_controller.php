@@ -605,7 +605,7 @@ Pedido.`usuario_id`=Usuario.id ";
 	   
 		$miid=$this->Auth->user("id");
         $this->Pedido->recursive = 0;
-		$this->set('pedidos', $this->paginate(null,array('confirmado'=>'1','revisado'=>'0', 'proveedor'=>$miid)));
+		$this->set('pedidos', $this->paginate(null,array('confirmado'=>'1', 'enviado'=>'0', 'proveedor'=>$miid)));
         
         
         if(isset($_POST["form"]) && $_POST["form"]=='1')
@@ -697,7 +697,7 @@ Pedido.`usuario_id`=Usuario.id ";
     function proveedor_lista() {
 		$miid=$this->Auth->user("id");
         $this->Pedido->recursive = 0;
-		$this->set('pedidos', $this->paginate(null,array('confirmado'=>'1','proveedor'=>$miid)));
+		$this->set('pedidos', $this->paginate(null,array('confirmado'=>'1','enviado'=>'1','proveedor'=>$miid)));
         
         
         if(isset($_POST["form"]) && $_POST["form"]=='1')

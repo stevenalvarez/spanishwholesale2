@@ -99,7 +99,7 @@ if(isset($_SESSION["Auth"]["Usuario"]["id"]) && $_SESSION["Auth"]["Usuario"]["id
      App::import('Model', 'Usuario');
      $Usuario = new Usuario();
      $id=$_SESSION["Auth"]["Usuario"]["id"];
-     $res = $Usuario->query("select count(*) as x from pedidos where proveedor=$id and revisado=0 and confirmado!=0");
+     $res = $Usuario->query("select count(*) as x from pedidos where proveedor=$id and enviado=0 and confirmado=1 and anulado=0");
      $consultas = $Usuario->query("select count(*) as x from consultas where usuario_prov_id=$id and revisado='0'");
 }
 
