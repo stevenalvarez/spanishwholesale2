@@ -1,7 +1,7 @@
 <div id="nav-menu">
 <ul>
 <li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
-<li> <a href="<?php echo $this->webroot?>admin/categorias/index">Listado de Pedidos</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/pedidos/index">Listado de Pedidos</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>
@@ -133,6 +133,9 @@
     </tr>
 </table>
 </div>
+
+
+
 <div id="admin-table" style="clear: both;">
 
 
@@ -150,7 +153,8 @@
 			<th><?php echo $this->Paginator->sort('iva');?></th>
 			<th><?php echo $this->Paginator->sort('portes');?></th>
 -->
-			<th>base imponible</th>
+			<th>Base imponible</th>
+            <th>Total</th>
 		    <th>Recibo</th>
 			<th>Estado</th>
 			<th class="actions">Acciones</th>
@@ -187,6 +191,9 @@
 		<td><?php
         echo $PedidoModel->calcularTotalneto($pedido['Pedido']['id']);
         ?> &euro;</td>
+		<td style="width: 60px;"><?php
+        echo $PedidoModel->calcularTotal($pedido['Pedido']['id']);
+        ?> &euro;</td>        
     <td>
     <?php
     $prov=$PedidoModel->query("Select title from usuarios where id={$pedido['Pedido']['proveedor']}");

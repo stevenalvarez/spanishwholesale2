@@ -1333,5 +1333,23 @@ Pedido.`usuario_id`=Usuario.id ";
         $this->redirect(array('action'=>'edit',$id));
     }
     
+    function admin_restablecer_valores_originales($id = null){
+        
+        $this->Pedido->unbindModel(array('belongsTo'=>array('Usuario'),'hasMany'=>array('Mensaje')),false);
+		$pedidos = $this->Pedido->read(null, $id);
+        
+        $this->loadModel('Articulo');
+        $this->Articulo->recursive = -1;
+        foreach($pedidos['Articulo'] as $articulo){
+            $this->Articulo->id=$articulo['id'];
+            $restore = $this->Articulo->field("serializado");
+            $restore = unserialize($restore);
+            $restore["id"]=$articulo['id'];
+            $this->Articulo->save($restore);
+        }
+        
+        $this->redirect(array('action'=>'edit',$id));
+    }    
+    
     
 }

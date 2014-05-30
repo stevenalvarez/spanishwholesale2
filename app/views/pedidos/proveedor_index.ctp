@@ -136,7 +136,7 @@
 	<h2>Listado de Pedidos</h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort( utf8_encode('Numero'),'id');?></th>
+			<th><?php echo $this->Paginator->sort( utf8_encode('Número'),'id');?></th>
             <th><?php echo $this->Paginator->sort('fecha pedido','tim');?></th>
 			<th><?php echo $this->Paginator->sort('Cliente','usuario_id');?></th>
 		<!--
