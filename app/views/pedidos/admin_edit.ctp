@@ -343,7 +343,7 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align: right;"><strong>TOTAL PEDIDOS</strong></td>
+                    <td colspan="4" style="text-align: right;"><strong>TOTAL PEDIDO</strong></td>
                     <td><strong id="total_pedido2"><?php echo $total?> &euro;</strong></td>
                     
                 </tr>
