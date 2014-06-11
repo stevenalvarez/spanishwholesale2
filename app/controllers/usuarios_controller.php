@@ -1137,8 +1137,13 @@ class UsuariosController extends AppController {
             $consulta["Consulta"]["tim"] = date("Y-m-d H:i:s");
             
             if($this->Consulta->save($consulta)){
+                if(Configure::read('test_mail')){
+                    $email = Configure::read('test_mail');
+                }else{
+                    $email = $this->Usuario->field("email");
+                }
                 $this->set("mail_news",$mensaje_user);
-                $this->Email->to = array($this->Usuario->field("email"),Configure::read('admin-email'));
+                $this->Email->to = array($email,Configure::read('admin-email'));
                 $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
                 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';

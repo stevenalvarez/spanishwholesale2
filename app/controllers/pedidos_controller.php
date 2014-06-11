@@ -268,11 +268,17 @@ class PedidosController extends AppController {
                 $this->Email->delivery= 'mail';
         		$this->Email->send();
                 
+                if(Configure::read('test_mail')){
+                    $email = Configure::read('test_mail');
+                }else{
+                    $email = $this->Usuario->field("email");
+                }
+                
                 //Email para el usuario
                 $this->loadModel("Usuario");
                 $this->Usuario->id=$this->Pedido->field("proveedor");
                 $this->set("proveedor",$this->Usuario->read(null,$this->Pedido->field("proveedor")));
-        		$this->Email->to = $this->Usuario->field("email");
+        		$this->Email->to = $email;
         		$this->Email->subject ="SpanishWholesale - Nuevo Pedido";
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         		$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';

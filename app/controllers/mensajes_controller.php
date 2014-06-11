@@ -89,8 +89,15 @@ class MensajesController extends AppController {
           $this->Pedido->saveField('mensaje',0);
           $cliente=$this->Pedido->field("usuario_id");          
           $this->loadModel("Usuario");
-          $this->Usuario->id=$cliente;          
-          $cli=$this->Usuario->field("email");          
+          $this->Usuario->id=$cliente;        
+          
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = $this->Usuario->field("email");
+            }
+            
+          $cli=$email;
 
           
             $this->set('mail_news','Te respondieron a tus comentarios en el pedido #'.$this->data["Mensaje"]["pedido_id"]);
@@ -129,8 +136,15 @@ class MensajesController extends AppController {
           $this->Pedido->saveField('mensaje',0);
           $cliente=$this->Pedido->field("usuario_id");          
           $this->loadModel("Usuario");
-          $this->Usuario->id=$cliente;          
-          $cli=$this->Usuario->field("email");
+          $this->Usuario->id=$cliente;
+          
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = $this->Usuario->field("email");
+            }          
+                    
+          $cli=$email;
           $respuesta_proveedor = "*Proveedor ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
 
           
@@ -171,8 +185,15 @@ class MensajesController extends AppController {
           $this->Pedido->saveField('mensaje',1);
           $prov=$this->Pedido->field("proveedor");          
           $this->loadModel("Usuario");
-          $this->Usuario->id=$prov;          
-          $prov=$this->Usuario->field("email");
+          $this->Usuario->id=$prov;
+
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = $this->Usuario->field("email");
+            }
+                    
+          $prov=$email;
           
           $name=$this->Auth->user("title");
           $pregunta_cliente = "*Cliente ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
