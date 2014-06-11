@@ -1143,7 +1143,19 @@ class UsuariosController extends AppController {
                     $email = $this->Usuario->field("email");
                 }
                 $this->set("mail_news",$mensaje_user);
-                $this->Email->to = array($email,Configure::read('admin-email'));
+                $this->Email->to = $email;
+                $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
+                $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
+                $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
+                $this->Email->template = $lang.'masivo';
+                $this->Email->sendAs = 'html';
+                $this->Email->delivery = 'mail';
+                $this->Email->send();
+                
+                /*PARA EL ADMIN*/
+                
+                $this->set("mail_news",$mensaje_user);
+                $this->Email->to = Configure::read('admin-email');
                 $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
                 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
