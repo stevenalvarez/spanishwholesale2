@@ -1153,7 +1153,6 @@ class UsuariosController extends AppController {
                 $this->Email->send();
                 
                 /*PARA EL ADMIN*/
-                
                 $this->set("mail_news",$mensaje_user);
                 $this->Email->to = Configure::read('admin-email');
                 $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
