@@ -645,8 +645,7 @@ if (sizeof($calsados)>0){
             }
                 ___("No hay art&iacute;culos para esta categor&iacute;a");
         }
-        if($items>$n)
-{
+        //if($items>$n){
         ?>
         <!--Product-->
         
@@ -715,7 +714,7 @@ else
         </div>
         
         </div>
-        <?php }?>
+        <?php //}?>
        
 <!--
      <div class="span-17 shop-category" style="width: 700px;">

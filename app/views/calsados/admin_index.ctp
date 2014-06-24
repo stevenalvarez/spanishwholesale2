@@ -191,7 +191,7 @@ $tipo="par";
 
 <tr>
    <th>Tipo</th>
-   <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares</th><th>Precio</th><th class="fix"></th>
+   <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares</th><th>Precio</th><th>Categor&iacute;a</th><th>Tipo</th><th>SubTipo</th><th class="fix"></th>
 </tr>
 
 
@@ -226,6 +226,33 @@ $tipo="par";
         
         <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
         </td>
+       <td>
+            <select name="categoria_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
+            <?php foreach($categorias as $k=>$v)
+            {
+            ?><option <?php echo $k==$calsado['Calsado']['categoria_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+            <?php }?>
+            </select>
+        </td>
+        <td>
+        <select name="tipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
+            <?php foreach($tipos as $k=>$v)
+            {
+            ?><option <?php echo $k==$calsado['Calsado']['tipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+            <?php }?>
+            </select>
+        </td>
+        <td>
+        
+          
+        <select name="subtipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
+        <option value="">Seleccione</option>
+            <?php foreach($subtipos as $k=>$v)
+            {
+            ?><option <?php echo $k==$calsado['Calsado']['subtipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+            <?php }?>
+            </select>
+        </td>        
         <td>
             <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
                 <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>
