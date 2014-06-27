@@ -121,7 +121,7 @@ $style='padding-left:27px; width:935px; ';
            $filtro=" usuarios.title ='".mysql_escape_string($_GET["provider"])."' and ";
            
            if(isset($_GET["categoria_id"]) && $_GET["categoria_id"])
-           $filtro.=" calsados.categoria_id ='".mysql_escape_string($_GET["categoria_id"])."' and ";
+           $filtro.=" surtidos.categoria_id ='".mysql_escape_string($_GET["categoria_id"])."' and ";
            
            foreach($precios as $precioz)
            {
@@ -192,8 +192,8 @@ $style='padding-left:27px; width:935px; ';
            $params["provider"]=$_GET["provider"];
            }
            $sql="select t.* from calsados c, fotos f, surtidos s, `tipos` t
-           where c.`id`=f.`calsado_id` and c.`id`=s.`calsado_id` and c.`tipo_id`= t.id and
-           c.`activado`=1 $sqlp and c.`categoria_id`=$cat_id  and t.`activo`=1 GROUP by t.id";
+           where c.`id`=f.`calsado_id` and c.`id`=s.`calsado_id` and s.`tipo_id`= t.id and
+           c.`activado`=1 $sqlp and s.`categoria_id`=$cat_id  and t.`activo`=1 GROUP by t.id";
            
            $tipos=$Tipo->query($sql);
             $new_query_string = http_build_query($params);
@@ -262,23 +262,22 @@ $style='padding-left:27px; width:935px; ';
            App::import('Model', 'Calsado');
            $Calsado = new Calsado();   
            $marcas = $Calsado->query('
-            SELECT COUNT(*) as c, material from(
-            select `calsados`.`material` from calsados, `surtidos`, `fotos`,usuarios
+            SELECT COUNT(*) as c, material_id, title from(
+            select `calsados`.`material_id`, materials.title from calsados, `surtidos`, `fotos`,usuarios, materials
             where
             usuarios.id=calsados.usuario_id and usuarios.estado=1 and
             `calsados`.dele=0 and
-            `calsados`.`categoria_id`='.$_GET["categoria_id"].' and
+            `surtidos`.`categoria_id`='.$_GET["categoria_id"].' and
             `calsados`.id = `surtidos`.`calsado_id` and
             `calsados`.id = `fotos`.`calsado_id` and
-            `calsados`.`activado`= 1 GROUP by `calsados`.`id`) as marcas group by material');
+            `calsados`.`activado`= 1 and materials.id = `calsados`.`material_id` GROUP by `calsados`.`id`) as marcas group by material_id');
 
-           
             foreach($marcas as $k=>$v)
             {
          
      
             $c=$v["0"]["c"];
-            $v=$v["marcas"]["material"];
+            $v=$v["marcas"]["title"];
             if(!$v)
             {
                 continue;
@@ -291,14 +290,14 @@ $style='padding-left:27px; width:935px; ';
             unset($params["url"]);
             unset($params["tag"]);
             unset($params["tipo_id"]);
-            unset($params["material"]);
+            unset($params["material_id"]);
             
             
-            $params["material"] = $v;
+            $params["material_id"] = $v;
             $new_query_string = http_build_query($params);
             ?>
             <li 
-            <?php echo isset($_GET["material"])&&$_GET["material"]==$v?'class="current"':''?>>
+            <?php echo isset($_GET["material_id"])&&$_GET["material_id"]==$v?'class="current"':''?>>
             <a href="<?php echo $this->webroot?>?<?php echo $new_query_string?>"><?php echo $v?> (<?php echo $c?>)</a>
        	    </li>          
             <?php 
@@ -324,7 +323,7 @@ $style='padding-left:27px; width:935px; ';
             foreach($marcas as $k=>$v)
             {
                 
-                $Categoria=$_GET["categoria_id"]?"and `calsados`.`categoria_id`={$_GET["categoria_id"]} ":' ';
+                $Categoria=$_GET["categoria_id"]?"and `surtidos`.`categoria_id`={$_GET["categoria_id"]} ":' ';
                 $Categoria.=isset($_SESSION["hechoen"])?" and calsados.country_id='28' ":' ';
                 
                 $sql="select COUNT(*) as x from
@@ -385,7 +384,7 @@ $style='padding-left:27px; width:935px; ';
             select `calsados`.`marca` from calsados,usuarios,  `surtidos`, `fotos`
             where 
             `calsados`.dele=0 and usuarios.id=calsados.usuario_id and usuarios.estado=1 and
-            `calsados`.`categoria_id`='.$_GET["categoria_id"].' and
+            `surtidos`.`categoria_id`='.$_GET["categoria_id"].' and
             `calsados`.id = `surtidos`.`calsado_id` and
             `calsados`.id = `fotos`.`calsado_id` and
             `calsados`.`activado`= 1 GROUP by `calsados`.`id`) as marcas group by marca');
@@ -456,8 +455,8 @@ $style='width: 700px;';
             and `calsados`.id = `surtidos`.`calsado_id` 
             and `calsados`.id = `fotos`.`calsado_id` 
             and `calsados`.`activado`= 1 
-            and `tipos`.id = `calsados`.`tipo_id`
-            and `categorias`.id = `calsados`.`categoria_id`
+            and `tipos`.id = `surtidos`.`tipo_id`
+            and `categorias`.id = `surtidos`.`categoria_id`
             and `usuarios`.`title` = '$title'
             GROUP by `calsados`.id
             ORDER by `categorias`.`orden` desc";
@@ -645,7 +644,7 @@ if (sizeof($calsados)>0){
             }
                 ___("No hay art&iacute;culos para esta categor&iacute;a");
         }
-        //if($items>$n){
+        if($items>$n || ($items != 0 && count($items) > 0)){
         ?>
         <!--Product-->
         
@@ -714,7 +713,7 @@ else
         </div>
         
         </div>
-        <?php //}?>
+        <?php }?>
        
 <!--
      <div class="span-17 shop-category" style="width: 700px;">

@@ -65,9 +65,9 @@ jQuery(function(){
         echo $this->Form->input('code',array('label'=>'Referencia:','class'=>'validate[required]'));
         echo $this->Form->input('country_id',array('label'=>'Fabricado en:'));
      //   echo $this->Form->input('venta',array('label'=>'Venta:','type'=>'select','options'=>array('Todos','Mas opciones')));
-        echo $this->Form->input('categoria_id',array('label'=>'Categoria*','class'=>'validate[required]','empty'=>'Seleccione'));
-        echo $this->Form->input('tipo_id',array('class'=>'validate[required]','label'=>'Tipo*','type'=>'select','empty'=>'Seleccione'));
-        echo $this->Form->input('subtipo_id',array('type'=>'select','empty'=>'Seleccione'));
+        //echo $this->Form->input('categoria_id',array('label'=>'Categoria*','class'=>'validate[required]','empty'=>'Seleccione'));
+        //echo $this->Form->input('tipo_id',array('class'=>'validate[required]','label'=>'Tipo*','type'=>'select','empty'=>'Seleccione'));
+        //echo $this->Form->input('subtipo_id',array('type'=>'select','empty'=>'Seleccione'));
 	//	echo $this->Form->input('usuario_id',array('type'=>'hidden'));
 		echo $this->Form->input('material_id');
         echo $this->Form->input('forro');

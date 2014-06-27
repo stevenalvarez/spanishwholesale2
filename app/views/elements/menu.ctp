@@ -11,7 +11,7 @@
                 'alias' => 'Calsado',
                 'type' => 'RIGHT',
                 'conditions' => array(
-                'Calsado.categoria_id =Categoria.id','Calsado.activado'=>'1', 'Calsado.dele'=>'0'
+                'Calsado.activado'=>'1', 'Calsado.dele'=>'0'
                 )), 
                array('table' => 'fotos',
                 'alias' => 'Foto',
@@ -24,7 +24,8 @@
                 'alias' => 'Surtido',
                 'type' => 'RIGHT',
                 'conditions' => array(
-                'Calsado.id =Surtido.calsado_id'
+                'Calsado.id =Surtido.calsado_id',
+                'Surtido.categoria_id =Categoria.id',
                 ))
                 ,array('table' => 'usuarios',
                 'alias' => 'Usuario',
@@ -74,12 +75,12 @@
           </li>-->
           <?php foreach($categorias as $k=>$v)
             {
-              $tipos=$Tipo->find('list',array('conditions'=>array('activo'=>'1','Calsado.categoria_id'=>$k),'order'=>'Tipo.orden asc','joins'=>array(
+              $tipos=$Tipo->find('list',array('conditions'=>array('activo'=>'1','Surtido.categoria_id'=>$k),'order'=>'Tipo.orden asc','joins'=>array(
                array('table' => 'calsados',
                 'alias' => 'Calsado',
                 'type' => 'RIGHT',
                 'conditions' => array(
-                'Calsado.tipo_id =Tipo.id','Calsado.activado'=>'1', 'Calsado.dele'=>'0'
+                'Calsado.activado'=>'1', 'Calsado.dele'=>'0'
                 )), 
                array('table' => 'fotos',
                 'alias' => 'Foto',
@@ -92,7 +93,8 @@
                 'alias' => 'Surtido',
                 'type' => 'RIGHT',
                 'conditions' => array(
-                'Calsado.id =Surtido.calsado_id'
+                'Calsado.id =Surtido.calsado_id',
+                'Surtido.tipo_id =Tipo.id'
                 ))
                 ,array('table' => 'usuarios',
                 'alias' => 'Usuario',
@@ -111,12 +113,12 @@
           	<ul>            
                 <?php foreach($tipos as $kk=>$vv)
                 {                    
-                     $Subtipos=$Subtipo->find('list',array('conditions'=>array('activo'=>'1','Calsado.categoria_id'=>$k,'Calsado.tipo_id'=>$kk),'order'=>'Subtipo.orden asc','joins'=>array(
+                     $Subtipos=$Subtipo->find('list',array('conditions'=>array('activo'=>'1','Surtido.categoria_id'=>$k,'Surtido.tipo_id'=>$kk),'order'=>'Subtipo.orden asc','joins'=>array(
                     array('table' => 'calsados',
                     'alias' => 'Calsado',
                     'type' => 'RIGHT',
                     'conditions' => array(
-                    'Calsado.subtipo_id =Subtipo.id','Calsado.activado'=>'1','Calsado.dele'=>'0'
+                    'Calsado.activado'=>'1','Calsado.dele'=>'0'
                     )), 
                     array('table' => 'fotos',
                     'alias' => 'Foto',
@@ -128,7 +130,8 @@
                     'alias' => 'Surtido',
                     'type' => 'RIGHT',
                     'conditions' => array(
-                    'Calsado.id =Surtido.calsado_id'
+                    'Calsado.id =Surtido.calsado_id',
+                    'Surtido.subtipo_id =Subtipo.id'
                     ))
                     ,array('table' => 'usuarios',
                     'alias' => 'Usuario',

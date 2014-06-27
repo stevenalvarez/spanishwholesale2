@@ -9,7 +9,7 @@ class Calsado extends AppModel {
     'surtidos' =>"(select ifnull(count(*),0) from surtidos where surtidos.calsado_id=Calsado.id)");
 
 	var $belongsTo = array(
-		'Categoria' => array(
+		/*'Categoria' => array(
 			'className' => 'Categoria',
 			'foreignKey' => 'categoria_id',
 			'conditions' => '',
@@ -30,7 +30,7 @@ class Calsado extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
+		),*/
 		'Usuario' => array(
 			'className' => 'Usuario',
 			'foreignKey' => 'usuario_id',

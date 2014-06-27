@@ -116,9 +116,13 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
+        <!--
 		<th><?php __('Categoria Id'); ?></th>
+        -->
 		<th><?php __('Code'); ?></th>
+        <!--
 		<th><?php __('Tipo Id'); ?></th>
+        -->
 		<th><?php __('Usuario Id'); ?></th>
 		<th><?php __('Material Id'); ?></th>
 		<th><?php __('Country Id'); ?></th>
@@ -138,9 +142,13 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $calsado['id'];?></td>
+            <!--
 			<td><?php echo $calsado['categoria_id'];?></td>
+            -->
 			<td><?php echo $calsado['code'];?></td>
+            <!--
 			<td><?php echo $calsado['tipo_id'];?></td>
+            -->
 			<td><?php echo $calsado['usuario_id'];?></td>
 			<td><?php echo $calsado['material_id'];?></td>
 			<td><?php echo $calsado['country_id'];?></td>

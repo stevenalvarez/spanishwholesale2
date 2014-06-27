@@ -5,8 +5,8 @@ class Subtipo extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
-		'Calsado' => array(
-			'className' => 'Calsado',
+		'Surtido' => array(
+			'className' => 'Surtido',
 			'foreignKey' => 'subtipo_id',
 			'dependent' => false,
 			'conditions' => '',

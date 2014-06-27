@@ -39,11 +39,6 @@ if(isset($_SESSION["cake_lang"]) && $_SESSION["cake_lang"]=='eng')
 <?php
 $desc='';
 
-if($calsado["Categoria"]["title"])
-{
-  $desc.=  $calsado["Categoria"]["title"].",";
-}
-
 if($calsado["Country"]["title"])
 {
   $desc.=  $calsado["Country"]["title"].",";
@@ -51,14 +46,6 @@ if($calsado["Country"]["title"])
 if(isset($calsado["Calsado"]["material"]) && $calsado["Calsado"]["material"])
 {
   $desc.=  $calsado["Calsado"]["material"].",";
-}
-if($calsado["Tipo"]["title"])
-{
-  $desc.=  $calsado["Tipo"]["title"].",";
-}
-if($calsado["Subtipo"]["title"])
-{
-  $desc.=  $calsado["Subtipo"]["title"].",";
 }
 
 if($calsado["Usuario"]["title"])

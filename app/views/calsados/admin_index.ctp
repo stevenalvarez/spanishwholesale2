@@ -56,9 +56,12 @@ Buscar por referencia
 <tr>
 <td>Proveedor</td>
 <td>Estado</td>
+<!--
 <td>Categoria</td>
 <td>Tipo</td>
 <td>Subtipo</td>
+-->
+<td>Material</td>
 </tr>
 
 <tr>
@@ -68,7 +71,7 @@ Buscar por referencia
 
 ?>
 
-        <select name="usuario_id" style="width: 120px;">
+        <select name="usuario_id" style="width: 150px;">
         
         <option value="0">Seleccione</option>
         <?php foreach($proveedores as $k=>$v)
@@ -78,13 +81,13 @@ Buscar por referencia
         </select>
 </td>
 <td>
-        <select name="estado_id" style="width: 120px;">
+        <select name="estado_id" style="width: 150px;">
         <option value="0">Seleccione</option>
         <option <?php if(isset( $_POST["estado_id"]) && $_POST["estado_id"]=='1'){echo 'selected="slected"'; } ?> value="1" >Aprobado</option>
         <option <?php if(isset($_POST["estado_id"] ) && $_POST["estado_id"]=='p'){echo 'selected="slected"'; } ?> value="p" >Pendiente</option>        
         </select>
 </td>
-
+<!--
 <td>
         <select name="categoria_id" style="width: 120px;">
         
@@ -111,6 +114,16 @@ Buscar por referencia
         <?php foreach($subtipos as $k=>$v)
         {
         ?><option <?php if(isset($_POST["subtipo_id"]) && $_POST["subtipo_id"]==$k){echo 'selected="slected"';} ?> value="<?php echo $k?>" ><?php echo $v?></option>
+        <?php }?>
+        </select>
+</td>
+-->
+<td>
+        <select name="material_id" style="width: 150px;">
+        <option value="0">Seleccione</option>
+        <?php foreach($materiales as $k=>$v)
+        {
+        ?><option  <?php if(isset($_POST["material_id"] ) && $_POST["material_id"]==$k){echo 'selected="slected"';} ?>  value="<?php echo $k?>" ><?php echo $v?></option>
         <?php }?>
         </select>
 </td>
@@ -151,13 +164,18 @@ $tipo="par";
 ?>
 <table class="<?php echo $tipo?>">
 <tr>
-   <th>Referencia</th> <th>Categor&iacute;a</th><th>Tipos</th>
+   <th>Referencia</th>
+   <!--
+   <th>Categor&iacute;a</th>
+   <th>Tipos</th>
    <th>Subtipos</th>
+   -->
    
    <th></th><th></th><th></th><th></th><th class="fix"></th>
 </tr>
 <tr>
    <td><?php echo $calsado['Calsado']['code']?></td>
+   <!--
    <td>
         <select name="categoria_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
         <?php foreach($categorias as $k=>$v)
@@ -166,6 +184,7 @@ $tipo="par";
         <?php }?>
         </select>
     </td>
+    
     <td>
     <select name="tipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
         <?php foreach($tipos as $k=>$v)
@@ -185,13 +204,14 @@ $tipo="par";
         <?php }?>
         </select>
     </td>
+    -->
 
    <th class="fix"></th>
 </tr>
 
 <tr>
    <th>Tipo</th>
-   <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares</th><th>Precio</th><th>Categor&iacute;a</th><th>Tipo</th><th>SubTipo</th><th class="fix"></th>
+   <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares</th><th>Precio</th><th class="fix"></th>
 </tr>
 
 
@@ -226,33 +246,6 @@ $tipo="par";
         
         <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
         </td>
-       <td>
-            <select name="categoria_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-            <?php foreach($categorias as $k=>$v)
-            {
-            ?><option <?php echo $k==$calsado['Calsado']['categoria_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-            <?php }?>
-            </select>
-        </td>
-        <td>
-        <select name="tipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-            <?php foreach($tipos as $k=>$v)
-            {
-            ?><option <?php echo $k==$calsado['Calsado']['tipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-            <?php }?>
-            </select>
-        </td>
-        <td>
-        
-          
-        <select name="subtipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-        <option value="">Seleccione</option>
-            <?php foreach($subtipos as $k=>$v)
-            {
-            ?><option <?php echo $k==$calsado['Calsado']['subtipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-            <?php }?>
-            </select>
-        </td>        
         <td>
             <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
                 <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>

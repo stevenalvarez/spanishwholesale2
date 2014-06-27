@@ -54,16 +54,16 @@ Buscar por referencia
 <table>
 
 <tr>
-<td>Proveedor</td>
 <td>Estado</td>
+<!--
 <td>Categoria</td>
 <td>Tipo</td>
 <td>Subtipo</td>
+-->
+<td>Material</td>
 </tr>
 
 <tr>
-<td>
-</td>
 <td>
         <select name="estado_id" style="width: 120px;">
         <option value="0">Seleccione</option>
@@ -71,7 +71,7 @@ Buscar por referencia
         <option <?php if(isset($_POST["estado_id"] ) && $_POST["estado_id"]=='p'){echo 'selected="slected"'; } ?> value="p" >Pendiente</option>        
         </select>
 </td>
-
+<!--
 <td>
         <select name="categoria_id" style="width: 120px;">
         
@@ -98,6 +98,16 @@ Buscar por referencia
         <?php foreach($subtipos as $k=>$v)
         {
         ?><option <?php if(isset($_POST["subtipo_id"]) && $_POST["subtipo_id"]==$k){echo 'selected="slected"';} ?> value="<?php echo $k?>" ><?php echo $v?></option>
+        <?php }?>
+        </select>
+</td>
+-->
+<td>
+        <select name="material_id" style="width: 150px;">
+        <option value="0">Seleccione</option>
+        <?php foreach($materiales as $k=>$v)
+        {
+        ?><option  <?php if(isset($_POST["material_id"] ) && $_POST["material_id"]==$k){echo 'selected="slected"';} ?>  value="<?php echo $k?>" ><?php echo $v?></option>
         <?php }?>
         </select>
 </td>
@@ -144,6 +154,7 @@ $tipo="par";
 </tr>
 <tr>
    <td><?php echo $calsado['Calsado']['code']?></td>
+   <!--
    <td>
         <select name="categoria_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
         <?php foreach($categorias as $k=>$v)
@@ -171,7 +182,7 @@ $tipo="par";
         <?php }?>
         </select>
     </td>
-
+    -->
    <th class="fix"></th>
 </tr>
 

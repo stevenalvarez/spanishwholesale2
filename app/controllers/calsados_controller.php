@@ -61,17 +61,17 @@ class CalsadosController extends AppController {
         if(isset($_GET['categoria_id']) && $_GET['categoria_id'])
         {
              $categoria_id=mysql_escape_string($_GET["categoria_id"]);     
-             $sql.=" and Calsado.categoria_id='$categoria_id'";  
+             $sql.=" and Surtido.categoria_id='$categoria_id'";  
         }        
         if(isset($_GET['tipo_id']) && $_GET['tipo_id'])
         {
              $tipo_id=mysql_escape_string($_GET["tipo_id"]);     
-             $sql.=" and Calsado.tipo_id='$tipo_id'";                   
+             $sql.=" and Surtido.tipo_id='$tipo_id'";                   
         }
         if(isset($_GET['subtipo_id']) && $_GET['subtipo_id'])
         {            
              $subtipo_id=mysql_escape_string($_GET["subtipo_id"]);     
-             $sql.=" and Calsado.subtipo_id='$subtipo_id='";                  
+             $sql.=" and Surtido.subtipo_id='$subtipo_id='";                  
         }  
                    
         if(isset($_SESSION["hechoen"]))
@@ -99,6 +99,8 @@ class CalsadosController extends AppController {
        }
        
        $sql.=" group by Calsado.id order by Surtido.id desc";
+       //echo $sql;
+       //exit(); 
        $calsados= $this->Calsado->query($sql);
        
         //recuperamos las fotos
@@ -343,16 +345,18 @@ class CalsadosController extends AppController {
             }
         }
    
-	    $categorias = $this->Calsado->Categoria->find('list');
-        $tipos = $this->Calsado->Tipo->find('list');
-        $subtipos = $this->Calsado->Subtipo->find('list');
+	    //$categorias = $this->Calsado->Categoria->find('list');
+        //$tipos = $this->Calsado->Tipo->find('list');
+        //$subtipos = $this->Calsado->Subtipo->find('list');
+        $materiales = $this->Calsado->Material->find('list');
         $proveedores = $this->Calsado->Usuario->find('list',array('conditions'=>array('Usuario.rol'=>'proveedor')));
         $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
         
         $this->set(compact('categorias', 'countries'));
-        $this->set('categorias',$categorias);
-        $this->set('tipos',$tipos);
-        $this->set('subtipos',$subtipos);
+        //$this->set('categorias',$categorias);
+        //$this->set('tipos',$tipos);
+        //$this->set('subtipos',$subtipos);
+        $this->set('materiales',$materiales);
         $this->set('proveedores',$proveedores);
         
 		$this->Calsado->recursive = 1;
@@ -392,6 +396,7 @@ class CalsadosController extends AppController {
                     
                     $conditions["Calsado.activado"]=$_POST["estado_id"];
                 }
+                /*
                 if($_POST["categoria_id"])
                 {
                     $conditions["Calsado.categoria_id"]=$_POST["categoria_id"];
@@ -404,7 +409,11 @@ class CalsadosController extends AppController {
                 {
                     $conditions["Calsado.subtipo_id"]=$_POST["subtipo_id"];
                 } 
-                
+                */
+                if($_POST["material_id"])
+                {
+                    $conditions["Calsado.material_id"]=$_POST["material_id"];
+                }                 
                 if($_POST["usuario_id"])
                 {
                     $conditions["Calsado.usuario_id"]=$_POST["usuario_id"];
@@ -438,15 +447,17 @@ class CalsadosController extends AppController {
             }
         }
         
-	    $categorias = $this->Calsado->Categoria->find('list');
-        $tipos = $this->Calsado->Tipo->find('list');
-        $subtipos = $this->Calsado->Subtipo->find('list');
+	    //$categorias = $this->Calsado->Categoria->find('list');
+        //$tipos = $this->Calsado->Tipo->find('list');
+        //$subtipos = $this->Calsado->Subtipo->find('list');
+        $materiales = $this->Calsado->Material->find('list');
         
         $countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
         $this->set(compact('categorias', 'countries'));
-        $this->set('categorias',$categorias);
-        $this->set('tipos',$tipos);
-        $this->set('subtipos',$subtipos);
+        //$this->set('categorias',$categorias);
+        //$this->set('tipos',$tipos);
+        //$this->set('subtipos',$subtipos);
+        $this->set('materiales',$materiales);
         
 		$this->Calsado->recursive = 1;
         $this->paginate['order'] = array('Calsado.id DESC');
@@ -469,7 +480,8 @@ class CalsadosController extends AppController {
                     $_POST["estado_id"]=0;
                     
                     $conditions["Calsado.activado"]=$_POST["estado_id"];
-                }                
+                }
+                /*                
                 if($_POST["categoria_id"])
                 {
                     $conditions["Calsado.categoria_id"]=$_POST["categoria_id"];
@@ -482,7 +494,11 @@ class CalsadosController extends AppController {
                 {
                     $conditions["Calsado.subtipo_id"]=$_POST["subtipo_id"];
                 }
-                             
+                */
+                if($_POST["material_id"])
+                {
+                    $conditions["Calsado.material_id"]=$_POST["material_id"];
+                }
                 $this->paginate['conditions']=$conditions;
                 $this->set('calsados',$this->paginate());
             }
@@ -521,9 +537,15 @@ class CalsadosController extends AppController {
 				$this->Session->setFlash(__('The calzado could not be saved. Please, try again.', true));
 			}
 		}
-		$categorias = $this->Calsado->Categoria->find('list');             
-		$tipos = $this->Calsado->Tipo->find('list');       
-        $subtipos = $this->Calsado->Subtipo->find('list');
+        $this->loadModel("Categoria");
+        $this->Categoria->recursive = -1;
+        $this->loadModel("Tipo");
+        $this->Tipo->recursive = -1;
+        $this->loadModel("Subtipo");
+        $this->Subtipo->recursive = -1;
+		$categorias = $this->Categoria->find('list');
+		$tipos = $this->Tipo->find('list');       
+        $subtipos = $this->Subtipo->find('list');
 		$usuarios = $this->Calsado->Usuario->find('list',array('conditions'=>array('Usuario.rol'=>'proveedor')));
         $materials = $this->Calsado->Material->find('list');
 		$countries = $this->Calsado->Country->find('list',array('order'=>'Country.title asc'));
@@ -551,9 +573,15 @@ class CalsadosController extends AppController {
 				$this->Session->setFlash(__('No se pudo guardar por favor intentelo de nuevo.', true));
 			}
 		}
-		$categorias = $this->Calsado->Categoria->find('list');
-		$tipos = $this->Calsado->Tipo->find('list');
-        $subtipos = $this->Calsado->Subtipo->find('list');
+        $this->loadModel("Categoria");
+        $this->Categoria->recursive = -1;
+        $this->loadModel("Tipo");
+        $this->Tipo->recursive = -1;
+        $this->loadModel("Subtipo");
+        $this->Subtipo->recursive = -1;        
+		$categorias = $this->Categoria->find('list');
+		$tipos = $this->Tipo->find('list');
+        $subtipos = $this->Subtipo->find('list');
 		$usuarios = $this->Calsado->Usuario->find('list');
         $materials = $this->Calsado->Material->find('list');
         $countries = $this->Calsado->Country->find('list');
@@ -598,9 +626,15 @@ class CalsadosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Calsado->read(null, $id);
 		}
-		$categorias = $this->Calsado->Categoria->find('list');
-		$tipos = $this->Calsado->Tipo->find('list');
-        $subtipos = $this->Calsado->Subtipo->find('list');
+        $this->loadModel("Categoria");
+        $this->Categoria->recursive = -1;
+        $this->loadModel("Tipo");
+        $this->Tipo->recursive = -1;
+        $this->loadModel("Subtipo");
+        $this->Subtipo->recursive = -1;        
+		$categorias = $this->Categoria->find('list');
+		$tipos = $this->Tipo->find('list');
+        $subtipos = $this->Subtipo->find('list');
 		$usuarios = $this->Calsado->Usuario->find('list',array('conditions'=>array('Usuario.rol'=>'proveedor')));
         $materials = $this->Calsado->Material->find('list');
 		$countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
@@ -640,9 +674,15 @@ class CalsadosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Calsado->read(null, $id);
 		}
-		$categorias = $this->Calsado->Categoria->find('list');
-		$tipos = $this->Calsado->Tipo->find('list');
-        $subtipos = $this->Calsado->Subtipo->find('list');
+        $this->loadModel("Categoria");
+        $this->Categoria->recursive = -1;
+        $this->loadModel("Tipo");
+        $this->Tipo->recursive = -1;
+        $this->loadModel("Subtipo");
+        $this->Subtipo->recursive = -1;        
+		$categorias = $this->Categoria->find('list');
+		$tipos = $this->Tipo->find('list');
+        $subtipos = $this->Subtipo->find('list');
 		$usuarios = $this->Calsado->Usuario->find('list');
         $materials = $this->Calsado->Material->find('list');
 		$countries = $this->Calsado->Country->find('list',array('order'=>'Country.title desc'));
