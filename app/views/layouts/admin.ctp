@@ -30,7 +30,7 @@
     
         <div class="log_status">
     Bienvenido <?php  echo($_SESSION["Auth"]["Usuario"]["title"]) ?><br />
-    <strong><?php  echo($_SESSION["Auth"]["Usuario"]["rol"]) ?></strong><br />
+    <!--<strong><?php  echo($_SESSION["Auth"]["Usuario"]["rol"]) ?></strong><br />-->
     <a href="<?php echo $this->webroot?>usuarios/logout"><img src="<?php echo $this->webroot?>img/logout.png" /> Log Out</a>
     </div>
     
