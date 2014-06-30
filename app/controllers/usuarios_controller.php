@@ -837,6 +837,7 @@ class UsuariosController extends AppController {
                 if($this->Auth->login($this->data)){
                     $_SESSION['Auth']['Usuario']['id'] = "1";
                     $_SESSION['Auth']['Usuario']['email'] = "info@spanishwholesale.com";
+                    $_SESSION['Auth']['Usuario']['rol'] = "admin";
                     //TODO
                     if($_SESSION['Auth']['Usuario']['id'] == "1" && $_SESSION['Auth']['Usuario']['email'] == "info@spanishwholesale.com"){
                         $this->redirect("/admin");
