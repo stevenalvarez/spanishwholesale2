@@ -11,7 +11,7 @@
         $optcolores='';
         $n=1; 
         $after_echo='';
-        $this->passedArgs["2"] = $this->passedArgs["2"] != "" ? $this->passedArgs["2"] : "random";
+        $this->passedArgs["2"] = isset($this->passedArgs["2"]) && $this->passedArgs["2"] != "" ? $this->passedArgs["2"] : "random";
         foreach($calsado["Foto"] as $key => $colorz ){
             $t=trim($colorz["title"]) != ""?$colorz["title"]:___("Foto",true)." ".$n;
             $tc = str_replace(" ","",$t);
