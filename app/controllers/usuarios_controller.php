@@ -96,6 +96,7 @@ class UsuariosController extends AppController {
             $this->data["Usuario"]["iva"]=0;
         }
         //TODO
+        if($this->data['Usuario']['rol'] != "cliente") $this->redirect($this->referer());
         if ($this->Usuario->save($this->data)) {
               $this->__sendConfirmEmail($this->Usuario->id);
               $this->Session->setFlash(___('La cuenta cliente se creo satisfactoriamente, te mandamos un email para validar tu cuenta de correo y que el administrador admita tu cuenta.', true),'flash_success');
@@ -158,11 +159,13 @@ class UsuariosController extends AppController {
 //	}
 
 	function admin_index() {
+	    if(!isset($_GET['___r'])) $this->redirect($this->referer());
 		$this->Usuario->recursive = 0;
 		$this->set('usuarios', $this->paginate());
 	}
-    	function proveedor_index() {
-	$this->redirect(array('controller'=>'calsados','action'=>'index'));
+	
+    function proveedor_index() {
+	   $this->redirect(array('controller'=>'calsados','action'=>'index'));
 	}
     
     function admin_proveedores() {
@@ -396,25 +399,26 @@ class UsuariosController extends AppController {
     
 
 	function admin_add() {
+	    if(!isset($_GET['___r'])) $this->redirect($this->referer());
 		if (!empty($this->data)) {
 		  //al admin no se le piden tantos datos como a los usuarios o proovedores
           
     
         $this->data["Usuario"]["regione_id"]=null;
-        $this->data["Usuario"]["rol"]="admin";        
-        $this->data["Usuario"]["tipo_de_negocio"]="admin";
-        $this->data["Usuario"]["persona_contacto"]="admin";
+        $this->data["Usuario"]["rol"]=isset($_GET['___r']) ? "admin" : "cliente";
+        $this->data["Usuario"]["tipo_de_negocio"]=isset($_GET['___r']) ? "admin" : "cliente";
+        $this->data["Usuario"]["persona_contacto"]=isset($_GET['___r']) ? "admin" : "cliente";
         
-        $this->data["Usuario"]["cif"]='0000';
-        $this->data["Usuario"]["direccion"]='0000';
-        $this->data["Usuario"]["codigo_postal"]='0000';
-        $this->data["Usuario"]["iva"]='0000';
-        $this->data["Usuario"]["re"]='0000';
-        $this->data["Usuario"]["fax"]='0000';
-        $this->data["Usuario"]["telefonos"]='0000';
+        $this->data["Usuario"]["cif"]=NULL;
+        $this->data["Usuario"]["direccion"]=NULL;
+        $this->data["Usuario"]["codigo_postal"]=NULL;
+        $this->data["Usuario"]["iva"]=NULL;
+        $this->data["Usuario"]["re"]=NULL;
+        $this->data["Usuario"]["fax"]=NULL;
+        $this->data["Usuario"]["telefonos"]=NULL;
         
         $this->data["Usuario"]["estado"]='0';
-        $this->data["Usuario"]["ip"]=$_SERVER["REMOTE_ADDR"];   
+        $this->data["Usuario"]["ip"]=$_SERVER["REMOTE_ADDR"];
           
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->data)) {
@@ -473,6 +477,7 @@ class UsuariosController extends AppController {
         $this->data["Usuario"]["img"]=$this->Image->justUpload($this->data["Usuario"]["img"],'/prov/'); // imagen original...
           
 			$this->Usuario->create();
+            if($this->data['Usuario']['rol'] != "proveedor") $this->redirect($this->referer());
 			if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('El proveedor fue guardado', true));
 				$this->redirect(array('action' => 'proveedores'));
@@ -496,6 +501,7 @@ class UsuariosController extends AppController {
         $this->data["Usuario"]["rol"]="transporte";   
           
 			$this->Usuario->create();
+            if($this->data['Usuario']['rol'] != "transporte") $this->redirect($this->referer());
            	if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('El transportista fue salvado', true));
 				$this->redirect(array('action' => 'transportistas'));
@@ -538,35 +544,28 @@ class UsuariosController extends AppController {
 //	}
 
 	function admin_edit($id = null) {
+	    if(!isset($_GET['___r'])) $this->redirect($this->referer());
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid usuario', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-		  
-          
-          
-          
-          
-        if($this->data["Usuario"]["impuestos"]==1)
-        {
-            $this->data["Usuario"]["re"]=0;
-            $this->data["Usuario"]["iva"]=1;
-        }
-        else if($this->data["Usuario"]["impuestos"]==2)
-        {
-            $this->data["Usuario"]["re"]=1;
-            $this->data["Usuario"]["iva"]=1;
-        }
-        else
-        {
-            $this->data["Usuario"]["re"]=0;
-            $this->data["Usuario"]["iva"]=0;
-        }
-        
-          
-          
-          
+            if($this->data["Usuario"]["impuestos"]==1)
+            {
+                $this->data["Usuario"]["re"]=0;
+                $this->data["Usuario"]["iva"]=1;
+            }
+            else if($this->data["Usuario"]["impuestos"]==2)
+            {
+                $this->data["Usuario"]["re"]=1;
+                $this->data["Usuario"]["iva"]=1;
+            }
+            else
+            {
+                $this->data["Usuario"]["re"]=0;
+                $this->data["Usuario"]["iva"]=0;
+            }
+            if(!isset($_GET['___r'])) $this->data["Usuario"]["rol"] = "cliente"; 
 			if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('Se guardaron los cambios', true));
 				$this->redirect(array('action' => 'index'));
@@ -582,6 +581,7 @@ class UsuariosController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+	    if(!isset($_GET['___r'])) $this->redirect($this->referer());
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for usuario', true));
 			$this->redirect(array('action'=>'index'));
@@ -690,7 +690,8 @@ class UsuariosController extends AppController {
         {
            $this->data["Usuario"]["img"]=$this->data["Usuario"]["img_old"];
         }
-		$this->Usuario->create();
+            $this->Usuario->create();
+            if($this->data['Usuario']['rol'] != "proveedor") $this->redirect($this->referer());
 			if ($this->Usuario->save($this->data)) {
 			 
              if($this->data["Usuario"]["estado"]!='1')
@@ -735,6 +736,7 @@ class UsuariosController extends AppController {
         
           
 			$this->Usuario->create();
+            if($this->data['Usuario']['rol'] != "transporte") $this->redirect($this->referer());
 			if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('El transportista fue salvado', true));
 				$this->redirect(array('action' => 'transportistas'));
@@ -790,6 +792,7 @@ class UsuariosController extends AppController {
         $this->data["Usuario"]["title"]=$this->data["Usuario"]["name"]." ".$this->data["Usuario"]["surname"];
           
 			$this->Usuario->create();
+            if($this->data['Usuario']['rol'] != "cliente") $this->redirect($this->referer());
 			if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('El cliente fue salvado', true));
 				$this->redirect(array('action' => 'clientes'));
@@ -1036,7 +1039,8 @@ class UsuariosController extends AppController {
        $this->data["Usuario"]["email"]=$this->Auth->user("email");
    //    print_r($this->data);
        
-       $this->Usuario->create();        
+        $this->Usuario->create();
+        if($this->data['Usuario']['rol'] != "cliente") $this->redirect($this->referer());
 		if ($this->Usuario->save($this->data)) {
 				$this->Session->setFlash(___('Se guardaron los datos', true));
 				$this->redirect(array('action' => 'micuenta'));
@@ -1162,10 +1166,15 @@ class UsuariosController extends AppController {
                 $this->Email->sendAs = 'html';
                 $this->Email->delivery = 'mail';
                 $this->Email->send();
-            }
+                
+                //se envia email y recien redireccionamos
+                $this->Session->setFlash(___('Su consulta fue enviada',1));
+                $this->redirect($this->referer());
             
-            $this->Session->setFlash(___('Su consulta fue enviada',1));
-            $this->redirect($this->referer());
+            }else{
+                $this->Session->setFlash(___('Ocurrio un error al momento del envio, por favor intente de nuevo',1));
+                $this->redirect($this->referer());
+            }
         
         }else{
             $this->Session->setFlash(___('Debe estar registrado para enviar consultas',1));
