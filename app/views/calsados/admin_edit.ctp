@@ -217,7 +217,7 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
             </div>
             <?php echo $this->Form->input('categoria_id',array("name"=>"data[Surtido][categoria_id]"));?>
             <?php echo $this->Form->input('tipo_id',array("name"=>"data[Surtido][tipo_id]"));?>
-            <?php echo $this->Form->input('subtipo_id',array("name"=>"data[Surtido][subtipo_id]"));?>
+            <?php echo $this->Form->input('subtipo_id',array("name"=>"data[Surtido][subtipo_id]",'empty'=>'Seleccione'));?>
             <input name="data[Surtido][tipo]" value="cajas_surtidas" id="SurtidoTipo" type="hidden"/>
     <div style="padding: 0 0 30px 10px; overflow: hidden; width: 100%;"> <input value="SALVAR" class="btn-admin-orange" name="step" type="submit"> </div>
     </form> 
@@ -264,7 +264,7 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
 -->                    
             <?php echo $this->Form->input('categoria_id',array("name"=>"data[Surtido][categoria_id]"));?>
             <?php echo $this->Form->input('tipo_id',array("name"=>"data[Surtido][tipo_id]"));?>
-            <?php echo $this->Form->input('subtipo_id',array("name"=>"data[Surtido][subtipo_id]"));?>
+            <?php echo $this->Form->input('subtipo_id',array("name"=>"data[Surtido][subtipo_id]",'empty'=>'Seleccione'));?>
                     <input name="data[Surtido][tipo]" value="surtido_libre" id="SurtidoTipo" type="hidden"/>    <hr/>
             <div style="padding: 0 0 30px 10px; overflow: hidden; width: 100%;"> <input value="SALVAR" class="btn-admin-orange" name="step" type="submit"> </div>
             </form>

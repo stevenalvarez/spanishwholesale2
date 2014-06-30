@@ -74,7 +74,7 @@ body { font-family: arial;}
 #admin-table.dos table { width: 695px; background: url('../img/admin-body-table2.png') bottom left no-repeat; }
 #admin-table table tr { text-align: left; }
 #admin-table table tr td { text-align: left; font-size: 12px; color: #3c3f42;}
-#admin-table table tr td,#admin-table table tr th { padding-left: 6px; vertical-align: middle; height: 26px; }
+#admin-table table tr td,#admin-table table tr th { padding-left: 6px; vertical-align: middle; height: 26px; padding-right: 6px;}
 #admin-table table tr a,#admin-table table tr th { color: #1f476f; text-decoration: none; font-size: 13px;text-align: left;}
 #admin-table table tr th{   background: url('../img/admin-lable-th.png') top left repeat-x;  }
 #admin-table table tr.altrow td{   background: url('../img/admin-lable-td.png') top left repeat-x;         }

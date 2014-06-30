@@ -113,13 +113,11 @@ class Pedido extends AppModel {
        else
        {
        $portes=$this->query("select u.portes_txt, u.portes from usuarios u,pedidos p where p.id=$pedido_id and p.proveedor=u.id");
-       $serializadoo = $portes[0]['u']['portes_txt'];
        
-       $portres=0;  
-       $serializadoo=unserialize($serializadoo);               
-         if($portes[0]['u']["portes"]=='bultos')
+       $portres=0;
+         if(isset($portes[0]['u']["portes"]) && $portes[0]['u']["portes"]=='bultos')
          {
-            
+            $serializadoo=unserialize($portes[0]['u']['portes_txt']);
             ksort($serializadoo);    
          
             $cajillas_portes=$this->calcularbultos($pedido_id); 
@@ -149,14 +147,16 @@ class Pedido extends AppModel {
          }
          else
          {
+            $serializadoo=isset($portes[0]['u']["portes"]) ? @unserialize($portes[0]['u']["portes"]) : array();
             $total=$this->calcularTotalneto_sinportes($pedido_id);
             
-            if(intval($serializadoo["mayor"])<= intval($total))
+            if(!empty($serializadoo) && intval($serializadoo["mayor"])<= intval($total))
             {
                 $portres=0;
             }
-            else
-            $portres=$serializadoo["porenvio"];
+            else{
+                $portres=!empty($serializadoo) ? $serializadoo["porenvio"] : 0;
+            }
          }
           return $portres;
         }  

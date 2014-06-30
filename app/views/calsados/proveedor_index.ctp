@@ -146,144 +146,122 @@ if($par%2==0)
 $tipo="par";
 ?>
 <table class="<?php echo $tipo?>">
-<tr>
-   <th>Referencia</th> <th>Categor&iacute;a</th><th>Tipos</th>
-   <th>Subtipos</th>
-   
-   <th></th><th></th><th></th><th></th><th class="fix"></th>
-</tr>
-<tr>
-   <td><?php echo $calsado['Calsado']['code']?></td>
-   <!--
-   <td>
-        <select name="categoria_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-        <?php foreach($categorias as $k=>$v)
-        {
-        ?><option <?php echo $k==$calsado['Calsado']['categoria_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-        <?php }?>
-        </select>
-    </td>
-    <td>
-    <select name="tipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-        <?php foreach($tipos as $k=>$v)
-        {
-        ?><option <?php echo $k==$calsado['Calsado']['tipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-        <?php }?>
-        </select>
-    </td>
-    <td>
-    
-      
-    <select name="subtipo_id" style="width: 120px;" onchange="changee(this,'Calsado',<?php echo $calsado['Calsado']['id'] ?>)">
-    <option value="">Seleccione</option>
-        <?php foreach($subtipos as $k=>$v)
-        {
-        ?><option <?php echo $k==$calsado['Calsado']['subtipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
-        <?php }?>
-        </select>
-    </td>
-    -->
-   <th class="fix"></th>
-</tr>
+                    <tr>
+                        <td colspan="10">
+                            <b style="font-size: 15px;">
+                            Referencia :
+                            <i style="color: #590000;"><?php echo $calsado['Calsado']['code']?></i>
+                            </b>
+                        </td>
+                    </tr>
 
-<tr>
-   <th>Tipo</th>
-   <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares</th><th>Precio</th><th class="fix"></th>
-</tr>
+                    <tr>
+                       <th>Tipo</th>
+                       <th>N&uacute;meros</th>
+                       <th>Descripci&oacute;n</th>
+                       <th>Pares</th>
+                       <th>Precio</th>
+                       <th>Categor&iacute;a</th>
+                       <th>Tipos</th>
+                       <th>Subtipos</th>
+                       <th class="fix"></th>
+                    </tr>
+                    <?php foreach($calsado["Surtido"] as $surtido) { ?>
+                    <tr>
+                        <td><?php echo str_replace("_"," ",$surtido["tipo"])?></td>
+                        <td>
+                            Del
+                            <input style="width: 30px;" name="talla_inf" type="text" value="<?php echo $surtido["talla_inf"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/> 
+                            al 
+                            <input style="width: 30px;" name="talla_sup" type="text" value="<?php echo $surtido["talla_sup"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
+                        </td>
+                        <td>
+                            <?php //if($surtido["tipo"]=='cajas_surtidas'){ ?>
+                            <input style="width: 110px;" name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
+                            <?php //} ?>
+                        </td>
+                        <td>
+                            <?php // if($surtido["tipo"]=='surtido_libre'){?>
+                            <input style="width: 35px;" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
+                            <?php //} ?>
+                        </td>
+                        <td>
+                            <input style="width: 40px;" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
+                        </td>
+                        <td>
+                            <select name="categoria_id" style="width: 70px;" onchange="changee(this,'Surtido',<?php echo $surtido['id'] ?>)">
+                                <?php foreach($categorias as $k=>$v) { ?>
+                                    <option <?php echo $k==$surtido['categoria_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="tipo_id" style="width: 60px;" onchange="changee(this,'Surtido',<?php echo $surtido['id'] ?>)">
+                                <?php foreach($tipos as $k=>$v) { ?>
+                                    <option <?php echo $k==$surtido['tipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="subtipo_id" style="width: 70px;" onchange="changee(this,'Surtido',<?php echo $surtido['id'] ?>)">
+                                <option value="-1">Seleccione</option>
+                                    <?php foreach($subtipos as $k=>$v) { ?>
+                                        <option <?php echo $k==$surtido['subtipo_id']?'selected="true"':'' ?> value="<?php echo $k?>" ><?php echo $v?></option>
+                                    <?php } ?>
+                            </select>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
+                                <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    
+                    <tr>
+                        <th colspan="10">
+                            Colores / Fotografias
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="10">
+                            <?php foreach($calsado["Foto"] as $foto) { ?>
+                                <div style="float: left; width: 100px;">
+                                    <img src="<?php echo $this->webroot?>img/Foto/mini/<?php echo $foto["url"] ?>" />
+                                    <input size="8" name="title" width="70" type="text" value="<?php echo $foto["title"]?>" onchange="changee(this,'Foto',<?php echo $foto["id"]?>)" />
+                                    <div style="display: inline;">
+                                        <a href="javascript:void(0)" onclick="deletee(this,'foto',<?php echo $foto["id"]?>)">
+                                            <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="10">
+                            <div>
+                                <div class="hrgreen" style="width: 700px;"></div>
+                                <label style="color: #1F476F; font-size: 13px; font-weight: bold;">Estado:</label>
+                                <a style="overflow: hidden; padding: 2px;" class="hay" href="<?php echo $this->webroot?>proveedor/calsados/<?php echo $calsado['Calsado']['activado']=='1'?'desactivar':'activar'?>/<?php echo $calsado['Calsado']['id'] ?>">
+                                    <?php echo $calsado['Calsado']['activado']=='1'?'<span class="aprobado">Aprobado</span>':'<span class="pendiente">Pendiente</span>'; ?>
+                                </a>
+                                <div style="float: right; padding-right: 10px;">
+                                    <input type="button" onclick="window.location.href='<?php echo $this->webroot?>proveedor/calsados/edit/<?php echo $calsado['Calsado']['id'] ?>'" value="Editar" class="btn-admin-green"/>
+                                    <input type="button" class="btn-admin-red" onclick="deletee(this,'calzado',<?php echo $calsado['Calsado']['id'] ?>)" value="Eliminar"/>                
+                                </div>                                    
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="10"></td>
+                    </tr>
 
-
-    <tr class="colspan">
-<!--
-    <td rowspan="<?php echo sizeof($calsado["Surtido"])+1; ?>"></td>
-        
-        <td rowspan="<?php echo sizeof($calsado["Surtido"])+1; ?>">
-        </td>
--->
-    </tr>
-<?php foreach($calsado["Surtido"] as $surtido)
-{?>
-    <tr>
-    
-        <td><?php echo str_replace("_"," ",$surtido["tipo"])?></td>
-        <td>Del
-        <input size="2" name="talla_inf" type="text" value="<?php echo $surtido["talla_inf"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/> 
-        al <input size="2" name="talla_sup" type="text" value="<?php echo $surtido["talla_sup"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-        </td>
-        <td>
-            <?php //if($surtido["tipo"]=='cajas_surtidas'){ ?>
-            <input name="descripcion" type="text" value="<?php echo $surtido["descripcion"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-            <?php //} ?>
-        </td>
-        <td>
-            <?php //if($surtido["tipo"]=='surtido_libre'){?>
-            <input size="pares" name="pares" type="text" value="<?php echo $surtido["pares"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-            <?php //} ?>
-        </td>
-        <td>
-        
-        <input size="5" name="precio_sur" type="text" value="<?php echo $surtido["precio_sur"]?>"  onchange="changee(this,'Surtido',<?php echo $surtido["id"]?>)"/>
-        </td>
-        <td>
-            <a href="javascript:void(0)" onclick="deletee(this,'surtido',<?php echo $surtido["id"]?>)">
-                <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>
-            </a>
-        </td>
-    </tr>
-<?php }?>
-<tr>
-    <th>
-        Colores / Fotografias
-    </th>
-</tr>
-
-<tr>
-
-    <td colspan="7">
-        <?php
-        
-        foreach($calsado["Foto"] as $foto)
-        {?>
-        <div style="float: left; width: 90px;">
-        <img src="<?php echo $this->webroot?>img/Foto/mini/<?php echo $foto["url"] ?>" />
-        <input size="8" name="title" width="70" type="text" value="<?php echo $foto["title"]?>" onchange="changee(this,'Foto',<?php echo $foto["id"]?>)" />
-        
-        
-            <div style="display: inline;">
-                <a href="javascript:void(0)" onclick="deletee(this,'foto',<?php echo $foto["id"]?>)">
-                    <img alt="eliminar" src="<?php echo $this->webroot?>img/x.png"/>
-                </a>
-            </div>
-        </div>
-        <?php }?> 
-    </td>
-</tr>
-<tr>
-    <td colspan="7">
-        <div>
-        <div class="hrgreen" style="width: 700px;">
-        </div>
-                <label style="color: #1F476F; font-size: 13px; font-weight: bold;">Estado:</label>
-                <a class="hay" href="<?php echo $this->webroot?>proveedor/calsados/<?php echo $calsado['Calsado']['activado']=='1'?'desactivar':'activar'?>/<?php echo $calsado['Calsado']['id'] ?>">
-                        <?php echo $calsado['Calsado']['activado']=='1'?'<span class="aprobado">Aprobado</span>':'<span class="pendiente">Pendiente</span>'; ?>
-                </a>
-                
-                <div style="float: right; padding-right: 10px;">
-                <input type="button" onclick="window.location.href='<?php echo $this->webroot?>proveedor/calsados/edit/<?php echo $calsado['Calsado']['id'] ?>'" value="Editar" class="btn-admin-green"/>
-                <input type="button" class="btn-admin-red" onclick="deletee(this,'calzado',<?php echo $calsado['Calsado']['id'] ?>)" value="Eliminar"/>                
-                </div>
-                
-        </div>
-    </td>
-</tr>
-<tr>
-    <td colspan="7"></td>
-</tr>
-
-</table>
-</div>
-<?php
-$par++;
- }?>
+                </table>
+            </div><!--articulo-->
+            <?php $par++; } ?>
  <table>
  <tr class="clear">
 <td colspan="9">

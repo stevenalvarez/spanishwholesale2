@@ -117,10 +117,18 @@ class SurtidosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Surtido->read(null, $id);
 		}
-        $calsados = $this->Surtido->Calsado->find('list');
-        $categorias = $this->Surtido->Calsado->Categoria->find('list');
-        $tipos = $this->Surtido->Calsado->Tipo->find('list');
-        $subtipos = $this->Surtido->Calsado->Subtipo->find('list');
+        $this->loadModel("Calsado");
+        $this->Calsado->recursive = -1;
+        $this->loadModel("Categoria");
+        $this->Categoria->recursive = -1;
+        $this->loadModel("Tipo");
+        $this->Tipo->recursive = -1;
+        $this->loadModel("Subtipo");
+        $this->Subtipo->recursive = -1;
+        $calsados = $this->Calsado->find('list');
+        $categorias = $this->Categoria->find('list');
+        $tipos = $this->Tipo->find('list');
+        $subtipos = $this->Subtipo->find('list');
 		$this->set(compact('calsados','categorias','tipos','subtipos'));
 	}
     
