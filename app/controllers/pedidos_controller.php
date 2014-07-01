@@ -978,10 +978,9 @@ Pedido.`usuario_id`=Usuario.id ";
              $this->loadModel("Usuario");
              $this->Usuario->id=$pedido["Pedido"]["proveedor"];
              $this->Usuario->recursive=-1;
-             $provedor=$this->Usuario->read();            
+             $provedor=$this->Usuario->read();
              
-             
-             $this->set('date',date('d/m/Y'));          
+             $this->set('date',date('d/m/Y'));
              $this->set('pedido',$pedido);
              $this->set('proveedor',$provedor);
              $this->set('total',$total);
@@ -990,7 +989,14 @@ Pedido.`usuario_id`=Usuario.id ";
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
-             $this->Email->to = $pedido["Usuario"]["email"];
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject ="SpanishWholesale - Pedido confirmado";
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1031,8 +1037,15 @@ Pedido.`usuario_id`=Usuario.id ";
              /*cosa de lang*/ 
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";             
-             $this->Email->to = $pedido["Usuario"]["email"];
+             $lang="";
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject =___("SpanishWholesale - Pedido esperando",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1067,8 +1080,15 @@ Pedido.`usuario_id`=Usuario.id ";
              $this->set('serializado',unserialize(base64_decode($provedor["Usuario"]["serializado"])));
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";            
-             $this->Email->to = $pedido["Usuario"]["email"];
+             $lang="";
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject =___("SpanishWholesale - Pedido enviado",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1104,8 +1124,15 @@ Pedido.`usuario_id`=Usuario.id ";
              /*cosa de lang*/ 
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";                         
-             $this->Email->to = $pedido["Usuario"]["email"];
+             $lang="";
+
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject = ___("SpanishWholesale - Pedido anulado",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1179,7 +1206,14 @@ Pedido.`usuario_id`=Usuario.id ";
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
-             $this->Email->to = $pedido["Usuario"]["email"];
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject ="SpanishWholesale - Pedido confirmado";
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1220,8 +1254,15 @@ Pedido.`usuario_id`=Usuario.id ";
              /*cosa de lang*/ 
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";             
-             $this->Email->to = $pedido["Usuario"]["email"];
+             $lang="";
+            
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+            
+             $this->Email->to = $email;
 		 	 $this->Email->subject =___("SpanishWholesale - Pedido esperando",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1257,8 +1298,15 @@ Pedido.`usuario_id`=Usuario.id ";
              $this->set('serializado',unserialize(base64_decode($provedor["Usuario"]["serializado"])));
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
-             $lang="";            
-             $this->Email->to = $pedido["Usuario"]["email"];
+             $lang="";             
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject =___("SpanishWholesale - Pedido enviado",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1295,7 +1343,14 @@ Pedido.`usuario_id`=Usuario.id ";
              $lang="eng_";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
-             $this->Email->to = $pedido["Usuario"]["email"];
+             
+             if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+             }else{
+                $email = $pedido["Usuario"]["email"];
+             }
+             
+             $this->Email->to = $email;
 		 	 $this->Email->subject = ___("SpanishWholesale - Pedido anulado",1);
              $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	 $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';

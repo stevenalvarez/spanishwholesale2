@@ -28,11 +28,17 @@ class UsuariosController extends AppController {
         
         if($_POST)
         {
-       $usurio=$this->Usuario->findbyemail($_POST["old_p"]);
-       if($usurio["Usuario"])
+       $usuario=$this->Usuario->findbyemail($_POST["old_p"]);
+       if($usuario["Usuario"])
        {
-        $this->set('pass',$usurio["Usuario"]["contra"]);
-        $this->Email->to = $usurio["Usuario"]["email"];
+        if(Configure::read('test_mail')){
+            $email = Configure::read('test_mail');
+        }else{
+            $email = $usuario["Usuario"]["email"];
+        }
+        
+        $this->set('pass',$usuario["Usuario"]["contra"]);
+        $this->Email->to = $email;
 		$this->Email->subject = ___("Tu password",1);
         $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
 		$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -285,8 +291,13 @@ class UsuariosController extends AppController {
         $this->set("mail_news",nl2br($_POST["texto"])); 
         $this->set('User', $User);           
         
+        if(Configure::read('test_mail')){
+            $email = Configure::read('test_mail');
+        }else{
+            $email = $User["Usuario"]["email"];
+        }
             
-        $this->Email->to = $User["Usuario"]["email"];
+        $this->Email->to = $email;
 		$this->Email->subject = $_POST["asunto"];
         $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
 		$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -316,9 +327,15 @@ class UsuariosController extends AppController {
                 $lang='';
             }
             
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = $User["Usuario"]["email"];
+            }
+            
             $this->set("mail_news",nl2br($_POST["texto"]));   
             $this->set('User', $User);
-            $this->Email->to = $User["Usuario"]["email"];
+            $this->Email->to = $email;
         	$this->Email->subject = $_POST["asunto"];
             $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
         	$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -358,15 +375,23 @@ class UsuariosController extends AppController {
             $this->loadModel("Respuesta");
             $this->Respuesta->create();
             $repuesta["Respuesta"]["consulta_id"] = $consulta_id;
+            $repuesta["Respuesta"]["usuario_id"]=$this->Auth->user("id");
             $repuesta["Respuesta"]["title"] = Sanitize::clean($_POST["asunto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["respuesta"]= Sanitize::clean($_POST["texto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["tim"] = date("Y-m-d H:i:s");
             
             if($this->Respuesta->save($repuesta)){
                 $this->Usuario->query("UPDATE consultas SET usuario_delete='0' WHERE id={$consulta_id}");
-                $this->set("mail_news",nl2br($_POST["texto"]));   
+                $this->set("mail_news",nl2br($_POST["texto"]));
                 $this->set('User', $User);
-                $this->Email->to = $User["Usuario"]["email"];
+                
+                if(Configure::read('test_mail')){
+                    $email = Configure::read('test_mail');
+                }else{
+                    $email = $User["Usuario"]["email"];
+                }
+                
+                $this->Email->to = $email;
             	$this->Email->subject = $_POST["asunto"];
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
             	$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -374,11 +399,15 @@ class UsuariosController extends AppController {
             	$this->Email->sendAs = 'html';
                 $this->Email->delivery= 'mail';
             	$this->Email->send();
+                
+                $this->Session->setFlash(___('La respuesta fue enviada', true));
+            	$this->redirect(array('controller'=>'respuestas','action'=>'view/'.$consulta_id));
+                
+            }else{
+                $this->Session->setFlash(___('Ocurrio un error al momento del envio, por favor intente de nuevo',1));
+                $this->redirect($this->referer());
             }
-            
-            $this->Session->setFlash(___('La respuesta fue enviada', true));
-        	$this->redirect($this->referer());
-        }   
+        }
         
        	if (!$id) {
 			$this->redirect(array('action' => 'index'));
@@ -916,8 +945,14 @@ class UsuariosController extends AppController {
         $this->Usuario->saveField('activecode',$rad);
         $this->set('activecode',$rad);  
         
+        if(Configure::read('test_mail')){
+            $email = Configure::read('test_mail');
+        }else{
+            $email = $User["Usuario"]["email"];
+        }
+        
 	//	$this->set('password', $password);
-		$this->Email->to = $User["Usuario"]["email"];
+		$this->Email->to = $email;
 		$this->Email->subject = 'Activa tu cuenta';
         $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
 		$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -1117,7 +1152,14 @@ class UsuariosController extends AppController {
             $mensaje_user="Le informamos que hemos recibido su solicitud de contacto referente a: <br/>".$mensaje.
             "<br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
             $this->set("mail_news",$mensaje_user);
-    		$this->Email->to = $_POST["email"];
+            
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = trim($_POST["email"]);
+            }
+            
+    		$this->Email->to = $email;
     		$this->Email->subject ="SpanishWholesale - Solicitud de contacto ";
             $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
     		$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';

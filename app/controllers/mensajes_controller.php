@@ -96,12 +96,9 @@ class MensajesController extends AppController {
             }else{
                 $email = $this->Usuario->field("email");
             }
-            
-          $cli=$email;
-
           
             $this->set('mail_news','Te respondieron a tus comentarios en el pedido #'.$this->data["Mensaje"]["pedido_id"]);
-            $this->Email->to = $cli ;
+            $this->Email->to = $email ;
             $this->Email->subject ="SpanishWholesale - Tienes un mensaje";
             $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
             $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -142,16 +139,13 @@ class MensajesController extends AppController {
                 $email = Configure::read('test_mail');
             }else{
                 $email = $this->Usuario->field("email");
-            }          
-                    
-          $cli=$email;
-          $respuesta_proveedor = "*Proveedor ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
-
-          
+            }
+            
+            $respuesta_proveedor = "*Proveedor ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
             $this->set('mail_news','Te respondieron a tus comentarios en el pedido #'.$this->data["Mensaje"]["pedido_id"]);
             $this->set('respuesta_proveedor',$respuesta_proveedor);
             $this->set('url',"cliente/pedidos/view/".$this->data["Mensaje"]["pedido_id"]);
-            $this->Email->to = $cli ;
+            $this->Email->to = $email;
             $this->Email->subject ="SpanishWholesale - Tienes un mensaje";
             $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
             $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -173,34 +167,32 @@ class MensajesController extends AppController {
         exit();
 	}
 
-	function cliente_add() {
-		if (!empty($this->data)) {
-		  
-          App::import('Sanitize');
-          $this->data = Sanitize::clean($this->data, array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
-          /**/
-          $this->loadModel("Pedido");
-          $this->Pedido->id=$this->data["Mensaje"]["pedido_id"];
-          
-          $this->Pedido->saveField('mensaje',1);
-          $prov=$this->Pedido->field("proveedor");          
-          $this->loadModel("Usuario");
-          $this->Usuario->id=$prov;
-
+    function cliente_add() {
+        if (!empty($this->data)) {
+            
+            App::import('Sanitize');
+            $this->data = Sanitize::clean($this->data, array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
+            /**/
+            $this->loadModel("Pedido");
+            $this->Pedido->id=$this->data["Mensaje"]["pedido_id"];
+            
+            $this->Pedido->saveField('mensaje',1);
+            $proveedor_id=$this->Pedido->field("proveedor");
+            $this->loadModel("Usuario");
+            $this->Usuario->id=$proveedor_id;
+            
             if(Configure::read('test_mail')){
                 $email = Configure::read('test_mail');
             }else{
                 $email = $this->Usuario->field("email");
             }
-                    
-          $prov=$email;
-          
-          $name=$this->Auth->user("title");
-          $pregunta_cliente = "*Cliente ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
-          
-           $this->set('mail_news','El cliente "'.$name.'" te hizo una pregunta en el pedido #'.$this->data["Mensaje"]["pedido_id"]);
-           $this->set('pregunta_cliente',$pregunta_cliente);
-            $this->Email->to = $prov ;
+            
+            $name=$this->Auth->user("title");
+            $pregunta_cliente = "*Cliente ". date("Y-m-d H:i:s") .": ".$this->data["Mensaje"]["mensaje"];
+            
+            $this->set('mail_news','El cliente "'.$name.'" te hizo una pregunta en el pedido #'.$this->data["Mensaje"]["pedido_id"]);
+            $this->set('pregunta_cliente',$pregunta_cliente);
+            $this->Email->to = $email ;
             $this->Email->subject ="SpanishWholesale - Tienes un mensaje de un Cliente";
             $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
             $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
@@ -208,22 +200,21 @@ class MensajesController extends AppController {
             $this->Email->sendAs = 'html';
             $this->Email->delivery= 'mail';
             $this->Email->send();
-          /**/
-          $this->data["Mensaje"]["tim"]= DboSource::expression('NOW()');
-          $this->data["Mensaje"]["tipo_mensaje"]='Cliente';
-			$this->Mensaje->create();
-			if ($this->Mensaje->save($this->data)) {
-				$this->Session->setFlash(___('El mensaje fue enviado', true));
-				$this->redirect(array('action' => 'view','controller'=>'pedidos',$this->data["Mensaje"]["pedido_id"]));
-			} else {
-				$this->Session->setFlash(__('The mensaje could not be saved. Please, try again.', true));
-			}
-		}
-		$pedidos = $this->Mensaje->Pedido->find('list');
-		$this->set(compact('pedidos'));
-	}
-
-
+            /**/
+            $this->data["Mensaje"]["tim"]= DboSource::expression('NOW()');
+            $this->data["Mensaje"]["tipo_mensaje"]='Cliente';
+            $this->Mensaje->create();
+            
+            if ($this->Mensaje->save($this->data)) {
+                $this->Session->setFlash(___('El mensaje fue enviado', true));
+                $this->redirect(array('action' => 'view','controller'=>'pedidos',$this->data["Mensaje"]["pedido_id"]));
+            } else {
+                $this->Session->setFlash(__('The mensaje could not be saved. Please, try again.', true));
+            }
+        }
+        $pedidos = $this->Mensaje->Pedido->find('list');
+        $this->set(compact('pedidos'));
+    }
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
