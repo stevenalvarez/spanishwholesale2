@@ -52,5 +52,6 @@
 /* configuraciones globales */
 Configure::write('tax', array('iva'=>'21','re'=>'5.2'));
 //Configure::write('admin-email','marcosdr82@gmail.com');
+//Configure::write('admin-email','info@spanishwholesale.com');
 Configure::write('admin-email','steven.alvarez.v@gmail.com');
-Configure::write('test_mail','steven.alvarez.v@gmail.com');
+Configure::write('dev-email','steven.alvarez.v@gmail.com');

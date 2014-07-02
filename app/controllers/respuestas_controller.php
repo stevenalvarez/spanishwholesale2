@@ -9,11 +9,14 @@ class RespuestasController extends AppController {
 	}
 
 	function admin_view($id = null) {
+	    $this->Respuesta->recursive = -1;
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid respuesta', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('respuesta', $this->Respuesta->read(null, $id));
+        $this->Respuesta->Consulta->recursive = -1;
+        $this->set('consulta', $this->Respuesta->Consulta->read(null, $id));
+        $this->set('respuestas', $this->paginate(null,array('consulta_id'=>$id)));
 	}
 
 	function admin_add() {
@@ -75,4 +78,54 @@ class RespuestasController extends AppController {
         $this->set('consulta', $this->Respuesta->Consulta->read(null, $id));
         $this->set('respuestas', $this->paginate(null,array('consulta_id'=>$id)));
 	}
+    
+    function admin_reenviar($id = null) {
+        
+        if (!$id) {
+            $this->redirect($this->referer());
+            exit();
+        }
+        $this->Respuesta->id = $id;
+        $respuesta = $this->Respuesta->read(null, $id);
+                        
+        $this->loadModel("Usuario");
+        $this->Usuario->recursive = -1;
+        $User = $this->Usuario->read(null,$respuesta['Consulta']['usuario_id']);
+        
+        $lang='eng_';
+        if($User["Usuario"]["lang"]=='esp'){
+            $lang='';
+        }
+                    
+        if($this->Respuesta->saveField("reenviado","1")){
+            $consulta_id = $respuesta['Consulta']['id'];
+            $this->Usuario->query("UPDATE consultas SET usuario_delete='0' WHERE id={$consulta_id}");
+        
+            if(Configure::read('test_mail')){
+                $email = Configure::read('test_mail');
+            }else{
+                $email = $User["Usuario"]["email"];
+            }
+            
+            //recogemos la respuesta
+            $this->set("mail_news",nl2br($respuesta['Respuesta']['respuesta']));
+            
+            $this->Email->to = $email;
+            $this->Email->subject = trim($respuesta['Respuesta']['title']);
+            $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
+            $this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
+            $this->Email->template = $lang.'masivo';
+            $this->Email->sendAs = 'html';
+            $this->Email->delivery= 'mail';
+            $this->Email->send();
+            
+            $this->Session->setFlash(___('La respuesta fue re-enviada', true));
+            $this->redirect(array('controller'=>'respuestas','action'=>'view/'.$consulta_id));
+        
+        }else{
+            $this->Session->setFlash(___('Ocurrio un error al momento del envio, por favor intente de nuevo',1));
+            $this->redirect($this->referer());
+        }
+    }
+    
 }

@@ -4,9 +4,14 @@ class ConsultasController extends AppController {
 	var $name = 'Consultas';
 	
     function admin_index() {
-		$this->Consulta->recursive = 0;
-		$this->set('consultas', $this->paginate());
+        $this->Consultas->recursive = 0;
+		$this->set('consultas', $this->paginate(null,array('revisado'=>'0')));        
 	}
+    
+    function admin_lista() {
+        $this->Consultas->recursive = 0;
+		$this->set('consultas', $this->paginate(null,array('revisado'=>'1')));
+    }    
 
 	function admin_view($id = null) {
 		if (!$id) {

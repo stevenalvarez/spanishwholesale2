@@ -2,3 +2,4 @@
 /app/webroot/img
 /app/webroot/images
 /app/controllers/_usuarios_controller.php
+/app/tmp/logs

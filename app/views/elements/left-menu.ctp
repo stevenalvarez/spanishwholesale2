@@ -46,6 +46,19 @@
 
 <li><a href="<?php echo $this->webroot?>admin/pedidos/index/direction:desc/sort:id">Lista de pedidos</a></li>
 <li><a href="<?php echo $this->webroot?>admin/pedidos/incomplete/direction:desc/sort:id">Lista de pedidos eliminados</a></li>
+
+<li class="tile">CONSULTAS Y RESPUESTAS</li>
+
+<?php
+if(isset($_SESSION["Auth"]["Usuario"]["id"]) && $_SESSION["Auth"]["Usuario"]["id"]){
+     App::import('Model', 'Usuario');
+     $Usuario = new Usuario();
+     $consultas = $Usuario->query("select count(*) as x from consultas where revisado='0'");
+}
+?>
+
+<li><a href="<?php echo $this->webroot?>admin/consultas/index">Nuevas Consutas <b>(<?php echo $consultas["0"]["0"]["x"]; ?>)</b></a></li>
+<li><a href="<?php echo $this->webroot?>admin/consultas/lista">Listado de Consultas</a></li>
 <!--
 <li><a href="#">Registro nuevo cliente</a></li>
 -->

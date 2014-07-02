@@ -268,8 +268,8 @@ class PedidosController extends AppController {
                 $this->Email->delivery= 'mail';
         		$this->Email->send();
                 
-                if(Configure::read('test_mail')){
-                    $email = Configure::read('test_mail');
+                if(Configure::read('dev-email')){
+                    $email = Configure::read('dev-email');
                 }else{
                     $email = $this->Usuario->field("email");
                 }
@@ -990,8 +990,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1039,8 +1039,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1082,8 +1082,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1126,8 +1126,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
 
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1207,8 +1207,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1256,8 +1256,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
             
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1300,8 +1300,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";             
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }
@@ -1344,8 +1344,8 @@ Pedido.`usuario_id`=Usuario.id ";
              if($pedido["Usuario"]["lang"]=='esp')
              $lang="";
              
-             if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+             if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
              }else{
                 $email = $pedido["Usuario"]["email"];
              }

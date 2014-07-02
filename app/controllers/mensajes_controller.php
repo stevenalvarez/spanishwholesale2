@@ -91,8 +91,8 @@ class MensajesController extends AppController {
           $this->loadModel("Usuario");
           $this->Usuario->id=$cliente;        
           
-            if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+            if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
             }else{
                 $email = $this->Usuario->field("email");
             }
@@ -135,8 +135,8 @@ class MensajesController extends AppController {
           $this->loadModel("Usuario");
           $this->Usuario->id=$cliente;
           
-            if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+            if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
             }else{
                 $email = $this->Usuario->field("email");
             }
@@ -181,8 +181,8 @@ class MensajesController extends AppController {
             $this->loadModel("Usuario");
             $this->Usuario->id=$proveedor_id;
             
-            if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+            if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
             }else{
                 $email = $this->Usuario->field("email");
             }

@@ -31,8 +31,8 @@ class UsuariosController extends AppController {
        $usuario=$this->Usuario->findbyemail($_POST["old_p"]);
        if($usuario["Usuario"])
        {
-        if(Configure::read('test_mail')){
-            $email = Configure::read('test_mail');
+        if(Configure::read('dev-email')){
+            $email = Configure::read('dev-email');
         }else{
             $email = $usuario["Usuario"]["email"];
         }
@@ -291,8 +291,8 @@ class UsuariosController extends AppController {
         $this->set("mail_news",nl2br($_POST["texto"])); 
         $this->set('User', $User);           
         
-        if(Configure::read('test_mail')){
-            $email = Configure::read('test_mail');
+        if(Configure::read('dev-email')){
+            $email = Configure::read('dev-email');
         }else{
             $email = $User["Usuario"]["email"];
         }
@@ -327,8 +327,8 @@ class UsuariosController extends AppController {
                 $lang='';
             }
             
-            if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+            if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
             }else{
                 $email = $User["Usuario"]["email"];
             }
@@ -357,14 +357,13 @@ class UsuariosController extends AppController {
 	}
     
        function proveedor_smailrespuesta($id = null, $consulta_id=null) {
-	
                 
         if ($_POST)
         {
             App::import('Sanitize');
             $User = $this->Usuario->findById($_POST["id"]);
             
-             $lang='eng_';
+            $lang='eng_';
             if($User["Usuario"]["lang"]=='esp')
             {
                 $lang='';
@@ -375,24 +374,22 @@ class UsuariosController extends AppController {
             $this->loadModel("Respuesta");
             $this->Respuesta->create();
             $repuesta["Respuesta"]["consulta_id"] = $consulta_id;
-            $repuesta["Respuesta"]["usuario_id"]=$this->Auth->user("id");
+            $repuesta["Respuesta"]["usuario_id"]=$this->Auth->user("id"); //quien esta enviando la respuesta
             $repuesta["Respuesta"]["title"] = Sanitize::clean($_POST["asunto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["respuesta"]= Sanitize::clean($_POST["texto"], array('encode' => false,'remove_html' => array('remove'=>true),'escape'=>false,'carriage'=>false));
             $repuesta["Respuesta"]["tim"] = date("Y-m-d H:i:s");
             
+            //las respuestas que responde el proveedor van todas para el admin, y este la re-envia a los usuarios
             if($this->Respuesta->save($repuesta)){
+                
                 $this->Usuario->query("UPDATE consultas SET usuario_delete='0' WHERE id={$consulta_id}");
-                $this->set("mail_news",nl2br($_POST["texto"]));
-                $this->set('User', $User);
                 
-                if(Configure::read('test_mail')){
-                    $email = Configure::read('test_mail');
-                }else{
-                    $email = $User["Usuario"]["email"];
-                }
-                
-                $this->Email->to = $email;
-            	$this->Email->subject = $_POST["asunto"];
+                /*PARA EL ADMIN*/
+                $this->Usuario->id=$this->Auth->user("id");
+                $mensaje_admin="El proveedor {$this->Usuario->field('title')} respondió una consulta realizada, la respuesta fué <br/><br/>".nl2br($_POST["texto"])."<br><br> por favor re-envie esta respuesta desde el <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/respuestas/view/{$consulta_id}'>Listado de respuestas</a><br>";
+                $this->set("mail_news",$mensaje_admin);
+                $this->Email->to = Configure::read('admin-email');
+            	$this->Email->subject = trim($_POST["asunto"]);
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));
             	$this->Email->from = 'SpanishWholeSale<info@'.str_replace('www.', '', env('SERVER_NAME')).'>';
             	$this->Email->template = $lang.'masivo';
@@ -945,8 +942,8 @@ class UsuariosController extends AppController {
         $this->Usuario->saveField('activecode',$rad);
         $this->set('activecode',$rad);  
         
-        if(Configure::read('test_mail')){
-            $email = Configure::read('test_mail');
+        if(Configure::read('dev-email')){
+            $email = Configure::read('dev-email');
         }else{
             $email = $User["Usuario"]["email"];
         }
@@ -1153,8 +1150,8 @@ class UsuariosController extends AppController {
             "<br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
             $this->set("mail_news",$mensaje_user);
             
-            if(Configure::read('test_mail')){
-                $email = Configure::read('test_mail');
+            if(Configure::read('dev-email')){
+                $email = Configure::read('dev-email');
             }else{
                 $email = trim($_POST["email"]);
             }
@@ -1191,7 +1188,7 @@ class UsuariosController extends AppController {
             $mensaje="<b>Consulta:</b><br/> {$_POST["pregunta"]}";
             $this->Usuario->id=$_POST["proveedor"];
             $mensaje_user="Estimado {$this->Usuario->field('title')}, te hicieron una pregunta entra en tu panel de gesti&oacute;n para responder. <br/><br/>".$mensaje.
-            "<br><br> ingresar a tu <a target='_blank' href='http://spanishwholesale.com/proveedor/consultas/lista'>panel de gesti&oacute;n</a><br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
+            "<br><br> ingresar a tu <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/proveedor/consultas/lista'>panel de gesti&oacute;n</a><br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
             
             $lang='';
             if(isset($_SESSION["cake_lang"])  &&  $_SESSION["cake_lang"]=='eng') {
@@ -1208,8 +1205,8 @@ class UsuariosController extends AppController {
             $consulta["Consulta"]["tim"] = date("Y-m-d H:i:s");
             
             if($this->Consulta->save($consulta)){
-                if(Configure::read('test_mail')){
-                    $email = Configure::read('test_mail');
+                if(Configure::read('dev-email')){
+                    $email = Configure::read('dev-email');
                 }else{
                     $email = $this->Usuario->field("email");
                 }
@@ -1224,7 +1221,8 @@ class UsuariosController extends AppController {
                 $this->Email->send();
                 
                 /*PARA EL ADMIN*/
-                $this->set("mail_news",$mensaje_user);
+                $mensaje_admin="Se realizó una pregunta al proveedor {$this->Usuario->field('title')} <br/><br/>".$mensaje."<br><br> puede ingresar a la <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/consultas/lista'>Lista de consultas</a>, para mas información<br>";
+                $this->set("mail_news",$mensaje_admin);
                 $this->Email->to = Configure::read('admin-email');
                 $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
                 $this->Email->return = 'info@'.str_replace('www.', '',env('SERVER_NAME'));

@@ -12,8 +12,7 @@ class GestionNewsletterController extends AppController {
 	    );
         var $helpers = array('Html', 'Form', 'Fck','Csv');
         /*variable que indica el e-mail de administrador a quien le llegan las notificaciones*/
-      //  var $email_admin='alex@arrobacreativa.com';
-      var $email_admin='davichoso@gmail.com';       
+		var $email_admin=Configure::read('admin-email');
      
     	function index(){
 			$this->layout = "admin";
@@ -345,7 +344,6 @@ class GestionNewsletterController extends AppController {
              $this->Email->to = $mail[$table]['email'];
 			// $this->Email->bcc = "";
 			 $this->Email->subject ="SpanishWholesale - ".$this->data['Message']['asunto'];
-           //  $this->Email->replyTo = $this->email_admin;
 			 $this->Email->from = 'SpanishWholesale <noreply@'.str_replace('www.', '', env('SERVER_NAME')).'>';
              $this->Email->return = 'noreply@'.str_replace('www.', '',env('SERVER_NAME'));
 			 $this->Email->template = 'masivo';
@@ -371,7 +369,6 @@ class GestionNewsletterController extends AppController {
            //para el administrador
              $this->set('mail_news', $message."<hr>Se mando mails a los siguientes destinatarios<hr>:".$destinatarios);
              $this->Email->to = $this->email_admin;
-           //  $this->Email->bcc="davichoso@gmail.com";
 			 $this->Email->subject ="SpanishWholesale this mail was send $i times - ".$this->data['Message']['subject'];
 			 $this->Email->from = 'SpanishWholesale <noreply@'.str_replace('www.', '', env('SERVER_NAME')).'>';
              $this->Email->return = 'noreply@'.str_replace('www.', '',env('SERVER_NAME'));
@@ -438,9 +435,7 @@ class GestionNewsletterController extends AppController {
          
              $this->set('mail_news',$_POST["data"]["Message"]["message"]);
              $this->Email->to = $_POST["to"];
-			 //$this->Email->bcc = array($this->email_admin);  
 			 $this->Email->subject ="Patrocinalos - ".$_POST["asunto"];
-           //  $this->Email->replyTo = $this->email_admin;
 			 $this->Email->from = 'Patrocinalos by Mazzel<noreply@'.str_replace('www.', '', env('SERVER_NAME')).'>';
              $this->Email->return = 'noreply@'.str_replace('www.', '',env('SERVER_NAME'));
 			 $this->Email->template = 'newsletter';

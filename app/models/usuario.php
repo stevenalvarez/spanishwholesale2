@@ -85,7 +85,7 @@ class Usuario extends AppModel {
 	);
     
     public function get_respuesta($id=null){
-        $resultado = $this->query("SELECT * FROM consultas Consulta, respuestas Respuesta WHERE Consulta.id = Respuesta.consulta_id AND Respuesta.leido = 0 AND Consulta.usuario_id='$id'");
+        $resultado = $this->query("SELECT * FROM consultas Consulta, respuestas Respuesta WHERE Consulta.id = Respuesta.consulta_id AND Respuesta.leido = 0 AND Respuesta.reenviado = 1 AND Consulta.usuario_id='$id'");
         return $resultado;
     }
 

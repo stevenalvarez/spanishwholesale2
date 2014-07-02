@@ -32,7 +32,7 @@ class Consulta extends AppModel {
 			'className' => 'Respuesta',
 			'foreignKey' => 'consulta_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => 'Respuesta.reenviado="1"',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
