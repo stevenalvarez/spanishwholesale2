@@ -48,7 +48,7 @@
 		<td><?php echo $respuesta['Respuesta']['id']; ?>&nbsp;</td>        
 		<td><?php echo $respuesta['Respuesta']['title']; ?></td>
         <td><?php echo $respuesta['Respuesta']['respuesta']; ?></td>
-        <td><?php echo $consulta['Consulta']['tim'] ?>&nbsp;</td>
+        <td><?php echo $respuesta['Respuesta']['tim'] ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 
