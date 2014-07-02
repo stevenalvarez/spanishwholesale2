@@ -11,8 +11,6 @@ class GestionNewsletterController extends AppController {
 	        'order' => array('GestionNewsletter.id' => 'ASC')
 	    );
         var $helpers = array('Html', 'Form', 'Fck','Csv');
-        /*variable que indica el e-mail de administrador a quien le llegan las notificaciones*/
-		var $email_admin=Configure::read('admin-email');
      
     	function index(){
 			$this->layout = "admin";
@@ -368,7 +366,7 @@ class GestionNewsletterController extends AppController {
 
            //para el administrador
              $this->set('mail_news', $message."<hr>Se mando mails a los siguientes destinatarios<hr>:".$destinatarios);
-             $this->Email->to = $this->email_admin;
+             $this->Email->to = Configure::read('admin-email');
 			 $this->Email->subject ="SpanishWholesale this mail was send $i times - ".$this->data['Message']['subject'];
 			 $this->Email->from = 'SpanishWholesale <noreply@'.str_replace('www.', '', env('SERVER_NAME')).'>';
              $this->Email->return = 'noreply@'.str_replace('www.', '',env('SERVER_NAME'));
