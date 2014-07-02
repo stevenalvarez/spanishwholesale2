@@ -386,7 +386,7 @@ class UsuariosController extends AppController {
                 
                 /*PARA EL ADMIN*/
                 $this->Usuario->id=$this->Auth->user("id");
-                $mensaje_admin="El proveedor {$this->Usuario->field('title')} respondió una consulta realizada, la respuesta fué <br/><br/>".nl2br($_POST["texto"])."<br><br> por favor re-envie esta respuesta desde el <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/respuestas/view/{$consulta_id}'>Listado de respuestas</a><br>";
+                $mensaje_admin="El proveedor {$this->Usuario->field('title')} respondió a una consulta realizada, la respuesta fué <br/><br/>"."<b>".nl2br($_POST["texto"])."</b>"."<br><br> por favor re-envie esta respuesta al cliente desde el <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/respuestas/view/{$consulta_id}'>Listado de respuestas</a><br>";
                 $this->set("mail_news",$mensaje_admin);
                 $this->Email->to = Configure::read('admin-email');
             	$this->Email->subject = trim($_POST["asunto"]);
@@ -1188,7 +1188,7 @@ class UsuariosController extends AppController {
             $mensaje="<b>Consulta:</b><br/> {$_POST["pregunta"]}";
             $this->Usuario->id=$_POST["proveedor"];
             $mensaje_user="Estimado {$this->Usuario->field('title')}, te hicieron una pregunta entra en tu panel de gesti&oacute;n para responder. <br/><br/>".$mensaje.
-            "<br><br> ingresar a tu <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/proveedor/consultas/lista'>panel de gesti&oacute;n</a><br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
+            "<br><br> ir a <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/proveedor/consultas/index'>Nuevas consultas</a><br><br>Reciba un cordial saludo,<br>El Equipo SpanishWholesale<br>";
             
             $lang='';
             if(isset($_SESSION["cake_lang"])  &&  $_SESSION["cake_lang"]=='eng') {
@@ -1221,7 +1221,7 @@ class UsuariosController extends AppController {
                 $this->Email->send();
                 
                 /*PARA EL ADMIN*/
-                $mensaje_admin="Se realizó una pregunta al proveedor {$this->Usuario->field('title')} <br/><br/>".$mensaje."<br><br> puede ingresar a la <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/consultas/lista'>Lista de consultas</a>, para mas información<br>";
+                $mensaje_admin="Se realizó una pregunta al proveedor {$this->Usuario->field('title')} <br/><br/>".$mensaje."<br><br> ir a <a target='_blank' href='http://{$_SERVER['HTTP_HOST']}/admin/consultas/index'>Nuevas Consultas</a>";
                 $this->set("mail_news",$mensaje_admin);
                 $this->Email->to = Configure::read('admin-email');
                 $this->Email->subject ="SpanishWholesale - Consulta de cliente ";
