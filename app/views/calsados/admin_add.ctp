@@ -37,7 +37,7 @@
 		echo $this->Form->input('material_id');
         echo $this->Form->input('forro');
         echo $this->Form->input('suela');               
-        echo $this->Form->input('Tag',array('div'=>array('class'=>'multiple input'),'label'=>'Tags'));
+        echo $this->Form->input('Tag',array('div'=>array('class'=>'multiple input'),'label'=>'Tags','style'=>'width: 215px;'));
          echo $this->Form->input('texto',array('rows'=>'5','style'=>'width: 200px;','label'=>'Descripci&oacute;n del producto<br><br><br><br>'));
          echo $this->Form->input('marca');
          echo $this->Form->input('activado',array('type'=>'radio','options'=>array('1'=>'Si','0'=>'No'),'default'=>'0'));

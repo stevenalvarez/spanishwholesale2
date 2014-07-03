@@ -89,7 +89,7 @@ if(isset($_SESSION["Auth"]["Usuario"]["id"]) && $_SESSION["Auth"]["Usuario"]["id
 <li > <a href="<?php echo $this->webroot?>admin/userlogs/index/sort:id/direction:desc">Log hist&oacute;rico</a></li>
 
 <li class="tile">SEO</li>
-<li class="last" > <a href="<?php echo $this->webroot?>admin/userlogs/seo">Modificar</a></li>
+<li class="last" > <a href="<?php echo $this->webroot?>admin/seos/index">T&iacute;tulos y Etiquetas Meta</a></li>
 </ul>
 </div>
 

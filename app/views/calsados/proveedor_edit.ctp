@@ -75,7 +75,7 @@ jQuery(function(){
         
       //  echo $this->Form->input('title');		
     //    echo $this->Form->input('Color',array('div'=>array('class'=>'multiple input'),'label'=>'Colores'));
-		echo $this->Form->input('Tag',array('div'=>array('class'=>'multiple input'),'label'=>'Tags'));
+        echo $this->Form->input('Tag',array('div'=>array('class'=>'multiple input'),'label'=>'Tags','style'=>'width: 215px;'));
         
          
          echo $this->Form->input('texto',array('rows'=>'5','style'=>'width: 200px;','label'=>'Descripci&oacute;n del producto<br><br><br><br>'));
