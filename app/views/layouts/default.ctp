@@ -1,13 +1,6 @@
-<?php
-    //colocamos su $title_for_layout
-    if(isset($this->params["controller"]) && $this->params["controller"]=='pages'){
-        if($this->params["pass"][0]=='nosotros_eng' || $this->params["pass"][0]=='nosotros_esp'){
-            $title_for_layout = ___("Quienes Somos",1);
-        }else if($this->params["pass"][0]=='terminos_eng' || $this->params["pass"][0]=='terminos_esp'){
-            $title_for_layout = ___("T&eacute;rminos Legales",1);
-        }
-    }
-    
+<?php    
+    App::import('Model', 'Categoria');
+    $Categoria = new Categoria();
     //obtenemos los metas(titulo,descripcion y palabras clave) que se guardo para la portada(home) y articulos
     $seo=mysql_query("select v from seos where k='seo'");
     $seo=mysql_fetch_assoc($seo);
@@ -20,6 +13,15 @@
     }else{
         $lang='esp';
     }
+    
+    //colocamos su $title_for_layout
+    if(isset($this->params["controller"]) && $this->params["controller"]=='pages'){
+        if($this->params["pass"][0]=='nosotros_eng' || $this->params["pass"][0]=='nosotros_esp'){
+            $title_for_layout = ___("Quienes Somos",1);
+        }else if($this->params["pass"][0]=='terminos_eng' || $this->params["pass"][0]=='terminos_esp'){
+            $title_for_layout = ___("T&eacute;rminos Legales",1);
+        }
+    }    
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,7 +39,7 @@
                 $author = $calsado["Usuario"]["title"];
             }
                         
-            if(isset($calsado["Material"]) && $calsado["Material"]){
+            if(isset($calsado["Material"]) && $calsado["Material"]["title"]){
                 $keywords.=  $calsado["Material"]["title"].", ";
             }
             if(isset($calsado["Calsado"]["marca"]) && $calsado["Calsado"]["marca"]){
