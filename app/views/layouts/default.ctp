@@ -1,17 +1,24 @@
 <?php
-    //obtenemos los metas(titulo,descripcion y palabras clave) que se guardo para la portada(home)
+    //colocamos su $title_for_layout
+    if(isset($this->params["controller"]) && $this->params["controller"]=='pages'){
+        if($this->params["pass"][0]=='nosotros_eng' || $this->params["pass"][0]=='nosotros_esp'){
+            $title_for_layout = ___("Quienes Somos",1);
+        }else if($this->params["pass"][0]=='terminos_eng' || $this->params["pass"][0]=='terminos_esp'){
+            $title_for_layout = ___("T&eacute;rminos Legales",1);
+        }
+    }
+    
+    //obtenemos los metas(titulo,descripcion y palabras clave) que se guardo para la portada(home) y articulos
     $seo=mysql_query("select v from seos where k='seo'");
     $seo=mysql_fetch_assoc($seo);
     $seo= unserialize(base64_decode($seo["v"]));
-
+    
     if(!isset($_SESSION["cake_lang"])) $_SESSION["cake_lang"]='eng';
     
     if(isset($_SESSION["cake_lang"]) && $_SESSION["cake_lang"]=='eng'){
         $lang='eng';
-        $lan='en';
     }else{
         $lang='esp';
-        $lan='es';
     }
 ?>
 
@@ -19,69 +26,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
-<!-- META TITULO, DESCRIPCION Y KEYWORDS -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="etgardo@gmail.com" />
-<?php 
-    if(isset($calsado))
-    {
-        $desc='';
-        
-        if($calsado["Country"]["title"]){
-            $desc.=  $calsado["Country"]["title"].",";
-        }
-        if(isset($calsado["Calsado"]["material"]) && $calsado["Calsado"]["material"]){
-            $desc.=  $calsado["Calsado"]["material"].",";
-        }
-        if($calsado["Usuario"]["title"]){
-            $desc.=  $calsado["Usuario"]["title"].",";
-        }
-        if($calsado["Calsado"]["marca"]){
-          $desc.=  $calsado["Calsado"]["marca"].",";
-        }
-        if($calsado["Calsado"]["code"]){
-          $desc.=  $calsado["Calsado"]["code"].",";
-        }
-        foreach( $calsado["Tag"] as $c){
-            $desc.=___($c["title"],1).",";
-        }
-        foreach( $calsado["Foto"] as $c){
-            $desc.=___($c["title"],1).",";
-        }
-        
-        $desc=$desc."SpanishWholesale.com";
-    ?>
-    
-    <meta name="keywords" content="<?php echo $desc?>" />
-    <meta name="description" content="<?php echo $calsado["Calsado"]["texto"]?>" />
-    <meta name="robots" content="noindex,follow" />
-    <meta name="title" content="<?php echo $calsado["Calsado"]["code"]?>" />
-
-<?php } else { ?>
-    <meta name="keywords" content="<?php echo $seo["keywords_".$lan]?>" />
-    <meta name="description" content="<?php echo $seo["desc_".$lan]?>" />
-    <meta name="robots" content="noindex,follow" />
-    <meta name="title" content="<?php echo $seo["titulo_".$lan]?>" />
-<?php } ?>
-<!-- FIN - META TITULO, DESCRIPCION Y KEYWORDS -->
-
-	<?php 
-        echo $this->Html->charset('UTF-8');
-        if ($title_for_layout=='Calsados'){
-            $title_for_layout=___("Calzados",1);
-        }
-    ?>
-    
-	<title>
-		SpanishWholesale - 
+    <!-- META TITULO, DESCRIPCION Y KEYWORDS -->
     <?php
+        $cakeDescription = "Spanishwholesale";
+        $title = $description = $keywords = '';
+        $author = 'Jhonny Esteban Alvarez Villazante';
+        
         if(isset($calsado)){
-            echo $calsado["Calsado"]["code"];
+            if($calsado["Usuario"]["title"]){
+                $author = $calsado["Usuario"]["title"];
+            }
+                        
+            if(isset($calsado["Material"]) && $calsado["Material"]){
+                $keywords.=  $calsado["Material"]["title"].", ";
+            }
+            if(isset($calsado["Calsado"]["marca"]) && $calsado["Calsado"]["marca"]){
+                $keywords.=  $calsado["Calsado"]["marca"].", ";
+            }
+            if(isset($calsado["Calsado"]["code"]) && $calsado["Calsado"]["code"]){
+                $keywords.=  $calsado["Calsado"]["code"].", ";
+            }
+            if(isset($calsado["Tag"]) && !empty($calsado["Tag"])){
+                foreach($calsado["Tag"] as $tag){
+                    $keywords.=___($tag["title"],1).", ";
+                }
+            }
+            
+            $title = $calsado["Calsado"]["code"];
+            $description = trim($calsado["Calsado"]["texto"]);
+            $keywords = $keywords != "" ? substr($keywords, 0, strlen($keywords)-2) : $keywords;
+            //concateanos con los keywords del administrador
+            if(isset($seo["keywords_articulo_".$lang]) && $seo["keywords_articulo_".$lang] != ""){
+                $keywords.= ", " . $seo["keywords_articulo_".$lang];
+            }
+            
+            $title_for_layout = $calsado["Calsado"]["code"];
+            
         }else{
-            echo $title_for_layout;
+            $title = $seo["titulo_".$lang];
+            $description = $seo["descripcion_".$lang];
+            $keywords = $seo["keywords_".$lang];
         }
+        
+        $language = 'spanish';
+        if($lang == 'eng'){
+            $language = 'english';
+        }
+        $revisit = '1 day';
+        $distribution = 'global';
+        $robots = 'all';
+        
+        echo $this->Html->meta('description',$description);
+        echo $this->Html->meta('keywords',$keywords);
+        echo $this->Html->charset('UTF-8');
     ?>
+    
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Last-Modified" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    
+    <meta name="Title" content="<?php echo $title; ?>"/>
+    <meta name="Author" content="<?php echo $author ?>"/>
+    <meta name="Language" content="<?php echo $language?>"/>
+    <meta name="revisit" content="<?php echo $revisit?>"/>
+    <meta name="Distribution" content="<?php echo $distribution?>"/>
+    <meta name="Robots" content="<?php echo $robots?>"/>
+    <meta name="viewport" content="width=970"/>
+    
+    <!-- FIN - META TITULO, DESCRIPCION Y KEYWORDS -->
+        
+	<title>
+        <?php echo $title_for_layout != "Home" ? $title_for_layout. " - ". $cakeDescription : $cakeDescription;  ?>
 	</title>
 	
     <?php

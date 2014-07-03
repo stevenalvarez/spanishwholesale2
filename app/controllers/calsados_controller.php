@@ -25,7 +25,7 @@ class CalsadosController extends AppController {
     }
     function contacto()
     {
-        
+        $this->set('title_for_layout',___("Contacto",1));
         
     }
     function ___returncalsados()
@@ -142,7 +142,7 @@ class CalsadosController extends AppController {
 	}
     function buscar() {
                 
-		$this->set('title_for_layout','Home');
+		$this->set('title_for_layout',___("Buscar",1));
         $this->Calsado->recursive = 1;
        
         $buscar=mysql_escape_string($_POST['buscar']);
