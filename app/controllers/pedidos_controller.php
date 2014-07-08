@@ -69,7 +69,7 @@ class PedidosController extends AppController {
                 $ie=0;
                 for($i=$Surtido["Surtido"]["talla_inf"];$i<$Surtido["Surtido"]["talla_sup"]+1;$i++)
                 {
-                    $especificacion[$i]=$detalle[$ie];
+                    $especificacion[$i]=isset($detalle[$ie]) ? $detalle[$ie] : 0;
                     $ie++; 
                 }
                 $bultos=$pares;// son las cajas
