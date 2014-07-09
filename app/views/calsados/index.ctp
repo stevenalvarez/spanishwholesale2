@@ -570,7 +570,7 @@ if (sizeof($calsados)>0){
                             </div>
                         </a>
                         <div class="title">
-                            <a style="font-family: arial; color: #590000; font-weight: bold; font-size: 13px;" href="<?php echo $this->webroot?>item/<?php echo $calsado["Calsado"]["id"] ?>/<?php echo $calsado["Calsado"]["code"]?>/<?php echo $foto["title"]?>"><?php echo $calsado["Calsado"]["code"]?></a>
+                            <a style="font-family: arial; color: #590000; font-weight: bold; font-size: 13px;" href="<?php echo $this->webroot?>item/<?php echo $calsado["Calsado"]["id"] ?>/<?php echo $calsado["Calsado"]["code"]?>/<?php echo $foto["title"]?>"><?php echo strlen($calsado["Calsado"]["code"]) >= 25 && !isset($_SESSION["Auth"]["Usuario"]["id"]) ? mb_strimwidth($calsado["Calsado"]["code"], 0, 21, "...") : $calsado["Calsado"]["code"];?></a>
                             &nbsp; <?php echo $foto['title'];?>&nbsp;
                         </div>
                         
