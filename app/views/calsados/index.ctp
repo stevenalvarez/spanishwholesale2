@@ -439,7 +439,10 @@ $style='width: 700px;';
         ?>
         <div class="thumb" style="text-align: center; padding-bottom: 10px;">
         <h2 style="font-family: YanoneKaffeesatzBold;"><?php ___("Proveedor:")?> <?php echo $res["title"]?></h2>
-            <img style="max-width: 150px; max-height: 65px;" src="<?php echo $this->webroot?>img/prov/<?php echo $res["img"]?>" /> 
+        <?php if(file_exists('img/prov/'.$res["img"])) : ?>
+            <img style="max-width: 150px; max-height: 65px;margin-bottom: 10px;" src="<?php echo $this->webroot?>img/prov/<?php echo $res["img"]?>" />
+            <br />
+        <?php endif; ?> 
             
             
                    
@@ -461,7 +464,7 @@ $style='width: 700px;';
             GROUP by `calsados`.id
             ORDER by `categorias`.`orden` desc";
       $resultados = mysql_query($sql);      
-      ?><br />
+      ?>
       <?php ___("Buscar por:")?> <select name="tipos" onchange="cambiar(this)">
       <option cat="0" tipo="0"><?php ___(utf8_encode("Últimas incorporaciones"))?> </option>
       <?php

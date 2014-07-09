@@ -68,7 +68,7 @@ foreach($pedidos as $pedido)
             
             	<tr>
                 	<td><?php ___("Color")?></td>
-                     <td><?php ___("Detalle")?></td>
+                     <td><?php ___("Foto Art&iacute;culo")?></td>
                     <td><?php ___("Art&iacute;culo")?></td>
                     <td><?php ___("Cantidad")?></td>
                     <td><?php ___("Precio unitario")?></td>
