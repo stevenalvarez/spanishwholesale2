@@ -85,7 +85,7 @@ class FotosController extends AppController {
         // list of valid extensions, ex. array("jpeg", "xml", "bmp")
         $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
         // max file size in bytes
-        $sizeLimit = 100 * 1024 * 1024;        
+        $sizeLimit = 2 * 1024 * 1024;        
         $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
         $result = $uploader->handleUpload('../webroot/img/temp/');//el resultado es       
         $uid=uniqid('');        
@@ -122,7 +122,7 @@ class FotosController extends AppController {
         // list of valid extensions, ex. array("jpeg", "xml", "bmp")
         $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
         // max file size in bytes
-        $sizeLimit = 100 * 1024 * 1024;        
+        $sizeLimit = 2 * 1024 * 1024;        
         $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
         $result = $uploader->handleUpload('../webroot/img/temp/');//el resultado es       
         $uid=uniqid('');        
