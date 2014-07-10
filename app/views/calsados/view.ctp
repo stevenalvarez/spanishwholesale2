@@ -85,7 +85,10 @@
 
                     <tr>
                     	<td>
-                            <img style="max-width: 200px; max-height: 250px;" src="<?php echo $this->webroot?>img/prov/<?php echo $calsado["Usuario"]["img"]?>" />
+                            <?php if(file_exists('img/prov/'.$calsado["Usuario"]["img"])) : ?>
+                                <img style="max-width: 200px; max-height: 250px;" src="<?php echo $this->webroot?>img/prov/<?php echo $calsado["Usuario"]["img"]?>" />
+                            <?php endif;?>
+                            &nbsp;
                         </td>
                         <td>
                             <a class="button buy" href="<?php echo $this->webroot?>?provider=<?php echo $calsado["Usuario"]["title"]?>"><?php ___("Revisar el catalogo del proveedor")?></a>
