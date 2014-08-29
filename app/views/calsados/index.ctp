@@ -651,7 +651,7 @@ if (sizeof($calsados)>0){
         ?>
         <!--Product-->
         
-        <div class="span-17 shop-category" style="width: 700px;">
+        <div class="span-17 shop-category" style="width: <?php echo isset($_SESSION["Auth"]["Usuario"]["rol"]) ? "675px" : "97%"?>;">
         
         <form method="GET" style="float: left;">
 <?php
@@ -683,7 +683,7 @@ else
         
         <div style="float: right;">
         
-        <div style="float: left;">
+        <div style="float: left;padding-top: 6px;">
         <?php ___("P&aacute;gina")?> &nbsp; 
         </div>
         <?php

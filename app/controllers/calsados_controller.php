@@ -32,10 +32,11 @@ class CalsadosController extends AppController {
     {   
 
       $sql="SELECT * 
-            FROM `calsados` as Calsado, `surtidos` as Surtido, `usuarios` as Usuario 
+            FROM `calsados` AS Calsado, `surtidos` AS Surtido, fotos AS Foto, `usuarios` AS Usuario 
             WHERE Calsado.`dele`<>1 
             AND Calsado.`activado`=1 
             AND Calsado.id = Surtido.`calsado_id` 
+            AND Calsado.id = Foto.`calsado_id` 
             AND Calsado.`usuario_id`=Usuario.id 
             AND Usuario.`estado`=1";
         
@@ -98,20 +99,11 @@ class CalsadosController extends AppController {
          $sql.=" and Surtido.talla_inf <='$sizeme'"; 
        }
        
-       $sql.=" group by Calsado.id order by Surtido.id desc";
+       $sql.=" GROUP BY Foto.id ORDER BY Surtido.id desc";
        //echo $sql;
        //exit(); 
        $calsados= $this->Calsado->query($sql);
        
-        //recuperamos las fotos
-        if(!empty($calsados)){
-            foreach($calsados as $key => $calsado){
-                $query = "select * from fotos as Foto where Foto.calsado_id = '{$calsado['Calsado']['id']}'"; 
-                $foto = $this->Calsado->query($query);
-                $calsados[$key]['Foto'] = current(current($foto));
-            }
-        }
-                
       if(isset($_GET["tag"]))// filtro de tags 
        {
         foreach($calsados as $k=>$v)
