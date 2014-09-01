@@ -236,6 +236,7 @@ $style='padding-left:27px; width:935px; ';
         unset($params["tipo_id"]);
         unset($params["url"]);
         unset($params["tag"]);
+        unset($params["material_id"]);
         $params["sizema"]=$tallagrande;
         $new_query_string = http_build_query($params);
          ?>
@@ -299,7 +300,7 @@ $style='padding-left:27px; width:935px; ';
             ?>
             <li 
             <?php echo isset($_GET["material_id"])&&$_GET["material_id"]==$material_id?'class="current"':''?>>
-            <a href="<?php echo $this->webroot?>?<?php echo $new_query_string?>"><?php echo ___($title)?> (<?php echo $c?>)</a>
+            <a href="<?php echo $this->webroot?>?<?php echo $new_query_string?>"><?php echo $title?> (<?php echo $c?>)</a>
        	    </li>          
             <?php 
             }?>
@@ -356,6 +357,7 @@ $style='padding-left:27px; width:935px; ';
             unset($params["url"]);
             unset($params["tag"]);
             unset($params["tipo_id"]);
+            unset($params["material_id"]);
             $params["tag"]=$v;
             $new_query_string =http_build_query($params);
             ?>
@@ -402,6 +404,7 @@ $style='padding-left:27px; width:935px; ';
             unset($params["url"]);
             unset($params["tag"]);
             unset($params["tipo_id"]);
+            unset($params["material_id"]);
             
             $params["brand"] = $v;
             $new_query_string = http_build_query($params);
