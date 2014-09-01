@@ -270,15 +270,16 @@ $style='padding-left:27px; width:935px; ';
             `surtidos`.`categoria_id`='.$_GET["categoria_id"].' and
             `calsados`.id = `surtidos`.`calsado_id` and
             `calsados`.id = `fotos`.`calsado_id` and
-            `calsados`.`activado`= 1 and materials.id = `calsados`.`material_id` GROUP by `calsados`.`id`) as marcas group by material_id');
+            `calsados`.`activado`= 1 and materials.id = `calsados`.`material_id` GROUP by `fotos`.`id`) as marcas group by material_id');
 
             foreach($marcas as $k=>$v)
             {
          
      
             $c=$v["0"]["c"];
-            $v=$v["marcas"]["title"];
-            if(!$v)
+            $title=$v["marcas"]["title"];
+            $material_id = $v["marcas"]["material_id"];
+            if(!$material_id)
             {
                 continue;
             }
@@ -293,12 +294,12 @@ $style='padding-left:27px; width:935px; ';
             unset($params["material_id"]);
             
             
-            $params["material_id"] = $v;
+            $params["material_id"] = $material_id;
             $new_query_string = http_build_query($params);
             ?>
             <li 
-            <?php echo isset($_GET["material_id"])&&$_GET["material_id"]==$v?'class="current"':''?>>
-            <a href="<?php echo $this->webroot?>?<?php echo $new_query_string?>"><?php echo $v?> (<?php echo $c?>)</a>
+            <?php echo isset($_GET["material_id"])&&$_GET["material_id"]==$material_id?'class="current"':''?>>
+            <a href="<?php echo $this->webroot?>?<?php echo $new_query_string?>"><?php echo ___($title)?> (<?php echo $c?>)</a>
        	    </li>          
             <?php 
             }?>
@@ -387,7 +388,7 @@ $style='padding-left:27px; width:935px; ';
             `surtidos`.`categoria_id`='.$_GET["categoria_id"].' and
             `calsados`.id = `surtidos`.`calsado_id` and
             `calsados`.id = `fotos`.`calsado_id` and
-            `calsados`.`activado`= 1 GROUP by `calsados`.`id`) as marcas group by marca');
+            `calsados`.`activado`= 1 GROUP by `fotos`.`id`) as marcas group by marca');
 
            
             foreach($marcas as $k=>$v)

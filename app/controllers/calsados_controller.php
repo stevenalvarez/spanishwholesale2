@@ -45,10 +45,10 @@ class CalsadosController extends AppController {
             $marca=mysql_escape_string($_GET["brand"]);            
             $sql.=" and Calsado.marca='$marca'";
         }       
-        if(isset($_GET["material"]) && $_GET["material"])// matetiales
+        if(isset($_GET["material_id"]) && $_GET["material_id"])// materiales
         {
-            $material=mysql_escape_string($_GET["material"]);            
-            $sql.=" and Calsado.material='$material'";
+            $material_id=mysql_escape_string($_GET["material_id"]);            
+            $sql.=" and Calsado.material_id='$material_id'";
         }
         
         /** proveedor*/
