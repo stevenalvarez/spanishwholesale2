@@ -211,12 +211,12 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     <?php ___("Base Imponible")?>
                 </th>
                 <th>
-                    <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
+                   <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
                    <?php echo $this->data["Pedido"]["iva"]=='1'?___('Si',1):'No' ?>
                    
                 </th>
                 <th>
-                    <?php ___("RE")?> <?php echo $tax["re"]?>% 
+                   <?php ___("RE")?> <?php echo $tax["re"]?>% 
                    <?php echo $this->data["Pedido"]["re"]=='1'?___('Si',1):'No' ?>
                 </th>
                 <th>

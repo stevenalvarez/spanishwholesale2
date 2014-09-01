@@ -137,16 +137,16 @@
                     Base Imponible
                 </th>
                 <th>
-                    I.V.A <?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
+                   <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
                    <?php echo $this->data["Articulo"]["iva"]=='1'?'Si':'No' ?>
                    
                 </th>
                 <th>
-                    RE <?php echo $tax["re"]?>% 
+                   <?php ___("RE")?> <?php echo $tax["re"]?>% 
                    <?php echo $this->data["Articulo"]["re"]=='1'?'Si':'No' ?>
                 </th>
                 <th>
-                    Suma Total
+                    <?php ___("Suma Total")?>
                 </th>
              </tr>
             </thead>

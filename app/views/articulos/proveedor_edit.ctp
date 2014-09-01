@@ -193,21 +193,21 @@
                     Base Imponible
                 </th>
                 <th>
-                    I.V.A <?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
+                   <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
                    <select style="width: 45px;" name="data[Articulo][iva]" id="Articuloiva" onchange="return calcular()" >
                         <option value="1" <?php echo $this->data["Articulo"]["iva"]=='1'?'selected="selected"':'' ?>>Si</option>
                         <option value="0" <?php echo $this->data["Articulo"]["iva"]=='0'?'selected="selected"':'' ?>>No</option>
                    </select>
                 </th>
                 <th>
-                    RE <?php echo $tax["re"]?>% 
+                    <?php ___("RE")?> <?php echo $tax["re"]?>% 
                     <select style="width: 45px;" name="data[Articulo][re]" id="Articulore" onchange="return calcular()">
                         <option value="1" <?php echo $this->data["Articulo"]["re"]=='1'?'selected="selected"':'' ?>>Si</option>
                         <option value="0" <?php echo $this->data["Articulo"]["re"]=='0'?'selected="selected"':'' ?> >No</option>
                     </select>
                 </th>
                 <th>
-                    Suma Total
+                    <?php ___("Suma Total")?>
                 </th>
              </tr>
             </thead>

@@ -277,14 +277,14 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     Base Imponible
                 </th>
                 <th>
-                    I.V.A <?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
+                   <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% 
                    <select style="width: 45px;" name="data[Pedido][iva]" id="Articuloiva" >
                         <option value="1" <?php echo $this->data["Pedido"]["iva"]?'selected="selected"':'' ?>>Si</option>
                         <option value="0" <?php echo !$this->data["Pedido"]["iva"]?'selected="selected"':'' ?>>No</option>
                    </select>
                 </th>
                 <th>
-                    RE <?php echo $tax["re"]?>% 
+                    <?php ___("RE")?> <?php echo $tax["re"]?>% 
                     <?php echo $this->data["Pedido"]["re"]?>
                     <select style="width: 45px;" name="data[Pedido][re]" id="Articulore">
                         <option value="1" <?php echo $this->data["Pedido"]["re"]?'selected="selected"':'' ?>>Si</option>
@@ -292,7 +292,7 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     </select>
                 </th>
                 <th>
-                    Suma Total
+                    <?php ___("Suma Total")?>
                 </th>
              </tr>
             </thead>

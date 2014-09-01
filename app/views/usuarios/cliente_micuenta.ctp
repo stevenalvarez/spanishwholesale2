@@ -23,66 +23,66 @@ jQuery(function(){
 <h2><?php  ___('Cliente');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 	
-    	<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Compa&ntilde;ia'); ?></dt>
+    	<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Compa&ntilde;ia'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['company'] != "" ? $usuario['Usuario']['company'] : "-"; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nombres y apellidos'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Nombres y apellidos'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['title'] != "" ? $usuario['Usuario']['title'] : "-"; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Email'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['email'] != "" ? $usuario['Usuario']['email'] : "-"; ?>
 			&nbsp;
 		</dd>
         <!--
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['direccion'] != "" ? $usuario['Usuario']['direccion'] : "-"; ?>
 			&nbsp;
 		</dd>
-                		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n 2'); ?></dt>
+                		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n 2'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['direccion2'] != "" ? $usuario['Usuario']['direccion2'] : "-"; ?>
 			&nbsp;
 		</dd>
         -->
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pais'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Pais'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['country'] != "" ? $usuario['Usuario']['country'] : "-"; ?>
 			&nbsp;
 		</dd>
 
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ciudad/Pueblo'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Ciudad/Pueblo'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['city'] != "" ? $usuario['Usuario']['city'] : "-"; ?>
 			&nbsp;
 		</dd> 
         <!--
-                		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Condado/Provincia'); ?></dt>
+                		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Condado/Provincia'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['countyprovince'] != "" ? $usuario['Usuario']['countyprovince'] : "-"; ?>
 			&nbsp;
 		</dd> 
         -->
         
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('C&oacute;digo Postal'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('C&oacute;digo Postal'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['codigo_postal'] != "" ? $usuario['Usuario']['codigo_postal'] : "-"; ?>
 			&nbsp;
 		</dd>
 
         
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Tel&eacute;fono'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Tel&eacute;fono'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['telefonos'] != "" ? $usuario['Usuario']['telefonos'] : "-"; ?>
 			&nbsp;
 		</dd>
         
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Fax'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Fax'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['fax'] != "" ? $usuario['Usuario']['fax'] : "-"; ?>
 			&nbsp;
@@ -94,12 +94,12 @@ jQuery(function(){
 			&nbsp;
 		</dd>
         
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n de envio'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n de envio'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['denv'] != "" ? $usuario['Usuario']['denv'] : "-"; ?>
 			&nbsp;
 		</dd>
-        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Direcci&oacute;n de Facturaci&oacute;n'); ?></dt>
+        		<dt<?php if ($i % 2 == 0) echo $class;?>><?php ___('Direcci&oacute;n de Facturaci&oacute;n'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['dfac'] != "" ? $usuario['Usuario']['dfac'] : "-"; ?>
 			&nbsp;

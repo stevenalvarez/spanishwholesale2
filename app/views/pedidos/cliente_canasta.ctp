@@ -191,7 +191,7 @@ foreach($pedidos as $pedido)
                         
                         ?>
                         <strong><?php ___("Portes")?></strong><br />
-                        <strong><?php ___("Impuesto")?> (<?php echo $taxtext?>) (<?php echo $tax?>%)</strong><br/>
+                        <strong><?php ___("Impuesto")?> (<?php echo ___($taxtext);?>) (<?php echo $tax?>%)</strong><br/>
                         
                         <strong style="font-size: 16px;">Total</strong>
                     </div>

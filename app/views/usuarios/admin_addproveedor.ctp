@@ -30,7 +30,7 @@
         echo $this->Form->input('regione_id',array('label'=>'Regi&oacute;n','class'=>'validate[required]','empty'=>'Seleccione Pais' ));        
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('codigo_postal');
-		echo $this->Form->input('impuestos',array('type'=>'select','class'=>'validate[required]','label'=>'Impuestos *' ,'options'=>array(''=>'Seleccione',1=>'IVA',2=>'IVA + RE')));
+        echo $this->Form->input('impuestos',array('type'=>'select','class'=>'validate[required]','label'=>'Impuestos' ,'options'=>array(''=>___('Seleccione',1),1=>___('IVA Registrado',1),0=>___('IVA No Registrado',1))));
         echo $this->Form->input('comision',array('after'=>'%  ejm 3'));
        // echo $this->Form->input('portes',array('after'=>'&euro;'));
 		//echo $this->Form->input('re');

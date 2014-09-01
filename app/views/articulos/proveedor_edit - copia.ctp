@@ -140,13 +140,13 @@
                     Base Imponible
                 </th>
                 <th>
-                    I.V.A <?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% <select style="width: 45px;" name="iva"><option value="1">Si</option><option value="0">No</option></select>
+                    <?php ___("I.V.A ")?><?php $tax=Configure::read('tax'); echo $tax["iva"] ?>% <select style="width: 45px;" name="iva"><option value="1">Si</option><option value="0">No</option></select>
                 </th>
                 <th>
-                    RE <?php echo $tax["re"]?>% <select style="width: 45px;" name="re"><option value="1">Si</option><option value="0">No</option></select>
+                    <?php ___("RE")?> <?php echo $tax["re"]?>% <select style="width: 45px;" name="re"><option value="1">Si</option><option value="0">No</option></select>
                 </th>
                 <th>
-                    Suma Total
+                    <?php ___("Suma Total")?>
                 </th>
              </tr>
             </thead>
