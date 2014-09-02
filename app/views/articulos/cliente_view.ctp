@@ -170,14 +170,6 @@
                     
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align: right;"> 
-                        <label> Gastos de contra reembolso 5% m&iacute;nimo 5 &euro;</label>
-                    </td>
-                    <td>
-                        0.00 &euro;
-                    </td>
-                </tr>
-                <tr>
                     <td colspan="4" style="text-align: right;"><strong>TOTAL PEDIDOS</strong></td>
                     <td><strong id="total_pedido2"><?php echo round(($this->data["Articulo"]["total_pedidos"]),2)?> &euro;</strong></td>
                     

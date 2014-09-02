@@ -254,14 +254,6 @@ $Provedor=mysql_fetch_assoc(mysql_query("select * from usuarios where id={$this-
                     
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align: right;"> 
-                        <label> <?php ___("Gastos de contra reembolso 5% m&iacute;nimo 5 &euro;")?></label>
-                    </td>
-                    <td>
-                        0.00 &euro;
-                    </td>
-                </tr>
-                <tr>
                     <td colspan="4" style="text-align: right;"><strong><?php ___("TOTAL PEDIDOS")?></strong></td>
                     <td><strong id="total_pedido2"><?php echo round($total,2)?> &euro;</strong></td>                    
                 </tr>
