@@ -602,9 +602,11 @@ table.model td
                         msg = $.parseJSON(msg);
                         $(".price span.totalp").html(msg.pedidos).parent().show();
                         alert(msg.mensaje);
+                        form.find("input.button.buy").removeAttr("disabled");
                     },
                     beforeSend :function(){
                         form.find("tbody").css({opacity:"0.5",background:"#eee"});
+                        form.find("input.button.buy").attr("disabled","disabled");
                     }
                 });
             }
