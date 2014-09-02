@@ -244,7 +244,7 @@
                         <li><a href="<?php echo $this->webroot?>calzados/contacto"><?php ___("Contacto")?></a></li>
                     </ul>
                 </div>
-                <div class="span-15">Copyright &copy; 2012. All Rights Reserved by <span style="color: white;">SpanishWholesale.com</span></div>
+                <div class="span-15">Copyright &copy; 2012. All Rights Reserved by <a href="http://www.spanishwholesale.com/" style="color: white;">SpanishWholesale.com</a></div>
             </div>
             <div class="span-8 last" style="float: right;">
                 <img height="96" class="floatright" src="<?php echo $this->webroot?>img/footer.png" />
