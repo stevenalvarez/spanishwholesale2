@@ -96,6 +96,7 @@ jQuery(function(){
     .celda { width: 65px; float: left; }
     .celda.clon { width: 45px; }
     .celda label{ padding: 5px !important; width: 65px !important; }
+    #admin-table table tr a, #admin-table table tr th{font-size: 12px;}
     
     </style>	
 
@@ -142,17 +143,41 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
 <h2 class="dos">Surtidos del Art&iacute;culo</h2>
 <div id="admin-table" class="dos">
     <table>
-        <tbody><tr>
-        <th>Tipo</th>
-        <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares<br/>surtidos</th><th>Precio<br/>Par.</th>
-        <th>Oferta</th><th>Precio<br/>Surt. <br/>Oferta.</th><th>Categoria</th><th>Tipo</th><th>Subtipo</th><th>Action</th><td class="fix"></td></tr>
-        <?php foreach($this->data["Surtido"] as $surtido)
-        {?>        
+        <tbody>
+        <tr>
+            <th>Tipo</th>
+            <th>N&uacute;meros</th>
+            <th>Descripci&oacute;n</th>
+            <th>Pares<br/>surtidos</th>
+            <th>Precio<br/>Par.</th>
+            <th>Oferta</th>
+            <th>Precio<br/>Surt.<br/>Oferta.</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Subtipo</th>
+            <th>Action</th>
+            <td class="fix"></td>
+        </tr>
+        <?php foreach($this->data["Surtido"] as $surtido){ ?>
         <tr class="altrow">
             <td><?php echo $surtido["tipo"]?></td>
             <td>Del <?php echo $surtido["talla_inf"]?> al <?php echo $surtido["talla_sup"]?> </td>
-            <td><?php echo $surtido["descripcion"]?></td><td><?php echo $surtido["pares"]?></td>
-            <td><?php echo $surtido["precio_sur"]?></td><td><?php echo $surtido["oferta"]=='1'?'Si':'No'?></td>
+            <td><?php 
+                $length = 15;
+                $descripcion = $surtido["descripcion"];
+                if(strlen($descripcion) > $length){
+                    $substr = substr($descripcion,0,$length);
+                    echo $substr;
+                    echo "<br/>";
+                    echo substr($descripcion,$length,strlen($descripcion));
+                }else{
+                    echo $descripcion;
+                }
+                ?>
+            </td>
+            <td><?php echo $surtido["pares"]?></td>
+            <td><?php echo $surtido["precio_sur"]?></td>
+            <td><?php echo $surtido["oferta"]=='1'?'Si':'No'?></td>
             <td><?php echo $surtido["precio_sur_oferta"]?></td>
             <td><?php echo $surtido["categoria_nombre"]?></td>
             <td><?php echo $surtido["tipo_nombre"]?></td>
@@ -163,9 +188,12 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
             </td>
             <td class="fix"></td>
         </tr>
-  <?php }?>
-        <tr class="clear">        <td colspan="8" style="height: 10px;"></td>        </tr>
-    </tbody></table>
+        <?php } ?>
+        <tr class="clear">
+            <td colspan="8" style="height: 10px;"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <div style="padding: 16px; overflow: hidden; width: 100%;">

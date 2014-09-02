@@ -98,6 +98,7 @@ jQuery(function(){
     .celda { width: 65px; float: left; }
     .celda.clon { width: 45px; }
     .celda label{ padding: 5px !important; width: 65px !important; }
+    #admin-table table tr a, #admin-table table tr th{font-size: 12px;}
     
     </style>	
 
@@ -113,6 +114,7 @@ jQuery(function(){
 <div style="display: block; overflow: hidden;">
 <h2 style="font-weight: bold; float: none;">Colores y Fotos de un Art&iacute;culo</h2>
 
+<p style="padding-left: 15px;font-size: 11px;font-weight: bold;">La(s) imagen(es) deben tener como m&iacute;nimo la(s) dimension(es) (ancho/alto) de 800x600</p>
 <div class="field btn-admin-green" style="margin: 14px; font-size: 12px; padding: 5px;">
 <input name="data[Comment][img]" id="file-uploaderh1" type="hidden">
 <div id="file-uploader1"><div class="qq-uploader"><div style="display: none;" class="qq-upload-drop-area"><span>Arrastra Fotos</span></div><div style="position: relative; overflow: hidden; direction: ltr;" class="qq-upload-button btn btn-success">A&ntilde;adir fotos<input style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;" name="file" multiple="multiple" type="file"></div><ul class="qq-upload-list"></ul></div></div>                
@@ -143,30 +145,57 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
 <h2 class="dos">Surtidos del Art&iacute;culo</h2>
 <div id="admin-table" class="dos">
     <table>
-        <tbody><tr>
-        <th>Tipo</th>
-        <th>N&uacute;meros</th><th>Descripci&oacute;n</th><th>Pares<br/>surtidos</th><th>Precio<br/>Par.</th>
-        <th>Oferta</th><th>Precio<br/>Surt. <br/>Oferta.</th><th>Categoria</th><th>Tipo</th><th>Subtipo</th><th>Action</th><td class="fix"></td></tr>
-        <?php foreach($this->data["Surtido"] as $surtido)
-        {?>        
+        <tbody>
+        <tr>
+            <th>Tipo</th>
+            <th>N&uacute;meros</th>
+            <th>Descripci&oacute;n</th>
+            <th>Pares<br/>surtidos</th>
+            <th>Precio<br/>Par.</th>
+            <th>Oferta</th>
+            <th>Precio<br/>Surt.<br/>Oferta.</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Subtipo</th>
+            <th>Action</th>
+            <td class="fix"></td>
+        </tr>
+        <?php foreach($this->data["Surtido"] as $surtido){ ?>
         <tr class="altrow">
             <td><?php echo $surtido["tipo"]?></td>
             <td>Del <?php echo $surtido["talla_inf"]?> al <?php echo $surtido["talla_sup"]?> </td>
-            <td><?php echo $surtido["descripcion"]?></td><td><?php echo $surtido["pares"]?></td>
-            <td><?php echo $surtido["precio_sur"]?></td><td><?php echo $surtido["oferta"]=='1'?'Si':'No'?></td>        
+            <td><?php 
+                $length = 15;
+                $descripcion = $surtido["descripcion"];
+                if(strlen($descripcion) > $length){
+                    $substr = substr($descripcion,0,$length);
+                    echo $substr;
+                    echo "<br/>";
+                    echo substr($descripcion,$length,strlen($descripcion));
+                }else{
+                    echo $descripcion;
+                }
+                ?>
+            </td>
+            <td><?php echo $surtido["pares"]?></td>
+            <td><?php echo $surtido["precio_sur"]?></td>
+            <td><?php echo $surtido["oferta"]=='1'?'Si':'No'?></td>
             <td><?php echo $surtido["precio_sur_oferta"]?></td>
             <td><?php echo $surtido["categoria_nombre"]?></td>
-            <td><?php echo $surtido["tipo_nombre"];?></td>
-            <td><?php echo $surtido["subtipo_nombre"];?></td>
+            <td><?php echo $surtido["tipo_nombre"]?></td>
+            <td><?php echo $surtido["subtipo_nombre"]?></td>
             <td class="actions">
-        		<a href="<?php echo $this->webroot?>admin/surtidos/edit/<?php echo $surtido["id"]?>"><img alt="" src="<?php echo $this->webroot?>img/pencil.png"></a>        
+        		<a href="<?php echo $this->webroot?>admin/surtidos/edit/<?php echo $surtido["id"]?>"><img alt="" src="<?php echo $this->webroot?>img/pencil.png"></a>
                 <a onclick="return confirm('Esta seguro de Eliminar?')" href="<?php echo $this->webroot?>admin/surtidos/delete/<?php echo $surtido["id"]?>"><img alt="" src="<?php echo $this->webroot?>img/x.png"></a>
             </td>
             <td class="fix"></td>
         </tr>
-  <?php }?>
-        <tr class="clear">        <td colspan="8" style="height: 10px;"></td>        </tr>
-    </tbody></table>
+        <?php } ?>
+        <tr class="clear">
+            <td colspan="8" style="height: 10px;"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <div style="padding: 16px; overflow: hidden; width: 100%;">
@@ -201,8 +230,10 @@ Color: <input name="color" value="<?php echo $foto["title"]?>" class="foto_name"
                 <label for="SurtidoPares">Pares*</label>
                 <input class="validate[required,custom[integer]]" name="data[Surtido][pares]" style="width: 30px;" maxlength="3" id="SurtidoParesillos" type="text" readonly="readonly"/>
             </div>
-            <div class="input text"><label for="SurtidoPrecioSur">Precio por Par*</label>
-                <input class="validate[required]" name="data[Surtido][precio_sur]" style="width: 50px;" id="SurtidoPrecioSur12312" type="text"> &euro;</div>
+            <div class="input text">
+                <label for="SurtidoPrecioSur">Precio por Par*</label>
+                <input class="validate[required]" name="data[Surtido][precio_sur]" style="width: 50px;" id="SurtidoPrecioSur12312" type="text"> &euro;
+            </div>
             
             <div class="input text">
                 <label>
