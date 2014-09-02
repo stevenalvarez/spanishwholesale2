@@ -4,8 +4,7 @@
 <script>jQuery(document).ready(function(){jQuery("form").validationEngine();});</script>
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
-<li> <a href="<?php echo $this->webroot?>admin/translates/index">Traducciones</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/translates/index">Inicio</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>

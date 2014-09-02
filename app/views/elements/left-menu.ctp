@@ -57,7 +57,7 @@ if(isset($_SESSION["Auth"]["Usuario"]["id"]) && $_SESSION["Auth"]["Usuario"]["id
 }
 ?>
 
-<li><a href="<?php echo $this->webroot?>admin/consultas/index">Nuevas Consutas <b>(<?php echo $consultas["0"]["0"]["x"]; ?>)</b></a></li>
+<li><a href="<?php echo $this->webroot?>admin/consultas/index">Nuevas Consultas <b>(<?php echo $consultas["0"]["0"]["x"]; ?>)</b></a></li>
 <li><a href="<?php echo $this->webroot?>admin/consultas/lista">Listado de Consultas</a></li>
 <!--
 <li><a href="#">Registro nuevo cliente</a></li>
@@ -118,7 +118,7 @@ if(isset($_SESSION["Auth"]["Usuario"]["id"]) && $_SESSION["Auth"]["Usuario"]["id
 }
 
 ?>
-<li><a href="<?php echo $this->webroot?>proveedor/consultas/index">Nuevas Consutas <b>(<?php echo $consultas["0"]["0"]["x"]; ?>)</b></a></li>
+<li><a href="<?php echo $this->webroot?>proveedor/consultas/index">Nuevas Consultas <b>(<?php echo $consultas["0"]["0"]["x"]; ?>)</b></a></li>
 <li><a href="<?php echo $this->webroot?>proveedor/consultas/lista">Listado de Consultas</a></li>
 <li><a href="<?php echo $this->webroot?>proveedor/pedidos/index">Nuevos Pedidos <b>(<?php echo $res["0"]["0"]["x"]; ?>)</b></a></li>
 <li class="last"><a href="<?php echo $this->webroot?>proveedor/pedidos/lista">Listado de Pedidos</a></li>
