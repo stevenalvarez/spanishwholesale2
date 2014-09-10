@@ -1,7 +1,6 @@
 <table width="100%" cellpadding="0" cellspacing="0">
    <tr>
       <td  width="100%" height="38" bgcolor="#660000">
-         <!--  newsletter -->
       </td>
    </tr>
    
@@ -29,8 +28,8 @@
               <h2 style="font-family: Arial; font-size: 19px; color: #2d2d2d; font-weight: bold; ">La web de venta de calzados de todo tipo.</h2>
               
               <p style="font-family: Arial; color: #2d2d2d; font-size: 19px;">
-              Un usuario se registro, rev&iacute;salo en un panel de gesti&oacute;n, haz <a target="_blank" href="http://spanishwholesale.com/admin"> 
-              click aqu&iacute;</a>
+              Un usuario se registro, revísalo en un panel de gestión, haz <a target="_blank" href="http://spanishwholesale.com/admin"> 
+              click aquí</a>
               <br /><br />              
               </p>
            </td>

@@ -9,7 +9,7 @@
 <!-- side -->
 
 <div id="right-side">
-<a style="display: block; clear: both; padding: 6px; text-align: center;  " class="btn-admin-orange2" href="<?php echo $this->webroot?>admin/plantillas/add">Nueva plantilla</a>
+<a style="display: none; clear: both; padding: 6px; text-align: center;  " class="btn-admin-orange2" href="<?php echo $this->webroot?>admin/plantillas/add">Nueva plantilla</a>
 <br />
 <div id="admin-table" class="userlogs index">
 	<h2>Plantillas</h2>

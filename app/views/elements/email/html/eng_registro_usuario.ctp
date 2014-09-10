@@ -1,7 +1,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tbody>
 	<tr>
-		<td bgcolor="#660000" height="38" width="100%"><!-- newsletter --></td>
+		<td bgcolor="#660000" height="38" width="100%"></td>
 	</tr>
 
 	<tr>
@@ -24,7 +24,7 @@
 		<td><h1 style="font-family: Myriad Pro; font-size: 32px; color: #660000; font-weight: normal;">Bienvenido a SpanishWholesale</h1>
 <h2 style="font-family: Arial; font-size: 19px; color: #2d2d2d; font-weight: bold; ">La web de venta de calzados de todo tipo.</h2>
 
-<p style="font-family: Arial; color: #2d2d2d; font-size: 19px;"> Por favor valida tu registro, haz click <a href="<?php echo $_SERVER['SERVER_NAME'] ?>/cliente/usuarios/activar/<?php echo $activecode?>" style="color: #FF6602;"><span style="color: #FF6602;">aquí</span></a>, o copia la siguiente dirección en tu navegador: <br>
+<p style="font-family: Arial; color: #2d2d2d; font-size: 19px;"> Por favor valida tu registro, haz click <a href="<?php echo $_SERVER['SERVER_NAME'] ?>/cliente/usuarios/activar/<?php echo $activecode ?>" style="color: #FF6602;"><span style="color: #FF6602;">aquÃ­</span></a>, o copia la siguiente direcciÃ³n en tu navegador: <br>
 <a href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/cliente/usuarios/activar/<?php echo $activecode ?>" style="color: #FF6602;"><span style="color: #FF6602;">http://<?php  echo $_SERVER['SERVER_NAME']  ?>/cliente/usuarios/activar/<?php  echo $activecode ?></span></a><br>
 <br>
 <br>

@@ -1,7 +1,7 @@
 <table cellpadding="0" cellspacing="0" width="100%">
 <tbody>
 <tr>
-<td bgcolor="#660000" height="38" width="100%"><!-- newsletter --></td>
+<td bgcolor="#660000" height="38" width="100%"></td>
 </tr>
 
 

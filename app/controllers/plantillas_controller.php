@@ -70,21 +70,15 @@ class PlantillasController extends AppController {
 		if ($this->data) {
 			if ($this->Plantilla->save($this->data)) {
 			 
-             
-             
                 $file = new File('../views/elements/email/html/'.$_POST["data"]["Plantilla"]["nombre"].'.ctp', true, 0644);
                 $plantilla=str_replace("<!--?php","<?php ",$_POST["data"]["Plantilla"]["html"]);
-                $plantilla=str_replace("?-->",' ?>',$plantilla);                
+                $plantilla=str_replace("?-->",' ?>',$plantilla);
                 $plantilla=str_replace("{{'","<?php echo $",$plantilla);
 				$plantilla=str_replace("{{\'","<?php echo $",$plantilla);
                 $plantilla=str_replace("'}}",' ?>',$plantilla);
-				
-				echo "server does not support writeable files";
-				exit();				
                 $file->write(( stripcslashes($plantilla)));
-                
                 $this->Session->setFlash(___('Plantilla Editada', true));
-                                
+                
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The plantilla could not be saved. Please, try again.'));
@@ -95,15 +89,14 @@ class PlantillasController extends AppController {
             $file = new File('../views/elements/email/html/'.$this->data["Plantilla"]["nombre"].'.ctp', true, 0644);
             $plantilla = $file->read();
             
-                         
             $plantilla=str_replace("<?php echo $","{{'",$plantilla);
 			$plantilla=str_replace("<?php echo $","{{\'",$plantilla);
             $plantilla=str_replace(' ?>',"'}}",$plantilla);
+            $plantilla=str_replace('?>',"'}}",$plantilla);
             
             $plantilla=str_replace("<?php ","<!--?php",$plantilla);
-            $plantilla=str_replace(' ?>',"?-->",$plantilla); 
-            $this->data["Plantilla"]["html"]= $plantilla;
-
+            $plantilla=str_replace(' ?>',"?-->",$plantilla);
+            $this->data["Plantilla"]["html"]=$plantilla;
 		}
         
         $this->layout='admin_sin';
