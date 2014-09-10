@@ -1,7 +1,7 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
-<li> <a href="<?php echo $this->webroot?>admin/categorias/index">Listado de Pedidos eliminados</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/pedidos/incomplete/direction:desc/sort:id">Listado de Pedidos eliminados</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>

@@ -1,6 +1,6 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>proveedor/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>proveedor/articulos/add">Registro nueva categor&iacute;a de art&iacute;culos</a></li>
 </ul>
 </div>

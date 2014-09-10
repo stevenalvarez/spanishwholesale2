@@ -5,7 +5,7 @@
 
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>admin/materials/add">Registro nuevo material</a></li>
 </ul>
 </div>

@@ -1,7 +1,7 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="<?php echo $this->webroot?>proveedor/pedidos/">Inicio</a></li>
-<!--<li> <a href="<?php echo $this->webroot?>admin/usuarios/proveedores">Listado de proveedores</a></li>-->
+<li> <a href="<?php echo $this->webroot?>proveedor/">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>proveedor/articulos/clientes">Listado de mis clientes</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>

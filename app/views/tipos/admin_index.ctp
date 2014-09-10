@@ -1,6 +1,6 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>admin/tipos/index">Listado de tipos</a></li>
 </ul>
 </div>

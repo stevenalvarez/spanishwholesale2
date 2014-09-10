@@ -5,7 +5,7 @@
 
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>admin/calsados/add">Registro de un calzado </a></li>
 </ul>
 </div>

@@ -1,6 +1,7 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="<?php echo $this->webroot?>admin/usuarios/clientes">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/usuarios/clientes">Lista de clientes</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>

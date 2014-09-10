@@ -1,6 +1,6 @@
 <div id="nav-menu">
 <ul>
-<li> <a href="<?php echo $this->webroot?>proveedor/consultas/index/sort:id/direction:desc">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>proveedor/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>proveedor/consultas/lista">Listado de Consultas</a></li>
 </ul>
 </div>

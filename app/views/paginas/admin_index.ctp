@@ -1,7 +1,7 @@
 
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
 <li> <a href="<?php echo $this->webroot?>admin/paginas/index">Listado de p&aacute;ginas</a></li>
 </ul>
 </div>

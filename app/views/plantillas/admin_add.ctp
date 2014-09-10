@@ -1,8 +1,8 @@
 
 <div id="nav-menu">
 <ul>
-<li> <a href="#">Inicio</a></li>
-<li> <a href="<?php echo $this->webroot?>admin/categorias/index">Listado de categor&iacute;as de art&iacute;culos</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>admin/plantillas/index">Listado de categor&iacute;as de art&iacute;culos</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>

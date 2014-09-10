@@ -5,8 +5,8 @@
 
 <div id="nav-menu">
 <ul>
-<li> <a href="<?php echo $this->webroot?>proveedor/pedidos/">Inicio</a></li>
-<!--<li> <a href="<?php echo $this->webroot?>admin/categorias/add">Registro nueva categor&iacute;a de art&iacute;culos</a></li>-->
+<li> <a href="<?php echo $this->webroot?>proveedor/">Inicio</a></li>
+<li> <a href="<?php echo $this->webroot?>proveedor/calsados/add">Registrar un nuevo art&iacute;culo</a></li>
 </ul>
 </div>
 <?php echo $this->element('left-menu')?>
