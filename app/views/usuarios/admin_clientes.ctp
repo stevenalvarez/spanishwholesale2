@@ -137,8 +137,8 @@
 		<td class="actions">
         <a href="<?php echo $this->webroot?>admin/usuarios/editcliente/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('pencil.png') ?></a>
         <a href="<?php echo $this->webroot?>admin/usuarios/smail/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('letter.png') ?></a>
-        <a title="Ver log histórico" href="<?php echo $this->webroot?>admin/userlogs?user=<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('log.png') ?></a>
-        <a onclick="return confirm('Esta seguro de eliminar a <?php echo $usuario['Usuario']['persona_contacto']; ?>')" href="<?php echo $this->webroot?>admin/usuarios/deleteCli/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('x.png') ?></a>
+        <a title="Ver log hist&oacute;rico" href="<?php echo $this->webroot?>admin/userlogs?user=<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('log.png') ?></a>
+        <a onclick="return confirm('Esta seguro de eliminar al cliente <?php echo $usuario['Usuario']['title']; ?> todos los datos relacionados seran eliminados.')" href="<?php echo $this->webroot?>admin/usuarios/deleteCli/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('x.png') ?></a>
         <input type="checkbox" class="check_aprove" name="aprove[]" value="<?php echo $usuario['Usuario']['id'] ?>"  />
         </td>
         <td class="fix">

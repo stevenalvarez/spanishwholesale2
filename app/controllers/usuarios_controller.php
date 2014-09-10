@@ -632,7 +632,16 @@ class UsuariosController extends AppController {
         $this->Basurero->save($basura);
         /*poner sus calsados como desactivado*/
         $this->Usuario->query("update calsados set activado=0 where usuario_id=$id");
-        /** * */
+        //obtenemos todas la consultas que se le hizo al proveedor
+        $consultas = $this->Usuario->query("SELECT * FROM consultas WHERE usuario_prov_id=$id");
+        //borramos las respuestas de las consultas
+        if(!empty($consultas)){
+            foreach($consultas as $consulta){
+                $this->Usuario->query("DELETE FROM respuestas WHERE consulta_id = {$consulta['consultas']['id']}");
+                $this->Usuario->query("DELETE FROM consultas WHERE id = {$consulta['consultas']['id']}");
+            }
+        }
+        //finalmente borramos al proveedor
 		if ($this->Usuario->delete($id)) {
 			$this->Session->setFlash(___('Proveedor eliminado', true));
 			$this->redirect(array('action'=>'proveedores'));
@@ -654,7 +663,16 @@ class UsuariosController extends AppController {
         $this->Basurero->save($basura);
         /*poner sus calsados como desactivado*/
         $this->Usuario->query("update calsados set activado=0 where usuario_id=$id");
-        /** * */
+        //obtenemos todas la consultas que hizo el usuario
+        $consultas = $this->Usuario->query("SELECT * FROM consultas WHERE usuario_id=$id");
+        //borramos las respuestas de las consultas
+        if(!empty($consultas)){
+            foreach($consultas as $consulta){
+                $this->Usuario->query("DELETE FROM respuestas WHERE consulta_id = {$consulta['consultas']['id']}");
+                $this->Usuario->query("DELETE FROM consultas WHERE id = {$consulta['consultas']['id']}");
+            }
+        }
+        //finalmente borramos al usuario
 		if ($this->Usuario->delete($id)) {
 			$this->Session->setFlash(___('Cliente eliminado', true));
 			$this->redirect(array('action'=>'clientes'));

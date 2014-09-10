@@ -40,7 +40,9 @@
 -->
 			<th><?php echo $this->Paginator->sort('Nombre','title');?></th>
             <th><?php echo $this->Paginator->sort('Contacto','persona_contacto');?></th>
+            <!--
             <th><?php echo $this->Paginator->sort('fax');?></th>
+            -->
 			<th><?php echo $this->Paginator->sort('telefonos');?></th>
             
 			<th><?php echo $this->Paginator->sort('email');?></th>
@@ -73,7 +75,7 @@
         
 	?>
 	<tr<?php echo $class;?>>
-    <td>#<?php echo $usuario['Usuario']['id']; ?>&nbsp;</td>
+    <td><?php echo $usuario['Usuario']['id']; ?>&nbsp;</td>
 	<!--	<td><?php echo $usuario['Usuario']['id']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($usuario['Regione']['title'], array('controller' => 'regiones', 'action' => 'view', $usuario['Regione']['id'])); ?>
@@ -85,7 +87,9 @@
 -->
 		<td><?php echo $usuario['Usuario']['title']; ?>&nbsp;</td>
         <td><?php echo $usuario['Usuario']['persona_contacto']; ?>&nbsp;</td>
+        <!--
         <td><?php echo $usuario['Usuario']['fax']; ?>&nbsp;</td>
+        -->
 		<td><?php echo $usuario['Usuario']['telefonos']; ?>&nbsp;</td>        
 		<td><?php echo $usuario['Usuario']['email']; ?>&nbsp;</td>
         
@@ -107,7 +111,7 @@
 		<td class="actions">
         <a href="<?php echo $this->webroot?>admin/usuarios/editProv/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('pencil.png') ?></a>
         <a href="<?php echo $this->webroot?>admin/usuarios/smail/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('letter.png') ?></a>
-        <a onclick="return confirm('Esta seguro de eliminar al proevedor <?php echo $usuario['Usuario']['title']; ?> todos los datos relacionados seran eliminados.')" href="<?php echo $this->webroot?>admin/usuarios/deleteProv/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('x.png') ?></a>
+        <a onclick="return confirm('Esta seguro de eliminar al proveedor <?php echo $usuario['Usuario']['title']; ?> todos los datos relacionados seran eliminados.')" href="<?php echo $this->webroot?>admin/usuarios/deleteProv/<?php echo $usuario['Usuario']['id'] ?>"><?php echo $html->image('x.png') ?></a>
         <input type="checkbox" class="check_aprove" name="aprove[]" value="<?php echo $usuario['Usuario']['id'] ?>"  />
         </td>
         <td class="fix" >
