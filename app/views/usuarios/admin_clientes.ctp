@@ -66,7 +66,9 @@
             <th><?php echo $this->Paginator->sort('telefonos');?></th>
             
 			<th><?php echo $this->Paginator->sort('email');?></th>
+            <!--
             <th><?php echo $this->Paginator->sort('fecha_alta');?></th>
+            -->
 			<!--
 <th><?php echo $this->Paginator->sort('cif');?></th>
 			<th><?php echo $this->Paginator->sort('direccion');?></th>
@@ -113,7 +115,9 @@
 -->
 		<td><?php echo $usuario['Usuario']['telefonos']; ?>&nbsp;</td>        
 		<td><?php echo $usuario['Usuario']['email']; ?>&nbsp;</td>
+        <!--
         <td><?php echo $usuario['Usuario']['tim']; ?></td>
+        -->
         
 		<!--
 <td><?php echo $usuario['Usuario']['cif']; ?>&nbsp;</td>
