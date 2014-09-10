@@ -99,7 +99,7 @@ class CalsadosController extends AppController {
          $sql.=" and Surtido.talla_inf <='$sizeme'"; 
        }
        
-       $sql.=" GROUP BY Calsado.id ORDER BY Surtido.id desc";
+       $sql.=" GROUP BY Foto.id ORDER BY Surtido.id desc";
        //echo $sql;
        //exit(); 
        $calsados= $this->Calsado->query($sql);

@@ -336,7 +336,7 @@ foreach($pedidos as $pedido)
 	<tr>
 		<th><?php ___('# Pedido'); ?></th>	
         	<th><?php ___('Proveedor'); ?></th>
-		<th><?php ___('Total Pedido'); ?> <br />(<?php ___("Base imponible")?>)</th>
+		<th><?php ___("Suma Total")?></th>
         
         	<th><?php ___('Fecha Hora pedido'); ?></th>
             
@@ -369,9 +369,13 @@ foreach($pedidos as $pedido)
             </td>
             
 			<td><?php 
-            $total=mysql_query("select sum(unidades*precio_unitario*bultos) as c from articulos where pedido_id={$pedido['id']}");
-            $total=mysql_fetch_assoc($total);
-            echo $total["c"]
+            $tax=Configure::read('tax');
+            $base_imp=$Pedido->calcularTotalneto($pedido['id']);
+            $ivaim=$pedido["iva"]=='1'?(round($base_imp*$tax["iva"]/100 ,2)):'0';
+            $reimp= $pedido["re"]=='1'?(round($base_imp*$tax["re"]/100 ,2)):'0';
+            $totalimp = round(($reimp + $ivaim),2);
+            $total=round(($totalimp + $base_imp),2);
+            echo round($total,2);
             ?> &euro;</td>
             <td style="display: none;">
             <?php 
