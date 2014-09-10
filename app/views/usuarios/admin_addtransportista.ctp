@@ -44,7 +44,7 @@
         echo $this->Form->input('regione_id',array('label'=>'Regi&oacute;n'));        
 		echo $this->Form->input('direccion');
 //		echo $this->Form->input('codigo_postal');
-     //   echo $this->Form->input('impuestos',array('type'=>'select','class'=>'validate[required]','label'=>'Impuestos' ,'options'=>array(''=>'Seleccione','1'=>'IVA','2'=>'IVA + RE')));
+     //   echo $this->Form->input('impuestos',array('type'=>'select','class'=>'validate[required]','label'=>'Impuestos *' ,'options'=>array(''=>'Seleccione','1'=>'IVA','2'=>'IVA + RE')));
 	//	echo $this->Form->input('re');
 		echo $this->Form->input('fax');
 		echo $this->Form->input('telefonos');
